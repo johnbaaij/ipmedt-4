@@ -4,65 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.b_healty.john.prototype1.LoginActivity">
-
-    <RadioButton
-        android:id="@+id/radioButtonV"
-        android:layout_width="78dp"
-        android:layout_height="33dp"
-        android:layout_marginBottom="13dp"
-        android:layout_marginStart="81dp"
-        android:layout_marginTop="10dp"
-        android:checked="false"
-        android:text="Vrouw"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintLeft_toLeftOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginLeft="81dp"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="158dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="186dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:text="Registreer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1" />
+    android:background="#FFFFFF"
+    tools:context="com.b_healty.john.prototype1.LoginActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <EditText
         android:id="@+id/editText2"
         android:layout_width="298dp"
         android:layout_height="74dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="141dp"
         android:ems="10"
+        android:hint="Gebruikersnaam"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:singleLine="false"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/radioButtonV"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/radioButtonV" />
+
+    <RadioButton
+        android:id="@+id/radioButtonV"
+        android:layout_width="78dp"
+        android:layout_height="0dp"
+        android:text="Vrouw"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:layout_marginEnd="9dp"
+        app:layout_constraintRight_toRightOf="@+id/button"
+        android:layout_marginTop="13dp"
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        android:layout_marginBottom="14dp" />
 
     <RadioButton
         android:id="@+id/radioButtonM"
         android:layout_width="0dp"
         android:layout_height="33dp"
+        android:layout_marginEnd="12dp"
         android:checked="false"
         android:text="Man"
         app:layout_constraintRight_toLeftOf="@+id/radioButtonV"
         tools:layout_constraintRight_creator="1"
-        android:layout_marginEnd="9dp"
+        android:layout_marginStart="16dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/radioButtonV"
         tools:layout_constraintBaseline_creator="1"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/editText2" />
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="158dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:background="?attr/actionModeSplitBackground"
+        android:text="Registreer"
+        android:textColor="@android:color/white"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="106dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="153dp"
+        android:layout_height="143dp"
+        app:srcCompat="@drawable/krukkenIcon"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="30dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
