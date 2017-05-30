@@ -7,28 +7,28 @@
     tools:context="com.b_healty.john.prototype1.LoginActivity">
 
     <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:text="Vrouw"
-        tools:layout_editor_absoluteX="-276dp"
-        tools:layout_editor_absoluteY="226dp" />
-
-    <RadioButton
         android:id="@+id/radioButtonV"
         android:layout_width="78dp"
         android:layout_height="33dp"
+        android:layout_marginBottom="13dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginTop="10dp"
         android:checked="false"
         android:text="Vrouw"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="225dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintLeft_toLeftOf="@+id/editText2"
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginLeft="81dp"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="160dp"
+        android:layout_width="158dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="182dp"
+        android:layout_marginBottom="186dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:text="Registreer"
@@ -54,10 +54,15 @@
 
     <RadioButton
         android:id="@+id/radioButtonM"
-        android:layout_width="72dp"
+        android:layout_width="0dp"
         android:layout_height="33dp"
         android:checked="false"
         android:text="Man"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="225dp" />
+        app:layout_constraintRight_toLeftOf="@+id/radioButtonV"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="9dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/radioButtonV"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/editText2" />
 </android.support.constraint.ConstraintLayout>
