@@ -1,4 +1,4 @@
-package other;
+package com.b_healty.john.prototype1.other;
 
 /**
  * Created by John on 29/05/2017.

@@ -1,4 +1,4 @@
-package generalClasses;
+package com.b_healty.john.prototype1.generalClasses;
 
 /**
  * Created by John on 30/05/2017.

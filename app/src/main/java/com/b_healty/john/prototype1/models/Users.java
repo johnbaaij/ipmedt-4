@@ -1,4 +1,4 @@
-package models;
+package com.b_healty.john.prototype1.models;
 
 /**
  * Created by John on 29/05/2017.
