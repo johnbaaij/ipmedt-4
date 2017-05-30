@@ -9,6 +9,11 @@ public class Progress {
 
 
 
+    String test = "test";
+
+
+
+
     public Progress(){
 
     }
