@@ -6,31 +6,58 @@
     android:layout_height="match_parent"
     tools:context="com.b_healty.john.prototype1.LoginActivity">
 
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Vrouw"
+        tools:layout_editor_absoluteX="-276dp"
+        tools:layout_editor_absoluteY="226dp" />
+
+    <RadioButton
+        android:id="@+id/radioButtonV"
+        android:layout_width="78dp"
+        android:layout_height="33dp"
+        android:checked="false"
+        android:text="Vrouw"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="225dp" />
+
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_constraintBottom_creator="1"
+        android:layout_width="160dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="182dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+        android:text="Registreer"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp" />
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:layout_width="298dp"
+        android:layout_height="74dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="141dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="16dp" />
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+    <RadioButton
+        android:id="@+id/radioButtonM"
+        android:layout_width="72dp"
+        android:layout_height="33dp"
+        android:checked="false"
+        android:text="Man"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="225dp" />
 </android.support.constraint.ConstraintLayout>
