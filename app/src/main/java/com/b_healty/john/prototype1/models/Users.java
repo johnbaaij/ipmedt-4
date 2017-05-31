@@ -9,29 +9,25 @@ public class Users {
     private String gender;
     private String name;
 
-    public Users(){
 
-    }
-
-    //getters
-
-    public String getGender(){
+    public String getGender() {
         return gender;
     }
 
-    public String getName(){
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getName() {
         return name;
     }
 
-    //setters
-
-    public void setGender(String gender){
-        this.gender = gender;
-
-    }
-
-    public void setName (String name){
+    public void setName(String name) {
         this.name = name;
     }
+
+    public Users() {
+    }
+
 
 }
