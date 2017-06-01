@@ -17,10 +17,12 @@ public class LoginActivity extends AppCompatActivity {
    // DatabaseHelper dbHelper = DatabaseHelper.getHelper(this);
 
     DBHandler dbHandler;
-    Users users = new Users();
     MainActivity mainActivity;
 
 
+    public LoginActivity() {
+        this.dbHandler = new DBHandler(this, null, null, 1);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +38,21 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Users users = new Users();
                 String message = name.getText().toString();
                 users.setName(message);
                 dbHandler.addUser(users);
 
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Bundle b = new Bundle();
+                b.putString("name", message); 	// Your id
+                intent.putExtras(b); 	// Put your id to your next Intent
+                startActivity(intent);	// start
 
+                //mainActivity.printName();
 
-                mainActivity.printName();
-
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                //startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
         });
     }

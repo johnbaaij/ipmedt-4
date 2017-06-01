@@ -31,7 +31,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         String query = "CREATE TABLE " + TABLE_USERS + "(" +
 
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT;  " +
+                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,  " +
                 COLUMN_NAME + " TEXT " +
                 ");";
 

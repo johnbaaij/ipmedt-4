@@ -27,6 +27,12 @@ public class Users {
     }
 
     public Users() {
+
+    }
+
+    public Users(String gender, String name) {
+        this.gender = gender;
+        this.name = name;
     }
 
 
