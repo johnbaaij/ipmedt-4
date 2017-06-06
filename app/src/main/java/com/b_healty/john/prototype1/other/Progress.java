@@ -6,19 +6,9 @@ package com.b_healty.john.prototype1.other;
 
 public class Progress {
 
-
-
-
-    String test = "test";
-
-
-
-
     public Progress(){
 
     }
-
-
 
     public void updateProgress(int i){
 
@@ -42,5 +32,10 @@ public class Progress {
             default:
                 break;
         }
+    }
+
+
+    public void getImage(){
+        
     }
 }
