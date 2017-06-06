@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import com.b_healty.john.prototype1.models.Users;
 
 /**
@@ -59,7 +58,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //database results
 
-
     public String databaseToString() {
         String dbString = "";
         SQLiteDatabase db = getWritableDatabase();
@@ -76,6 +74,7 @@ public class DBHandler extends SQLiteOpenHelper {
             c.moveToNext();
         }
         db.close();
+        c.close();
         return dbString;
     }
 
