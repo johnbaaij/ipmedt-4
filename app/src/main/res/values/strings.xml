@@ -1,11 +1,9 @@
 <resources>
     <string name="app_name">"Prototype 1 "</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     
     <string name="menu_home">Home</string>
-    <string name="menu_search">Search</string>
-    <string name="menu_notifications">Notifications</string>
+    <string name="menu_afspraken">Afspraken</string>
+    <string name="menu_faq">FAQ</string>
+    <string name="menu_user">User</string>
 
 </resources>
