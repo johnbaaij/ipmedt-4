@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
             }
             return false;
+
         }
 
     };
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
             Bundle b = getIntent().getExtras();
 
+            disableShiftMode();
+
 
             if(b != null) {
                 String name = b.getString("name");
@@ -64,8 +67,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
-
+    public void disableShiftMode(){
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+    }
 }
 
 

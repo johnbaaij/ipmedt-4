@@ -15,9 +15,8 @@
 
     <item
         android:id="@+id/menu_FAQ"
-        android:title="@string/menu_faq"
         android:icon="@drawable/ic_comment_faq"
-        />
+        android:title="@string/menu_faq" />
 
     <item
         android:id="@+id/menu_user"
