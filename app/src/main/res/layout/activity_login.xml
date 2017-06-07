@@ -15,7 +15,7 @@
         android:layout_height="74dp"
         android:ems="10"
         android:hint="Gebruikersnaam"
-        android:inputType="textPersonName"
+        android:inputType="textCapSentences"
         android:singleLine="false"
         android:textSize="24sp"
         tools:layout_constraintTop_creator="1"

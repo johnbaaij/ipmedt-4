@@ -2,6 +2,7 @@ package com.b_healty.john.prototype1;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
 
         login = (Button) findViewById(R.id.button);
         name = (EditText) findViewById(R.id.editText2);
+
+        name.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
 
 
         login.setOnClickListener(new View.OnClickListener() {
