@@ -1,0 +1,28 @@
+{
+    "faq": [
+        {
+            "id": 1,
+            "question": "Mag het gips nat worden?",
+            "text": "Nee",
+            "tags": [
+                "nat",
+                "gips"
+            ]
+        },
+
+
+        {
+            "id": 2,
+            "question": "Is dit een test vraag?",
+            "text": "Ja",
+            "tags": [
+                "nat",
+                "gips"
+            ]
+        }
+
+
+    ]
+
+
+}

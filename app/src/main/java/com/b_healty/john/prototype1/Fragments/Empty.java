@@ -14,8 +14,6 @@ import com.b_healty.john.prototype1.R;
 
 public class Empty extends Fragment {
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

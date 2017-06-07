@@ -58,7 +58,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //database results
 
-    public String databaseToString() {
+    public String usernameToString() {
         String dbString = "";
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_USERS + " WHERE 1";

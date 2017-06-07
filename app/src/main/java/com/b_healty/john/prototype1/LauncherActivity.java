@@ -22,7 +22,11 @@ public class LauncherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String name = dbHandler.databaseToString();
+
+
+
+
+        String name = dbHandler.usernameToString();
         if (!name.isEmpty()) {
             Intent intent = new Intent(LauncherActivity.this, MainActivity.class);
             Bundle b = new Bundle();

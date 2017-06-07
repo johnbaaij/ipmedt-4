@@ -6,27 +6,37 @@ package com.b_healty.john.prototype1.models;
 
 public class FAQ {
 
-    private String title;
-    private String message;
+    private int id;
+    private String question;
+    private String text;
 
-    public FAQ(String title, String message) {
-        this.title = title;
-        this.message = message;
+    public FAQ(int id, String question, String text) {
+        this.id = id;
+        this.question = question;
+        this.text = text;
     }
 
-    public String getTitle() {
-        return title;
+    public int getId() {
+        return id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getMessage() {
-        return message;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

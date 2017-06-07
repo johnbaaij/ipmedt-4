@@ -27,9 +27,9 @@
 
         <fragment
             android:id="@+id/fragment2"
+            android:name="com.b_healty.john.prototype1.Fragments.Empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:name="com.b_healty.john.prototype1.Fragments.Empty"
             tools:layout="@layout/empty_layout" />
     </FrameLayout>
 
