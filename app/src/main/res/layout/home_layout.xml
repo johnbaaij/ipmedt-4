@@ -9,12 +9,21 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardTop"
-        android:layout_width="370dp"
-        android:layout_height="116dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        tools:layout_editor_absoluteY="10dp"
-        tools:layout_editor_absoluteX="7dp">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/cardMidLeft"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="13dp"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -28,8 +37,11 @@
                 android:layout_width="111dp"
                 android:layout_height="63dp"
                 app:srcCompat="@mipmap/ic_launcher_round"
-                tools:layout_editor_absoluteX="132dp"
-                tools:layout_editor_absoluteY="7dp" />
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="16dp" />
 
             <TextView
                 android:id="@+id/textTop"
@@ -37,43 +49,30 @@
                 android:layout_height="19dp"
                 android:text="Top Text"
                 android:textAlignment="center"
-                tools:layout_editor_absoluteX="151dp"
-                tools:layout_editor_absoluteY="79dp" />
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="7dp" />
 
-        </android.support.constraint.ConstraintLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardMidRight"
-        android:layout_width="180dp"
-        android:layout_height="150dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="12dp"
-        app:cardBackgroundColor="@color/cardview_light_background"
-        tools:layout_editor_absoluteX="196dp"
-        tools:layout_editor_absoluteY="134dp">
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textMidRight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Mid Right"
-                tools:layout_editor_absoluteX="60dp"
-                tools:layout_editor_absoluteY="117dp" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardMidLeft"
-        android:layout_width="180dp"
-        android:layout_height="150dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:cardBackgroundColor="@color/cardview_light_background"
-        tools:layout_editor_absoluteX="7dp"
-        tools:layout_editor_absoluteY="134dp">
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardMidRight"
+        app:layout_constraintRight_toRightOf="@+id/cardlowLeft"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/cardTop"
+        app:layout_constraintTop_toTopOf="@+id/cardMidRight"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="0.0">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -83,42 +82,61 @@
                 android:id="@+id/textMidLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mid Left"
-                tools:layout_editor_absoluteX="60dp"
-                tools:layout_editor_absoluteY="117dp" />
+                android:text="midLeft"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.879"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardLowRight"
-        android:layout_width="180dp"
+        android:id="@+id/cardMidRight"
+        android:layout_width="173dp"
         android:layout_height="150dp"
+        android:layout_marginEnd="12dp"
         app:cardBackgroundColor="@color/cardview_light_background"
-        tools:layout_editor_absoluteX="197dp"
-        tools:layout_editor_absoluteY="291dp">
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/cardLowRight"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="13dp">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textLowRight"
+                android:id="@+id/textMidRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Low Right"
-                tools:layout_editor_absoluteX="60dp"
-                tools:layout_editor_absoluteY="117dp" />
+                android:text="midRight"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardlowLeft"
-        android:layout_width="180dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="10dp"
         app:cardBackgroundColor="@color/cardview_light_background"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="291dp">
+        app:layout_constraintRight_toLeftOf="@+id/cardLowRight"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardLowRight"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardLowRight"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="1.0">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -128,9 +146,40 @@
                 android:id="@+id/textLowLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Low Left"
-                tools:layout_editor_absoluteX="60dp"
-                tools:layout_editor_absoluteY="117dp" />
+                android:text="lowLeft"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardLowRight"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        app:cardBackgroundColor="@color/cardview_light_background"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/cardMidRight"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="65dp"
+        app:layout_constraintLeft_toLeftOf="@+id/cardMidRight">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textLowRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lowRight"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 
