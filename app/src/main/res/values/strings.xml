@@ -9,4 +9,45 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+
+
+
+
+
+    <!-- faq -->
+
+
+    <string-array name="questions">
+        <!-- 1 --><item >Mag het gips nat worden ?</item>
+        <!-- 2 --><item >Is dit een test vraag ?</item>
+        <!-- 3 --><item >Lorem ipsum</item>
+        <!-- 4 --><item >Yellow</item>
+        <!-- 5 --><item >Cyan</item>
+
+        <!-- 6 --><item >Mag het gips nat worden ?</item>
+        <!-- 7 --><item >Is dit een test vraag ?</item>
+        <!-- 8 --><item >Lorem ipsum</item>
+        <!-- 9 --><item >Yellow</item>
+        <!-- 10 --><item >Cyan</item>
+
+    </string-array>
+
+
+    <string-array name="answers">
+        <!-- 1 --><item >Mag het gips nat worden ?</item>
+        <!-- 2 --><item >Is dit een test vraag ?</item>
+        <!-- 3 --><item >Lorem ipsum</item>
+        <!-- 4 --><item >Yellow</item>
+        <!-- 5 --><item >Cyan</item>
+
+        <!-- 6 --><item >Mag het gips nat worden ?</item>
+        <!-- 7 --><item >Is dit een test vraag ?</item>
+        <!-- 8 --><item >Lorem ipsum</item>
+        <!-- 9 --><item >Yellow</item>
+        <!-- 10 --><item >Cyan</item>
+
+    </string-array>
+
+
 </resources>
