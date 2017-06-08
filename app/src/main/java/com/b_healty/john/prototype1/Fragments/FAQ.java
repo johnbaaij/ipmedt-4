@@ -51,7 +51,7 @@ public class FAQ extends Fragment {
 
         View view = inflater.inflate(R.layout.faq_layout, container, false);
 
-        list = getResources().getStringArray(R.array.faq);
+        list = getResources().getStringArray(R.array.questions);
         activity = getActivity();
         adapter = new CustomAdapter(view.getContext() , list);
         faqList = (ListView) view.findViewById(R.id.faqList);

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.app.Fragment;
@@ -14,11 +13,6 @@ import com.b_healty.john.prototype1.Fragments.Calendar;
 import com.b_healty.john.prototype1.Fragments.FAQ;
 import com.b_healty.john.prototype1.Fragments.Home;
 import com.b_healty.john.prototype1.Fragments.User;
-
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
