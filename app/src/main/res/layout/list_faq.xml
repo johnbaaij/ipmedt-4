@@ -5,13 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="56dp"
+        android:layout_height="82dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:padding="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/questionFaq"
+        app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_editor_absoluteX="328dp" />
+
     <TextView
         android:id="@+id/questionFaq"
-        android:layout_width="0dp"
+        android:layout_width="328dp"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:layout_marginTop="0dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
         android:text="TextView"
         android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,29 +37,20 @@
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
-        android:padding="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/questionFaq"
-        app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
-
     <TextView
         android:id="@+id/subText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
+        android:layout_width="328dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="50dp"
         android:ellipsize="end"
         android:maxLines="1"
-        android:padding="16dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
         android:text="TextView"
+        android:textSize="12sp"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="48dp" />
 </android.support.constraint.ConstraintLayout>

@@ -29,7 +29,7 @@ public class Text extends Fragment {
         if (bundle != null) {
             String question = bundle.getString("question");
              this.answer = bundle.getString("answer");
-                Toast.makeText(getActivity(), answer, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getActivity(), answer, Toast.LENGTH_SHORT).show();
 
 
         }
