@@ -36,7 +36,8 @@ import static com.b_healty.john.prototype1.R.id.parent;
 
 public class FAQ extends Fragment {
 
-    String[] list;
+    String[] questionList;
+    String[] answerList;
     Activity activity;
     ListAdapter adapter;
     ListView faqList;
@@ -51,9 +52,10 @@ public class FAQ extends Fragment {
 
         View view = inflater.inflate(R.layout.faq_layout, container, false);
 
-        list = getResources().getStringArray(R.array.questions);
+        questionList = getResources().getStringArray(R.array.questions);
+        answerList = getResources().getStringArray(R.array.answers);
         activity = getActivity();
-        adapter = new CustomAdapter(view.getContext() , list);
+        adapter = new CustomAdapter(view.getContext() , questionList, answerList);
         faqList = (ListView) view.findViewById(R.id.faqList);
         faqList.setAdapter(adapter);
 
@@ -61,11 +63,19 @@ public class FAQ extends Fragment {
         faqList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
-                String i = String.valueOf(parent.getItemAtPosition(position));
-                Toast.makeText(activity, i, Toast.LENGTH_LONG).show();
+                String question = String.valueOf(parent.getItemAtPosition(position));
+                String answer = answerList[position];
+
+                //Toast.makeText(activity, question, Toast.LENGTH_LONG).show();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("question", question);
+                bundle.putString("answer", answer);
+
 
                 // Create new fragment and transaction
                 Fragment newFragment = new Text();
+                newFragment.setArguments(bundle);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 // Replace whatever is in the fragment_container view with this fragment,

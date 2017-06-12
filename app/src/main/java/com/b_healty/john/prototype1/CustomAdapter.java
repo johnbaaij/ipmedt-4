@@ -16,9 +16,13 @@ import android.widget.TextView;
 
 public class CustomAdapter extends ArrayAdapter<String> {
 
+    String[] answers;
 
-    public CustomAdapter(Context context, String[] resource) {
+
+    public CustomAdapter(Context context, String[] resource, String[] answers) {
         super(context, R.layout.list_faq , resource);
+        this.answers = answers;
+
     }
 
     @NonNull
@@ -31,11 +35,14 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
         String singleQuestion = getItem(position);
 
+
         TextView textView =(TextView) view.findViewById(R.id.questionFaq);
+        TextView subText =(TextView) view.findViewById(R.id.subText);
 
 
 
         textView.setText(singleQuestion);
+        subText.setText(answers[position]);
 
         return view;
     }

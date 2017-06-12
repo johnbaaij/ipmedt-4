@@ -35,9 +35,9 @@
 
 
     <string-array name="answers">
-        <!-- 1 --><item >Mag het gips nat worden ?</item>
+        <!-- 1 --><item >Nee dat mag niet</item>
         <!-- 2 --><item >Is dit een test vraag ?</item>
-        <!-- 3 --><item >Lorem ipsum</item>
+        <!-- 3 --><item >Bacon ipsum dolor amet ground round ball tip shankle ribeye meatball beef ribs bacon prosciutto. Picanha t-bone salami, capicola chuck porchetta ball tip chicken swine venison turducken. Spare ribs tri-tip sirloin andouille rump biltong strip steak boudin brisket. Picanha shank pork chop, pork sausage meatball filet mignon venison pancetta andouille cow hamburger. Jerky flank swine shank, venison picanha capicola turkey leberkas kevin sausage prosciutto jowl alcatra.</item>
         <!-- 4 --><item >Yellow</item>
         <!-- 5 --><item >Cyan</item>
 
