@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.b_healty.john.prototype1.MainActivity;
 import com.b_healty.john.prototype1.MyRecyclerViewAdapter;
 import com.b_healty.john.prototype1.R;
+import com.b_healty.john.prototype1.models.Card;
 import com.b_healty.john.prototype1.models.DataObject;
 
 
@@ -37,6 +38,8 @@ public class Home extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
     private static String LOG_TAG = "CardViewActivity";
     private Activity activity;
+    private ArrayList results = new ArrayList<Card>();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,25 +51,24 @@ public class Home extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(activity);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new MyRecyclerViewAdapter(getDataSet());
+        addCardToArray("Hallo", "Werkt dit ?", 0);
+
+
+
+
+
+
+
+        mAdapter = new MyRecyclerViewAdapter(results);
         mRecyclerView.setAdapter(mAdapter);
         return view;
     }
 
 
-    private ArrayList<DataObject> getDataSet() {
-        ArrayList results = new ArrayList<DataObject>();
-        for (int index = 0; index < 20; index++) {
-            DataObject obj = new DataObject("Some Primary Text " + index,
-                    "Secondary " + index);
-            results.add(index, obj);
-        }
-        return results;
+    private void addCardToArray(String title, String text, int image){
+        Card card = new Card(title, text, image);
+        results.add(card);
     }
-
-
-
-
 
 
 }

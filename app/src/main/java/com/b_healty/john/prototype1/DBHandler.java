@@ -14,11 +14,13 @@ import com.b_healty.john.prototype1.models.Users;
 public class DBHandler extends SQLiteOpenHelper {
 
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 5;
     private static final String DATABASE_NAME = "b-healthy.db";
     public static final String TABLE_USERS = "users";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_GENDER = "gender";
+
 
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -31,7 +33,8 @@ public class DBHandler extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + TABLE_USERS + "(" +
 
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,  " +
-                COLUMN_NAME + " TEXT " +
+                COLUMN_NAME + " TEXT, " +
+                COLUMN_GENDER + " TEXT " +
                 ");";
 
         db.execSQL(query);
@@ -40,7 +43,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String query = "DROP TABLE IF EXISTS" + TABLE_USERS;
+        String query = "DROP TABLE " + TABLE_USERS;
         db.execSQL(query);
         onCreate(db);
     }
@@ -50,6 +53,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void addUser(Users users) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, users.getName());
+        values.put(COLUMN_GENDER, users.getGender());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_USERS, null, values);
         db.close();
@@ -77,5 +81,7 @@ public class DBHandler extends SQLiteOpenHelper {
         c.close();
         return dbString;
     }
+
+
 
 }

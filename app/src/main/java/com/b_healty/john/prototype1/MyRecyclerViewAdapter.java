@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.b_healty.john.prototype1.models.Card;
 import com.b_healty.john.prototype1.models.DataObject;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class MyRecyclerViewAdapter extends RecyclerView
         .Adapter<MyRecyclerViewAdapter
         .DataObjectHolder> {
     private static String LOG_TAG = "MyRecyclerViewAdapter";
-    private ArrayList<DataObject> mDataset;
+    private ArrayList<Card> mDataset;
     private static MyClickListener myClickListener;
 
     public static class DataObjectHolder extends RecyclerView.ViewHolder
@@ -48,7 +49,7 @@ public class MyRecyclerViewAdapter extends RecyclerView
             myClickListener.onItemClick(getAdapterPosition(), v);
         }
     }
-    public MyRecyclerViewAdapter(ArrayList<DataObject> myDataset) {
+    public MyRecyclerViewAdapter(ArrayList<Card> myDataset) {
         mDataset = myDataset;
     }
 
@@ -64,12 +65,12 @@ public class MyRecyclerViewAdapter extends RecyclerView
 
     @Override
     public void onBindViewHolder(DataObjectHolder holder, int position) {
-        holder.label.setText(mDataset.get(position).getmText1());
-        holder.dateTime.setText(mDataset.get(position).getmText2());
+        holder.label.setText(mDataset.get(position).getTitle());
+        holder.dateTime.setText(mDataset.get(position).getText());
     }
 
-    public void addItem(DataObject dataObj, int index) {
-        mDataset.add(index, dataObj);
+    public void addItem(Card card, int index) {
+        mDataset.add(index, card);
         notifyItemInserted(index);
     }
 
