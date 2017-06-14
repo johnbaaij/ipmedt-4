@@ -30,7 +30,7 @@ public class MyRecyclerViewAdapter extends RecyclerView
 
         public DataObjectHolder(final View itemView) {
             super(itemView);
-            label = (TextView) itemView.findViewById(R.id.textView);
+            label = (TextView) itemView.findViewById(R.id.textView3);
             dateTime = (TextView) itemView.findViewById(R.id.textView2);
             Log.i(LOG_TAG, "Adding Listener");
 
