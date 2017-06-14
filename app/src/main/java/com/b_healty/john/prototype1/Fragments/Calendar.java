@@ -37,10 +37,6 @@ public class Calendar extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_INSERT_OR_EDIT);
-                intent.setType("vnd.android.cursor.item/event");
-                startActivity(intent);
-
 
             }
         });
