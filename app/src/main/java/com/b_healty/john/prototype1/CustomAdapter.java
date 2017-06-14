@@ -33,6 +33,10 @@ public class CustomAdapter extends ArrayAdapter<String> {
         View view = inflater.inflate(R.layout.list_faq, parent, false);
 
 
+
+
+
+
         String singleQuestion = getItem(position);
 
 
