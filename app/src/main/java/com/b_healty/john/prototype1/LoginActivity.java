@@ -6,6 +6,9 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.b_healty.john.prototype1.models.Users;
 
@@ -19,6 +22,8 @@ public class LoginActivity extends AppCompatActivity {
 
     DBHandler dbHandler;
     MainActivity mainActivity;
+    RadioButton radioButton;
+    RadioGroup radioGroup;
 
 
     public LoginActivity() {
@@ -42,16 +47,53 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Users users = new Users();
-                String message = name.getText().toString();
-                users.setName(message);
-                dbHandler.addUser(users);
 
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                Bundle b = new Bundle();
-                b.putString("name", message); 	// Your id
-                intent.putExtras(b); 	// Put your id to your next Intent
-                startActivity(intent);	// start
+
+                String message = name.getText().toString();
+
+
+                if (message.isEmpty()){
+
+                    Toast.makeText(getApplicationContext(), "Voer je naam in", Toast.LENGTH_LONG).show();
+
+
+                }
+
+                else {
+
+                    //int selectedId = radioGroup.getCheckedRadioButtonId();
+
+                    radioButton = (RadioButton) findViewById(R.id.radioButtonM);
+                    String gender;
+
+
+                    if(radioButton.isChecked())
+                    {
+
+                        gender = "man";
+                    }
+                    else
+                    {
+                        gender = "vrouw";
+                    }
+
+                    //Toast.makeText(getApplicationContext(), gender, Toast.LENGTH_LONG).show();
+
+
+                    Users users = new Users();
+                    users.setName(message);
+                    users.setGender(gender);
+                    dbHandler.addUser(users);
+
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("name", message); 	// Your id
+                    intent.putExtras(b); 	// Put your id to your next Intent
+                    startActivity(intent);	// start
+                }
+
+
+
 
                 //mainActivity.printName();
 
@@ -59,9 +101,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-
 
 }

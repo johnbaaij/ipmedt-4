@@ -36,7 +36,7 @@ public class LauncherActivity extends AppCompatActivity {
         }
 
         else{
-            startActivity(new Intent(LauncherActivity.this, LoginActivity.class));
+            startActivity(new Intent(LauncherActivity.this, TutorialActivity.class));
         }
         finish();
 
