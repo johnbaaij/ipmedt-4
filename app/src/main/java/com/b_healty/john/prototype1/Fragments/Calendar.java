@@ -1,18 +1,12 @@
 package com.b_healty.john.prototype1.Fragments;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
-import com.b_healty.john.prototype1.LoginActivity;
-import com.b_healty.john.prototype1.MainActivity;
 import com.b_healty.john.prototype1.R;
-import com.b_healty.john.prototype1.models.Users;
 
 /**
  * Created by John on 06/06/2017.
@@ -25,6 +19,11 @@ public class Calendar extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.calendar_layout, container, false);
+
+        // TODO: 18-6-2017 Het toetsenbord duwt de hele layout omhoog
+        // TODO: 18-6-2017 Er moeten nog animaties gemaakt worden voor de progressbar 
+        // TODO: 18-6-2017 Voor de tijd input en de datum input gestroomlijnde manieren 
+        // TODO: 18-6-2017 Alle front end stuff moet gekoppeld worden aan een back-end 
 
 
 

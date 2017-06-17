@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="?attr/actionBarSize">
+    android:layout_marginBottom="?attr/actionBarSize"
+    android:orientation="vertical"
+    android:windowSoftInputMode="adjustNothing">
 
 
     <LinearLayout
         android:id="@+id/topHalf"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
         <FrameLayout
             android:id="@+id/animationContainer"
@@ -22,7 +23,14 @@
             android:layout_height="match_parent"
             android:layout_weight="3">
 
+            <ImageView
+                android:id="@+id/progressBar"
+                android:layout_width="45dp"
+                android:layout_height="279dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/longbit" />
         </FrameLayout>
+
 
         <LinearLayout
             android:id="@+id/fieldsContainer"
@@ -46,10 +54,10 @@
                         android:id="@+id/appointName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:layout_gravity="center"
-                        android:inputType="textPersonName"
-                        android:hint="@string/appointNameHint" />
+                        android:ems="10"
+                        android:hint="@string/appointNameHint"
+                        android:inputType="textPersonName" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -59,8 +67,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:baselineAligned="false">
+                android:baselineAligned="false"
+                android:orientation="horizontal">
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -71,10 +79,10 @@
                         android:id="@+id/inputTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:layout_gravity="center"
-                        android:inputType="time"
-                        android:hint="@string/inputTimeHint" />
+                        android:ems="10"
+                        android:hint="@string/inputTimeHint"
+                        android:inputType="time" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -87,10 +95,10 @@
                         android:id="@+id/inputDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:layout_gravity="center"
-                        android:inputType="date"
-                        android:hint="@string/inputDateHint" />
+                        android:ems="10"
+                        android:hint="@string/inputDateHint"
+                        android:inputType="date" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -110,10 +118,10 @@
                         android:id="@+id/wardName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:layout_gravity="center"
-                        android:inputType="textShortMessage"
-                        android:hint="@string/afdelingHint"/>
+                        android:ems="10"
+                        android:hint="@string/afdelingHint"
+                        android:inputType="textShortMessage" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -134,10 +142,10 @@
                         android:id="@+id/doctorName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
                         android:layout_gravity="center"
-                        android:inputType="textPersonName"
-                        android:hint="@string/doctorHint"/>
+                        android:ems="10"
+                        android:hint="@string/doctorHint"
+                        android:inputType="textPersonName" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
