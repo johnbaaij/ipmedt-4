@@ -20,9 +20,6 @@ import com.b_healty.john.prototype1.models.Users;
 
 public class Calendar extends Fragment {
 
-
-    FloatingActionButton fab;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -30,16 +27,6 @@ public class Calendar extends Fragment {
         View view = inflater.inflate(R.layout.calendar_layout, container, false);
 
 
-
-        fab = (FloatingActionButton) view.findViewById(R.id.CalendarFab);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-            }
-        });
 
         return view;
     }

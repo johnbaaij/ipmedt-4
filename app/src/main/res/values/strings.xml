@@ -101,5 +101,11 @@
 
     </string-array>
 
+    <string name="appointNameHint">Naam</string>
+    <string name="inputTimeHint">Tijd</string>
+    <string name="inputDateHint">Datum</string>
+    <string name="afdelingHint">Afdeling</string>
+    <string name="doctorHint">Dokter</string>
+    <string name="calenderSendBtnText">Verzend</string>
 
 </resources>
