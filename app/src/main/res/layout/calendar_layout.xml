@@ -17,20 +17,102 @@
         android:orientation="horizontal">
 
 
-        <FrameLayout
+        <android.support.constraint.ConstraintLayout
             android:id="@+id/animationContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3">
 
-            <ImageView
-                android:id="@+id/progressBar"
-                android:layout_width="45dp"
-                android:layout_height="279dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/longbit" />
-        </FrameLayout>
 
+            <ImageView
+                android:id="@+id/oneEmptyOrb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/calprogress_empty_orb" />
+
+            <ImageView
+                android:id="@+id/oneEmptyLine"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="0dp"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/oneEmptyOrb"
+                app:srcCompat="@drawable/calprogress_empty_line" />
+
+            <ImageView
+                android:id="@+id/twoEmptyOrb"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/oneEmptyLine"
+                app:srcCompat="@drawable/calprogress_empty_orb" />
+
+            <ImageView
+                android:id="@+id/twoEmptyLine"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="0dp"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/twoEmptyOrb"
+                app:srcCompat="@drawable/calprogress_empty_line" />
+
+            <ImageView
+                android:id="@+id/threeEmptyOrb"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/twoEmptyLine"
+                app:srcCompat="@drawable/calprogress_empty_orb" />
+
+            <ImageView
+                android:id="@+id/threeEmptyLine"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="0dp"
+                android:scaleType="fitXY"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/threeEmptyOrb"
+                app:srcCompat="@drawable/calprogress_empty_line" />
+
+            <ImageView
+                android:id="@+id/fourEmptyOrb"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/threeEmptyLine"
+                app:srcCompat="@drawable/calprogress_empty_orb" />
+
+        </android.support.constraint.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/fieldsContainer"
