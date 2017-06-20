@@ -7,7 +7,6 @@
     android:orientation="vertical"
     android:windowSoftInputMode="adjustNothing">
 
-
     <LinearLayout
         android:id="@+id/topHalf"
         android:layout_width="match_parent"
@@ -16,6 +15,7 @@
         android:layout_weight="1"
         android:baselineAligned="false"
         android:orientation="horizontal">
+
 
         <FrameLayout
             android:id="@+id/animationContainer"
