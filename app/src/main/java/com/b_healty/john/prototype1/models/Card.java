@@ -9,14 +9,15 @@ public class Card {
     String title;
     String text;
     int image;
+    boolean size;
 
 
-    public Card(String title, String text, int image) {
+    public Card(String title, String text, int image, boolean size) {
         this.title = title;
         this.text = text;
         this.image = image;
+        this.size = size;
     }
-
 
     public String getTitle() {
         return title;
@@ -40,5 +41,13 @@ public class Card {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public boolean isSize() {
+        return size;
+    }
+
+    public void setSize(boolean size) {
+        this.size = size;
     }
 }
