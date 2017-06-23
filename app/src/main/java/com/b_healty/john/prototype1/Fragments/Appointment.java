@@ -20,18 +20,18 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Created by John on 06/06/2017.
+ * Created by Ben on 06/06/2017.
  */
 
 public class Appointment extends Fragment {
 
     // TODO: 18-6-2017 Er moeten nog animaties gemaakt worden voor de progressbar
-    // TODO: 18-6-2017 Alle front end stuff moet gekoppeld worden aan een back-end
 
-    private final String leggyCall = "LGGYCL";
-    FragmentActivity listener;
-    View view;
-    Activity activity;
+    private FragmentActivity listener;
+    private View view;
+    private Activity activity;
+
+    private final String LEGGYCALL = "LGGYCL";
     private EditText appointName;
     private EditText inputTime;
     private EditText inputDate;
@@ -39,6 +39,7 @@ public class Appointment extends Fragment {
     private EditText doctorName;
     private Date datum;
     private boolean controlBit;
+
 
     // This method is called when a fragment instance is associated with an activity and will run
     // before anything else
@@ -93,11 +94,14 @@ public class Appointment extends Fragment {
                 controlBit = true;
                 Intent startCal = new Intent(Intent.ACTION_EDIT);
                 startCal.setType("vnd.android.cursor.item/event");
+                String description;
+                String wardNameString = null;
+                String doctorNameString = null;
 
 
                 // Stel de naam van de afspraak in en voeg het ID aan het einde toe
                 if (!appointName.getText().toString().equals("")) {
-                    startCal.putExtra("title", appointName.getText().toString() + " - " + leggyCall);
+                    startCal.putExtra("title", appointName.getText().toString() + " - " + LEGGYCALL);
 
                 } else {
                     appointName.setError("Geef de afspraak een naam");
@@ -151,6 +155,30 @@ public class Appointment extends Fragment {
                     inputDate.setError("Voer een kloppende datum in");
                     controlBit = false;
                 }
+
+
+                // Get the wardname 
+                if (!wardName.getText().toString().equals("")) {
+                    wardNameString = wardName.getText().toString();
+                } else {
+                    wardName.setError("Voer de naam van je behandelkamer in");
+                    controlBit = false;
+                }
+
+
+                // Get the doctor name
+                if (!doctorName.getText().toString().equals("")) {
+                    doctorNameString = doctorName.getText().toString();
+                } else {
+                    doctorName.setError("Voer de naam van je dokter in");
+                    controlBit = false;
+                }
+
+                // Generate description
+                description = "U heeft een afspraak met dokter " + doctorNameString
+                        + " op de afdeling " + wardNameString;
+
+                startCal.putExtra("description", description);
 
                 // Controleer of alle vakken zijn ingevuld
                 if (controlBit) {
