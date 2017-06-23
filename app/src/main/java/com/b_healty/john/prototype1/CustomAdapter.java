@@ -34,9 +34,6 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
 
 
-
-
-
         String singleQuestion = getItem(position);
 
 

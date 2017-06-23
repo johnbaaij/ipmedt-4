@@ -17,7 +17,10 @@ import com.b_healty.john.prototype1.R;
 
 public class Text extends Fragment {
     TextView scrollable;
+    TextView title;
+
     String answer;
+    String question;
 
 
     @Override
@@ -27,7 +30,7 @@ public class Text extends Fragment {
 
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-            String question = bundle.getString("question");
+            this.question = bundle.getString("question");
              this.answer = bundle.getString("answer");
                 //Toast.makeText(getActivity(), answer, Toast.LENGTH_SHORT).show();
 
@@ -39,6 +42,9 @@ public class Text extends Fragment {
 
         scrollable = (TextView)view.findViewById(R.id.text);
         scrollable.setText(answer);
+
+        title = (TextView)view.findViewById(R.id.questionFaq2);
+        title.setText(question);
 
         //Enabling scrolling on TextView.
         scrollable.setMovementMethod(new ScrollingMovementMethod());
