@@ -6,11 +6,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.b_healty.john.prototype1.R;
 
@@ -119,12 +121,11 @@ public class Appointment extends Fragment {
                 // Parse de datum en voeg deze samen met de tijd om een datetime
                 // object te maken en dit in de bundle te stoppen
                 if (!inputDate.getText().toString().equals("")) {
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/mm/ddhh:mm");
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy hh:mm");
 
                     try {
-                        datum = dateFormat.parse(inputDate.getText().toString() +
+                        datum = dateFormat.parse(inputDate.getText().toString() + " " +
                                 inputTime.getText().toString());
-                        // Toast.makeText(activity, datum.toString(), Toast.LENGTH_LONG).show();
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
@@ -147,6 +148,7 @@ public class Appointment extends Fragment {
                             datum.getMinutes()
                     );
 
+                    System.out.println(endTime);
                     startCal.putExtra("beginTime", beginTime.getTimeInMillis());
                     startCal.putExtra("endTime", endTime.getTimeInMillis());
 

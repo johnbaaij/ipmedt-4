@@ -239,7 +239,8 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/appointNameHint"
-                        android:inputType="textPersonName" />
+                        android:inputType="textPersonName"
+                        android:text="Gipsbehandeling" />
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
@@ -265,7 +266,8 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/inputTimeHint"
-                        android:inputType="time" />
+                        android:inputType="time"
+                        android:text="14:15" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -282,7 +284,8 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/inputDateHint"
-                        android:inputType="date" />
+                        android:inputType="date"
+                        android:text="12/10/2015" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -306,7 +309,8 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/afdelingHint"
-                        android:inputType="textShortMessage" />
+                        android:inputType="textShortMessage"
+                        android:text="Botbreuken" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -331,7 +335,8 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/doctorHint"
-                        android:inputType="textPersonName" />
+                        android:inputType="textPersonName"
+                        android:text="Sanjib" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
