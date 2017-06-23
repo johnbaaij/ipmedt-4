@@ -27,7 +27,7 @@
             <ImageView
                 android:id="@+id/oneFullOrb"
                 android:layout_width="wrap_content"
-                android:layout_height="1dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
@@ -40,26 +40,12 @@
                 app:srcCompat="@drawable/calprogress_full_orb" />
 
             <ImageView
-                android:id="@+id/oneEmptyOrb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:scaleType="matrix"
-                app:layout_constraintBottom_toTopOf="@+id/oneEmptyLine"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:srcCompat="@drawable/calprogress_empty_orb" />
-
-            <ImageView
                 android:id="@+id/oneFullLine"
                 android:layout_width="wrap_content"
-                android:layout_height="1dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="0dp"
                 android:scaleType="fitXY"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -67,51 +53,24 @@
                 app:srcCompat="@drawable/calprogress_full_line" />
 
             <ImageView
-                android:id="@+id/oneEmptyLine"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toTopOf="@+id/twoEmptyOrb"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:srcCompat="@drawable/calprogress_empty_line" />
-
-            <ImageView
                 android:id="@+id/twoFullOrb"
                 android:layout_width="wrap_content"
-                android:layout_height="1dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="0dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/oneFullLine"
                 app:srcCompat="@drawable/calprogress_full_orb" />
 
             <ImageView
-                android:id="@+id/twoEmptyOrb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/twoEmptyLine"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:srcCompat="@drawable/calprogress_empty_orb" />
-
-            <ImageView
                 android:id="@+id/twoFullLine"
                 android:layout_width="wrap_content"
-                android:layout_height="1dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="0dp"
                 android:scaleType="fitXY"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -119,51 +78,24 @@
                 app:srcCompat="@drawable/calprogress_full_line" />
 
             <ImageView
-                android:id="@+id/twoEmptyLine"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toTopOf="@+id/threeEmptyOrb"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:srcCompat="@drawable/calprogress_empty_line" />
-
-            <ImageView
                 android:id="@+id/threeFullOrb"
                 android:layout_width="wrap_content"
-                android:layout_height="1dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="0dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/twoFullLine"
                 app:srcCompat="@drawable/calprogress_full_orb" />
 
             <ImageView
-                android:id="@+id/threeEmptyOrb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/threeEmptyLine"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:srcCompat="@drawable/calprogress_empty_orb" />
-
-            <ImageView
                 android:id="@+id/threeFullLine"
                 android:layout_width="wrap_content"
-                android:layout_height="1dp"
+                android:layout_height="60dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="0dp"
                 android:scaleType="fitXY"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -171,45 +103,16 @@
                 app:srcCompat="@drawable/calprogress_full_line" />
 
             <ImageView
-                android:id="@+id/threeEmptyLine"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginBottom="0dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toTopOf="@+id/fourEmptyOrb"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:srcCompat="@drawable/calprogress_empty_line" />
-
-            <ImageView
                 android:id="@+id/fourFullOrb"
                 android:layout_width="wrap_content"
-                android:layout_height="1dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="0dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/threeFullLine"
                 app:srcCompat="@drawable/calprogress_full_orb" />
-
-            <ImageView
-                android:id="@+id/fourEmptyOrb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="43dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:srcCompat="@drawable/calprogress_empty_orb" />
 
         </android.support.constraint.ConstraintLayout>
 
@@ -239,8 +142,7 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/appointNameHint"
-                        android:inputType="textPersonName"
-                        android:text="Gipsbehandeling" />
+                        android:inputType="textPersonName" />
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
@@ -266,8 +168,7 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/inputTimeHint"
-                        android:inputType="time"
-                        android:text="14:15" />
+                        android:inputType="time" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -284,8 +185,7 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/inputDateHint"
-                        android:inputType="date"
-                        android:text="12/10/2015" />
+                        android:inputType="date" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -309,8 +209,7 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/afdelingHint"
-                        android:inputType="textShortMessage"
-                        android:text="Botbreuken" />
+                        android:inputType="textShortMessage" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -335,8 +234,7 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/doctorHint"
-                        android:inputType="textPersonName"
-                        android:text="Sanjib" />
+                        android:inputType="textPersonName" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
