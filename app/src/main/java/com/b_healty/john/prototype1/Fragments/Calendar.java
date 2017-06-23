@@ -56,18 +56,18 @@ public class Calendar extends Fragment {
         super.onCreate(savedInstance);
         progressCount = 0;
 
-        java.util.Calendar beginTime = java.util.Calendar.getInstance();
-        beginTime.set(2017, 4, 18, 4, 30);
-
-        java.util.Calendar endTime = java.util.Calendar.getInstance();
-        endTime.set(2017, 4, 18, 6, 50);
-
-        startCalendar = new Intent(Intent.ACTION_EDIT);
-        startCalendar.setType("vnd.android.cursor.item/event");
-        startCalendar.putExtra("title", "een titel");
-        startCalendar.putExtra("description", "ik schrijf om");
-        startCalendar.putExtra("beginTime", beginTime.getTimeInMillis());
-        startCalendar.putExtra("endTime", endTime.getTimeInMillis());
+//        java.util.Calendar beginTime = java.util.Calendar.getInstance();
+//        beginTime.set(2017, 4, 18, 4, 30);
+//
+//        java.util.Calendar endTime = java.util.Calendar.getInstance();
+//        endTime.set(2017, 4, 18, 6, 50);
+//
+//        startCalendar = new Intent(Intent.ACTION_EDIT);
+//        startCalendar.setType("vnd.android.cursor.item/event");
+//        startCalendar.putExtra("title", "een titel");
+//        startCalendar.putExtra("description", "ik schrijf om");
+//        startCalendar.putExtra("beginTime", beginTime.getTimeInMillis());
+//        startCalendar.putExtra("endTime", endTime.getTimeInMillis());
     }
 
 
@@ -93,7 +93,8 @@ public class Calendar extends Fragment {
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(startCalendar);
+                // startActivity(startCalendar);
+
             }
         });
     }
