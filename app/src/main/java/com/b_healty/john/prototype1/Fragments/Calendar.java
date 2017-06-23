@@ -3,20 +3,16 @@ package com.b_healty.john.prototype1.Fragments;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.b_healty.john.prototype1.R;
-
-import java.sql.SQLOutput;
 
 /**
  * Created by John on 06/06/2017.
@@ -37,6 +33,7 @@ public class Calendar extends Fragment {
     EditText inputDate;
     EditText wardName;
     EditText doctorName;
+    Intent startCalendar;
     int progressCount;
 
 
@@ -58,6 +55,19 @@ public class Calendar extends Fragment {
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         progressCount = 0;
+
+        java.util.Calendar beginTime = java.util.Calendar.getInstance();
+        beginTime.set(2017, 4, 18, 4, 30);
+
+        java.util.Calendar endTime = java.util.Calendar.getInstance();
+        endTime.set(2017, 4, 18, 6, 50);
+
+        startCalendar = new Intent(Intent.ACTION_EDIT);
+        startCalendar.setType("vnd.android.cursor.item/event");
+        startCalendar.putExtra("title", "een titel");
+        startCalendar.putExtra("description", "ik schrijf om");
+        startCalendar.putExtra("beginTime", beginTime.getTimeInMillis());
+        startCalendar.putExtra("endTime", endTime.getTimeInMillis());
     }
 
 
@@ -70,8 +80,6 @@ public class Calendar extends Fragment {
         activity = getActivity();
         view = inflater.inflate(R.layout.calendar_layout, container, false);
 
-
-
         return view;
     }
 
@@ -81,7 +89,13 @@ public class Calendar extends Fragment {
     // happen in this method
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        final Button sendButton = (Button) view.findViewById(R.id.sendButton);
 
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(startCalendar);
+            }
+        });
     }
 
 
