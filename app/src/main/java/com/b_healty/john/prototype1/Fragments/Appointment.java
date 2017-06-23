@@ -14,6 +14,11 @@ import android.widget.EditText;
 
 import com.b_healty.john.prototype1.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * Created by John on 06/06/2017.
  */
@@ -27,11 +32,13 @@ public class Appointment extends Fragment {
     View view;
     Activity activity;
     int progressCount;
+
     private EditText appointName;
     private EditText inputTime;
     private EditText inputDate;
     private EditText wardName;
     private EditText doctorName;
+    private Date datum;
     private boolean controlBit;
 
     // This method is called when a fragment instance is associated with an activity and will run
@@ -77,8 +84,8 @@ public class Appointment extends Fragment {
         final Button sendButton = (Button) view.findViewById(R.id.sendButton);
 
         appointName = (EditText) view.findViewById(R.id.appointName);
-        // inputTime = (EditText) view.findViewById(R.id.inputTime);
-        // inputDate = (EditText) view.findViewById(R.id.inputDate);
+        inputTime = (EditText) view.findViewById(R.id.inputTime);
+        inputDate = (EditText) view.findViewById(R.id.inputDate);
         wardName = (EditText) view.findViewById(R.id.wardName);
         doctorName = (EditText) view.findViewById(R.id.doctorName);
 
@@ -94,6 +101,40 @@ public class Appointment extends Fragment {
 
                 } else {
                     appointName.setError("Geef de afspraak een naam");
+                    controlBit = false;
+                }
+
+
+                if (!inputTime.getText().toString().equals("")) {
+                    // Nothing here
+                } else {
+                    inputTime.setError("Voer een kloppende tijd in");
+                    controlBit = false;
+                }
+
+
+                if (!inputDate.getText().toString().equals("")) {
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/mm/ddhh:mm");
+
+                    try {
+                        datum = dateFormat.parse(inputDate.getText().toString() + inputTime.getText().toString());
+                        // Toast.makeText(activity, datum.toString(), Toast.LENGTH_LONG).show();
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                    Calendar beginTime = Calendar.getInstance();
+                    beginTime.set(datum.getYear(), datum.getMonth(), datum.getDay(), datum.getHours(), datum.getMinutes());
+
+                    Calendar endTime = Calendar.getInstance();
+                    endTime.set(datum.getYear(), datum.getMonth(), datum.getDay(), datum.getHours() + 1, datum.getMinutes());
+
+                    startCal.putExtra("beginTime", beginTime.getTimeInMillis());
+                    startCal.putExtra("endTime", endTime.getTimeInMillis());
+
+
+                } else {
+                    inputDate.setError("Voer een kloppende datum in");
                     controlBit = false;
                 }
 
