@@ -18,7 +18,7 @@ import com.b_healty.john.prototype1.R;
  * Created by John on 06/06/2017.
  */
 
-public class Calendar extends Fragment {
+public class Appointment extends Fragment {
 
     // TODO: 18-6-2017 Er moeten nog animaties gemaakt worden voor de progressbar
     // TODO: 18-6-2017 Voor de tijd input en de datum input gestroomlijnde manieren
@@ -27,15 +27,13 @@ public class Calendar extends Fragment {
     FragmentActivity listener;
     View view;
     Activity activity;
-
-    EditText appointName;
-    EditText inputTime;
-    EditText inputDate;
-    EditText wardName;
-    EditText doctorName;
-    Intent startCalendar;
     int progressCount;
-
+    private EditText appointName;
+    private EditText inputTime;
+    private EditText inputDate;
+    private EditText wardName;
+    private EditText doctorName;
+    private boolean controlBit;
 
     // This method is called when a fragment instance is associated with an activity and will run
     // before anything else
@@ -55,19 +53,6 @@ public class Calendar extends Fragment {
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         progressCount = 0;
-
-//        java.util.Calendar beginTime = java.util.Calendar.getInstance();
-//        beginTime.set(2017, 4, 18, 4, 30);
-//
-//        java.util.Calendar endTime = java.util.Calendar.getInstance();
-//        endTime.set(2017, 4, 18, 6, 50);
-//
-//        startCalendar = new Intent(Intent.ACTION_EDIT);
-//        startCalendar.setType("vnd.android.cursor.item/event");
-//        startCalendar.putExtra("title", "een titel");
-//        startCalendar.putExtra("description", "ik schrijf om");
-//        startCalendar.putExtra("beginTime", beginTime.getTimeInMillis());
-//        startCalendar.putExtra("endTime", endTime.getTimeInMillis());
     }
 
 
@@ -88,13 +73,44 @@ public class Calendar extends Fragment {
     // doesn't return a null object. Things like view lookups and attaching listeners should
     // happen in this method
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(View view, final Bundle savedInstanceState) {
+
         final Button sendButton = (Button) view.findViewById(R.id.sendButton);
+
+        appointName = (EditText) view.findViewById(R.id.appointName);
+        inputTime = (EditText) view.findViewById(R.id.inputTime);
+        inputDate = (EditText) view.findViewById(R.id.inputDate);
+        wardName = (EditText) view.findViewById(R.id.wardName);
+        doctorName = (EditText) view.findViewById(R.id.doctorName);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // startActivity(startCalendar);
 
+                controlBit = true;
+                Intent startCal = new Intent(Intent.ACTION_EDIT);
+                startCal.setType("vnd.android.cursor.item/event");
+
+                if (!appointName.getText().toString().equals("")) {
+                    startCal.putExtra("title", appointName.getText().toString());
+
+                } else {
+                    appointName.setError("Geef de afspraak een naam");
+                    controlBit = false;
+                }
+
+                if (!inputTime.getText().toString().equals("") &&
+                        !inputDate.getText().toString().equals("")) {
+
+
+                } else {
+
+
+                }
+
+
+                if (controlBit) {
+                    startActivity(startCal);
+                }
             }
         });
     }
