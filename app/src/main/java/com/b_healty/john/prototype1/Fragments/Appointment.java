@@ -28,11 +28,10 @@ public class Appointment extends Fragment {
     // TODO: 18-6-2017 Er moeten nog animaties gemaakt worden voor de progressbar
     // TODO: 18-6-2017 Alle front end stuff moet gekoppeld worden aan een back-end
 
+    private final String leggyCall = "LGGYCL";
     FragmentActivity listener;
     View view;
     Activity activity;
-    int progressCount;
-
     private EditText appointName;
     private EditText inputTime;
     private EditText inputDate;
@@ -58,7 +57,6 @@ public class Appointment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        progressCount = 0;
     }
 
 
@@ -96,15 +94,17 @@ public class Appointment extends Fragment {
                 Intent startCal = new Intent(Intent.ACTION_EDIT);
                 startCal.setType("vnd.android.cursor.item/event");
 
+
+                // Stel de naam van de afspraak in en voeg het ID aan het einde toe
                 if (!appointName.getText().toString().equals("")) {
-                    startCal.putExtra("title", appointName.getText().toString());
+                    startCal.putExtra("title", appointName.getText().toString() + " - " + leggyCall);
 
                 } else {
                     appointName.setError("Geef de afspraak een naam");
                     controlBit = false;
                 }
 
-
+                // Controleer of het veld van de tijd is ingevoerd
                 if (!inputTime.getText().toString().equals("")) {
                     // Nothing here
                 } else {
@@ -112,22 +112,36 @@ public class Appointment extends Fragment {
                     controlBit = false;
                 }
 
-
+                // Parse de datum en voeg deze samen met de tijd om een datetime
+                // object te maken en dit in de bundle te stoppen
                 if (!inputDate.getText().toString().equals("")) {
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/mm/ddhh:mm");
 
                     try {
-                        datum = dateFormat.parse(inputDate.getText().toString() + inputTime.getText().toString());
+                        datum = dateFormat.parse(inputDate.getText().toString() +
+                                inputTime.getText().toString());
                         // Toast.makeText(activity, datum.toString(), Toast.LENGTH_LONG).show();
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
 
                     Calendar beginTime = Calendar.getInstance();
-                    beginTime.set(datum.getYear(), datum.getMonth(), datum.getDay(), datum.getHours(), datum.getMinutes());
+                    beginTime.set(
+                            datum.getYear(),
+                            datum.getMonth(),
+                            datum.getDay(),
+                            datum.getHours(),
+                            datum.getMinutes()
+                    );
 
                     Calendar endTime = Calendar.getInstance();
-                    endTime.set(datum.getYear(), datum.getMonth(), datum.getDay(), datum.getHours() + 1, datum.getMinutes());
+                    endTime.set(
+                            datum.getYear(),
+                            datum.getMonth(),
+                            datum.getDay(),
+                            datum.getHours() + 1,
+                            datum.getMinutes()
+                    );
 
                     startCal.putExtra("beginTime", beginTime.getTimeInMillis());
                     startCal.putExtra("endTime", endTime.getTimeInMillis());
@@ -138,7 +152,7 @@ public class Appointment extends Fragment {
                     controlBit = false;
                 }
 
-
+                // Controleer of alle vakken zijn ingevuld
                 if (controlBit) {
                     startActivity(startCal);
                 }
