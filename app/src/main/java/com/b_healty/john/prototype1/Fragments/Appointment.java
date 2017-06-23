@@ -77,8 +77,8 @@ public class Appointment extends Fragment {
         final Button sendButton = (Button) view.findViewById(R.id.sendButton);
 
         appointName = (EditText) view.findViewById(R.id.appointName);
-        inputTime = (EditText) view.findViewById(R.id.inputTime);
-        inputDate = (EditText) view.findViewById(R.id.inputDate);
+        // inputTime = (EditText) view.findViewById(R.id.inputTime);
+        // inputDate = (EditText) view.findViewById(R.id.inputDate);
         wardName = (EditText) view.findViewById(R.id.wardName);
         doctorName = (EditText) view.findViewById(R.id.doctorName);
 
@@ -95,18 +95,6 @@ public class Appointment extends Fragment {
                 } else {
                     appointName.setError("Geef de afspraak een naam");
                     controlBit = false;
-                }
-
-
-                if (!inputTime.getText().toString().equals("")) {
-                    String time = inputTime.getText().toString();
-
-
-
-                } else {
-                    inputTime.setError("Vul een tijd in");
-                    controlBit = false;
-
                 }
 
 

@@ -250,41 +250,53 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:baselineAligned="false"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="10dp">
 
-                <android.support.design.widget.TextInputLayout
+                <TimePicker
+                    android:id="@+id/inputTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    app:errorTextAppearance="@style/errorAppearance">
+                    android:layout_weight="3" />
 
-                    <EditText
-                        android:id="@+id/inputTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ems="10"
-                        android:hint="@string/inputTimeHint"
-                        android:inputType="time" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
+                <DatePicker
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:errorTextAppearance="@style/errorAppearance">
+                    android:layout_weight="1" />
 
-                    <EditText
-                        android:id="@+id/inputDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:ems="10"
-                        android:hint="@string/inputDateHint"
-                        android:inputType="date" />
+                <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="3"-->
+                <!--app:errorTextAppearance="@style/errorAppearance">-->
 
-                </android.support.design.widget.TextInputLayout>
+                <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/inputTime"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_gravity="center"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:ems="10"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:hint="@string/inputTimeHint"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:inputType="time" />&ndash;&gt;-->
+
+                <!--</android.support.design.widget.TextInputLayout>-->
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--app:errorTextAppearance="@style/errorAppearance">-->
+
+                <!--<EditText-->
+                <!--android:id="@+id/inputDate"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:ems="10"-->
+                <!--android:hint="@string/inputDateHint"-->
+                <!--android:inputType="date" />-->
+
+                <!--</android.support.design.widget.TextInputLayout>-->
             </LinearLayout>
 
             <LinearLayout
