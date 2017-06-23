@@ -131,22 +131,11 @@ public class Appointment extends Fragment {
                     }
 
                     Calendar beginTime = Calendar.getInstance();
-                    beginTime.set(
-                            datum.getYear(),
-                            datum.getMonth(),
-                            datum.getDay(),
-                            datum.getHours(),
-                            datum.getMinutes()
-                    );
+                    beginTime.setTime(datum);
 
                     Calendar endTime = Calendar.getInstance();
-                    endTime.set(
-                            datum.getYear(),
-                            datum.getMonth(),
-                            datum.getDay(),
-                            datum.getHours() + 1,
-                            datum.getMinutes()
-                    );
+                    endTime.setTime(datum);
+                    endTime.add(endTime.HOUR, 2);
 
                     System.out.println(endTime);
                     startCal.putExtra("beginTime", beginTime.getTimeInMillis());
