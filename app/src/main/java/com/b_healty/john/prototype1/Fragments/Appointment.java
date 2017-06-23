@@ -21,7 +21,6 @@ import com.b_healty.john.prototype1.R;
 public class Appointment extends Fragment {
 
     // TODO: 18-6-2017 Er moeten nog animaties gemaakt worden voor de progressbar
-    // TODO: 18-6-2017 Voor de tijd input en de datum input gestroomlijnde manieren
     // TODO: 18-6-2017 Alle front end stuff moet gekoppeld worden aan een back-end
 
     FragmentActivity listener;
@@ -98,12 +97,15 @@ public class Appointment extends Fragment {
                     controlBit = false;
                 }
 
-                if (!inputTime.getText().toString().equals("") &&
-                        !inputDate.getText().toString().equals("")) {
+
+                if (!inputTime.getText().toString().equals("")) {
+                    String time = inputTime.getText().toString();
+
 
 
                 } else {
-
+                    inputTime.setError("Vul een tijd in");
+                    controlBit = false;
 
                 }
 
