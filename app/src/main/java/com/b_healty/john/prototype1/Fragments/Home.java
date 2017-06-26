@@ -174,78 +174,78 @@ public class Home extends Fragment {
          * Vanaf dit punt komt code om de afspraken uit de android kalender op te halen
          *                                                                  - Ben
          */
-//        // Maak alvast een cursor aan en start de ContentResolver
-//        Cursor cur = null;
-//
-//        // De contentResolver is hetgene wat zal de interactie lever tussen
-//        // onze app en de android kalender
-//        ContentResolver cr = activity.getContentResolver();
-//
-//        // De android kalender is zelf een 'content provider', dus heeft deze een adres
-//        // en dat adres kunnen we benaderen met een URI
-//        Uri uri = CalendarContract.Events.CONTENT_URI;
-//
-//        // Dit is het SELECT statement voor de kalender. Op het vraagtekentje komt een
-//        // variabele te staan die in selectionArgs wordt aangemaakt
-//        String selection = "(" + CalendarContract.Events.TITLE + " LIKE ?)";
-//        String[] selectionArgs = new String[] {"%LGGYCL%"};
-//
-//        // Controleer of deze app permissie heeft om te lezen van de kalender
-//        if (ContextCompat.checkSelfPermission(activity,
-//                Manifest.permission.READ_CALENDAR)
-//                != PackageManager.PERMISSION_GRANTED) {
-//
-//            // In dit geval is er geen permissie, tijd om deze aan te vragen
-//            // dit gaat verder in de functie onRequestPermissionsResult
-//            ActivityCompat.requestPermissions(activity,
-//                    new String[] {Manifest.permission.READ_CALENDAR},
-//                    MY_PERMISSIONS_REQUEST_READ_CALENDAR);
-//        }
-//
-//        // Nadat permissie is aangevraagd lanceren we hier de query
-//        cur = cr.query(uri, EVENT_PROJECTION, selection, selectionArgs,
-//                CalendarContract.Events.DTSTART + " ASC " + " LIMIT 1");
-//
-//        if (cur != null) {
-//            while (cur.moveToNext()) {
-//                // Maak variabelen aan die de data uit de kalender in zich kunnen nemen
-//                String evtTitle = null;
-//                String evtDescription = null;
-//                String evtDTStart = null;
-//
-//                // Stop de de data van de kalender in de variabelen
-//                evtTitle = cur.getString(PROJECTION_TITLE_INDEX);
-//                evtDescription = cur.getString(PROJECTION_DESCRIPTION_INDEX);
-//                evtDTStart = cur.getString(PROJECTION_DTSTART_INDEX);
-//
-//                Calendar calCurr = Calendar.getInstance();
-//                Calendar calNext = Calendar.getInstance();
-//                calNext.setTimeInMillis(Long.parseLong(evtDTStart));
-//
-//                // Roep de klasse CalculateDiff aan die het verschil tussen nu
-//                // en de datum van de eerstvolgende afspraak zal berekenen
-//                CalculateDifference callDiff =
-//                        new CalculateDifference(calCurr.getTime(), calNext.getTime());
-//
-//                // Start de berekening
-//                callDiff.controlDiff();
-//
-//                // Bouw een string met daarin de data van de berekening
-//                // Deze data kan dus ook los gebruikt worden!
-//                String daysToCome = "Nog " + callDiff.getElapsedDays()
-//                        + " dagen, " + callDiff.getElapsedHours()
-//                        + " uur, " + callDiff.getElapsedMinutes()
-//                        + " minuten en " + callDiff.getElapsedSeconds()
-//                        + " seconden tot de volgende afspraak!";
-//
-//
-//                Log.wtf("Titel", evtTitle);
-//                Log.wtf("Omschrijving ", evtDescription);
-//                Log.wtf("Datum ", daysToCome);
-//            }
-//
-//            cur.close();
-//        }
+        // Maak alvast een cursor aan en start de ContentResolver
+        Cursor cur = null;
+
+        // De contentResolver is hetgene wat zal de interactie lever tussen
+        // onze app en de android kalender
+        ContentResolver cr = activity.getContentResolver();
+
+        // De android kalender is zelf een 'content provider', dus heeft deze een adres
+        // en dat adres kunnen we benaderen met een URI
+        Uri uri = CalendarContract.Events.CONTENT_URI;
+
+        // Dit is het SELECT statement voor de kalender. Op het vraagtekentje komt een
+        // variabele te staan die in selectionArgs wordt aangemaakt
+        String selection = "(" + CalendarContract.Events.TITLE + " LIKE ?)";
+        String[] selectionArgs = new String[] {"%LGGYCL%"};
+
+        // Controleer of deze app permissie heeft om te lezen van de kalender
+        if (ContextCompat.checkSelfPermission(activity,
+                Manifest.permission.READ_CALENDAR)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // In dit geval is er geen permissie, tijd om deze aan te vragen
+            // dit gaat verder in de functie onRequestPermissionsResult
+            ActivityCompat.requestPermissions(activity,
+                    new String[] {Manifest.permission.READ_CALENDAR},
+                    MY_PERMISSIONS_REQUEST_READ_CALENDAR);
+        }
+
+        // Nadat permissie is aangevraagd lanceren we hier de query
+        cur = cr.query(uri, EVENT_PROJECTION, selection, selectionArgs,
+                CalendarContract.Events.DTSTART + " ASC " + " LIMIT 1");
+
+        if (cur != null) {
+            while (cur.moveToNext()) {
+                // Maak variabelen aan die de data uit de kalender in zich kunnen nemen
+                String evtTitle = null;
+                String evtDescription = null;
+                String evtDTStart = null;
+
+                // Stop de de data van de kalender in de variabelen
+                evtTitle = cur.getString(PROJECTION_TITLE_INDEX);
+                evtDescription = cur.getString(PROJECTION_DESCRIPTION_INDEX);
+                evtDTStart = cur.getString(PROJECTION_DTSTART_INDEX);
+
+                Calendar calCurr = Calendar.getInstance();
+                Calendar calNext = Calendar.getInstance();
+                calNext.setTimeInMillis(Long.parseLong(evtDTStart));
+
+                // Roep de klasse CalculateDiff aan die het verschil tussen nu
+                // en de datum van de eerstvolgende afspraak zal berekenen
+                CalculateDifference callDiff =
+                        new CalculateDifference(calCurr.getTime(), calNext.getTime());
+
+                // Start de berekening
+                callDiff.controlDiff();
+
+                // Bouw een string met daarin de data van de berekening
+                // Deze data kan dus ook los gebruikt worden!
+                String daysToCome = "Nog " + callDiff.getElapsedDays()
+                        + " dagen, " + callDiff.getElapsedHours()
+                        + " uur, " + callDiff.getElapsedMinutes()
+                        + " minuten en " + callDiff.getElapsedSeconds()
+                        + " seconden tot de volgende afspraak!";
+
+
+                Log.wtf("Titel", evtTitle);
+                Log.wtf("Omschrijving ", evtDescription);
+                Log.wtf("Datum ", daysToCome);
+            }
+
+            cur.close();
+        }
 
         return view;
     }
