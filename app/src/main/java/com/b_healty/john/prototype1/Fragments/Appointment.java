@@ -42,6 +42,9 @@ public class Appointment extends Fragment {
     private Date datum;
     private boolean controlBit;
 
+    public Appointment() {
+        datum = new Date();
+    }
 
     // This method is called when a fragment instance is associated with an activity and will run
     // before anything else

@@ -1,13 +1,17 @@
 package com.b_healty.john.prototype1;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.b_healty.john.prototype1.Fragments.Appointment;
 import com.b_healty.john.prototype1.Fragments.FAQ;
@@ -18,6 +22,12 @@ import com.b_healty.john.prototype1.Fragments.User;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+    private AppBarLayout appBarLayout;
+    private ViewFlipper viewFlipper;
+
+
+
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -25,18 +35,22 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menu_home:
+
                     changeToHomeFragment();
                     //mTextMessage.setText(R.string.menu_home);
                     return true;
                 case R.id.menu_afspraken:
+                    viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(findViewById(R.id.mainLayoutBasic)));
                     changeToCalendarFragment();
                     //mTextMessage.setText(R.string.menu_afspraken);
                     return true;
                 case R.id.menu_FAQ:
+                    viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(findViewById(R.id.mainLayoutBasic)));
                     changeToFAQFragment();
                     //mTextMessage.setText(R.string.menu_faq);
                     return true;
                 case R.id.menu_user:
+                    viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(findViewById(R.id.mainLayoutBasic)));
                     changeToUserFragment();
                     return true;
             }
@@ -54,8 +68,20 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
+
+        ActionBar actionBar = getActionBar();
+        if(actionBar !=null)
+        {
+            actionBar.hide();
+        }
+
+            // http://static.rogerebert.com/uploads/movie/movie_poster/flipper-1996/large_vUc6LKlZvnSu3qTxWx3fJWHuIli.jpg
+            viewFlipper = (ViewFlipper) this.findViewById(R.id.flipper);
+            //appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
+
             changeToHomeFragment();
 
 
@@ -90,15 +116,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeToHomeFragment(){
         // Create new fragment and transaction
+
+        viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(findViewById(R.id.mainLayoutCards)));
         Fragment newFragment = new Home();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         // Replace whatever is in the fragment_container view with this fragment,
         // and add the transaction to the back stack
-                transaction.replace(R.id.fragment2, newFragment);
+                transaction.replace(R.id.fragment1, newFragment);
                 transaction.addToBackStack(null);
 
         // Commit the transaction
+
         transaction.commit();
     }
 
@@ -114,6 +143,8 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
 
         // Commit the transaction
+//        appBarLayout.setVisibility(View.GONE);
+
         transaction.commit();
 
     }
