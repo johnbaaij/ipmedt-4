@@ -224,14 +224,16 @@ public class Home extends Fragment {
                 Calendar calNext = Calendar.getInstance();
                 calNext.setTimeInMillis(Long.parseLong(evtDTStart));
 
-                //1 minute = 60 seconds
-                //1 hour = 60 x 60 = 3600
-                //1 day = 3600 x 24 = 86400
+                // Roep de klasse CalculateDiff aan die het verschil tussen nu
+                // en de datum van de eerstvolgende afspraak zal berekenen
                 CalculateDifference callDiff =
                         new CalculateDifference(calCurr.getTime(), calNext.getTime());
 
+                // Start de berekening
                 callDiff.controlDiff();
 
+                // Bouw een string met daarin de data van de berekening
+                // Deze data kan dus ook los gebruikt worden!
                 String daysToCome = "Nog " + callDiff.getElapsedDays()
                         + " dagen, " + callDiff.getElapsedHours()
                         + " uur, " + callDiff.getElapsedMinutes()
