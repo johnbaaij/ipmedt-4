@@ -6,7 +6,6 @@ import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.net.ParseException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
@@ -26,13 +25,12 @@ import android.view.ViewGroup;
 import com.b_healty.john.prototype1.GridSpacingItemDecoration;
 import com.b_healty.john.prototype1.MyRecyclerViewAdapter;
 import com.b_healty.john.prototype1.R;
-import com.b_healty.john.prototype1.models.CalculateDifference;
+import com.b_healty.john.prototype1.CalculateDifference;
 import com.b_healty.john.prototype1.models.Card;
 
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by John on 06/06/2017.
@@ -172,9 +170,11 @@ public class Home extends Fragment {
         //mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setAdapter(mAdapter);
 
+
+
         /**
          * Vanaf dit punt komt code om de afspraken uit de android kalender op te halen
-         * @author Ben van Eekelen
+         *                                                                  - Ben
          */
         // Maak alvast een cursor aan en start de ContentResolver
         Cursor cur = null;
