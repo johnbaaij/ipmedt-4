@@ -171,7 +171,6 @@ public class Home extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
 
 
-
         /**
          * Vanaf dit punt komt code om de afspraken uit de android kalender op te halen
          *                                                                  - Ben
