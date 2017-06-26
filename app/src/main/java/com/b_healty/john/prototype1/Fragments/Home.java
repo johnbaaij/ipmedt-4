@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.ParseException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
@@ -16,6 +17,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,10 +26,13 @@ import android.view.ViewGroup;
 import com.b_healty.john.prototype1.GridSpacingItemDecoration;
 import com.b_healty.john.prototype1.MyRecyclerViewAdapter;
 import com.b_healty.john.prototype1.R;
+import com.b_healty.john.prototype1.models.CalculateDifference;
 import com.b_healty.john.prototype1.models.Card;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by John on 06/06/2017.
@@ -215,8 +220,28 @@ public class Home extends Fragment {
                 evtDescription = cur.getString(PROJECTION_DESCRIPTION_INDEX);
                 evtDTStart = cur.getString(PROJECTION_DTSTART_INDEX);
 
-                System.out.println("Title : " + evtTitle + " \nDescription: " + evtDescription
-                        + " \nDTstart: " + evtDTStart);
+                Calendar calCurr = Calendar.getInstance();
+                Calendar calNext = Calendar.getInstance();
+                calNext.setTimeInMillis(Long.parseLong(evtDTStart));
+
+                //1 minute = 60 seconds
+                //1 hour = 60 x 60 = 3600
+                //1 day = 3600 x 24 = 86400
+                CalculateDifference callDiff =
+                        new CalculateDifference(calCurr.getTime(), calNext.getTime());
+
+                callDiff.controlDiff();
+
+                String daysToCome = "Nog " + callDiff.getElapsedDays()
+                        + " dagen, " + callDiff.getElapsedHours()
+                        + " uur, " + callDiff.getElapsedMinutes()
+                        + " minuten en " + callDiff.getElapsedSeconds()
+                        + " seconden tot de volgende afspraak!";
+
+
+                Log.wtf("Titel", evtTitle);
+                Log.wtf("Omschrijving ", evtDescription);
+                Log.wtf("Datum ", daysToCome);
             }
 
             cur.close();
@@ -252,6 +277,5 @@ public class Home extends Fragment {
         }
 
     }
-
 }
 
