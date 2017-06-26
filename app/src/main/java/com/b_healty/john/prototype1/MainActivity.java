@@ -1,5 +1,6 @@
 package com.b_healty.john.prototype1;
 
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,9 +8,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.app.Fragment;
 
-import com.b_healty.john.prototype1.Fragments.Calendar;
+import com.b_healty.john.prototype1.Fragments.Appointment;
 import com.b_healty.john.prototype1.Fragments.FAQ;
 import com.b_healty.john.prototype1.Fragments.Home;
 import com.b_healty.john.prototype1.Fragments.User;
@@ -18,13 +18,6 @@ import com.b_healty.john.prototype1.Fragments.User;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
-
-    public MainActivity() {
-
-        //mTextMessage = (TextView) findViewById(R.id.textView);
-
-    }
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -52,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
     };
+
+    public MainActivity() {
+
+        //mTextMessage = (TextView) findViewById(R.id.textView);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     public void changeToCalendarFragment(){
 
         // Create new fragment and transaction
-        Fragment newFragment = new Calendar();
+        Fragment newFragment = new Appointment();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         // Replace whatever is in the fragment_container view with this fragment,
