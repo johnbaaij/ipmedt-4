@@ -121,7 +121,7 @@ public class Appointment extends Fragment {
                 // Parse de datum en voeg deze samen met de tijd om een datetime
                 // object te maken en dit in de bundle te stoppen
                 if (!inputDate.getText().toString().equals("")) {
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy hh:mm");
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
                     try {
                         datum = dateFormat.parse(inputDate.getText().toString() + " " +
