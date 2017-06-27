@@ -1,42 +1,35 @@
 package com.b_healty.john.prototype1.models;
 
+import android.content.res.Resources;
+
+import com.b_healty.john.prototype1.MainActivity;
+import com.b_healty.john.prototype1.R;
+
 /**
  * Created by John on 01/06/2017.
  */
 
 public class FAQ {
 
-    private int id;
-    private String question;
-    private String text;
+    private String[] questions;
+    private String[] anwsers;
 
-    public FAQ(int id, String question, String text) {
-        this.id = id;
-        this.question = question;
-        this.text = text;
+    public FAQ() {
     }
 
-    public int getId() {
-        return id;
+    public void setQuestions(String[] questions) {
+        this.questions = questions;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAnwsers(String[] anwsers) {
+        this.anwsers = anwsers;
     }
 
-    public String getQuestion() {
-        return question;
+    public String[] getQuestions() {
+        return questions;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
+    public String[] getAnwsers() {
+        return anwsers;
     }
 }

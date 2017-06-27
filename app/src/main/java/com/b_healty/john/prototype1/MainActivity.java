@@ -3,6 +3,7 @@ package com.b_healty.john.prototype1;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
     private AppBarLayout appBarLayout;
     private ViewFlipper viewFlipper;
+    public static Resources resources;
+
     DBHandler dbHandler;
 
     public MainActivity(DBHandler dbHandler) {
@@ -75,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
+
+        resources = getResources();
 
         ActionBar actionBar = getActionBar();
         if(actionBar !=null)

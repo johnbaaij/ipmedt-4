@@ -14,8 +14,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.b_healty.john.prototype1.CustomAdapter;
+import com.b_healty.john.prototype1.FaqAdapter;
 import com.b_healty.john.prototype1.CustomList;
+import com.b_healty.john.prototype1.FaqAdapter;
 import com.b_healty.john.prototype1.R;
 import com.google.gson.Gson;
 
@@ -57,7 +58,7 @@ public class FAQ extends Fragment {
         questionList = getResources().getStringArray(R.array.questions);
         answerList = getResources().getStringArray(R.array.answers);
         activity = getActivity();
-        adapter = new CustomAdapter(view.getContext() , questionList, answerList);
+        adapter = new FaqAdapter(view.getContext() , questionList, answerList);
         faqList = (ListView) view.findViewById(R.id.faqList);
         faqList.setAdapter(adapter);
 
