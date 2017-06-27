@@ -13,111 +13,95 @@
 
 
     <string-array name="questions">
-        <!-- 1 -->
-        <item>Mag het gips nat worden?</item>
-        <!-- 2 -->
-        <item>Mijn spieren en/of gewrichten doen zeer.</item>
-        <!-- 3 -->
-        <item>Ik heb last van jeuk onder mijn gips</item>
-        <!-- 4 -->
-        <item>Mijn vingers of tenen worden blauw</item>
-        <!-- 5 -->
-        <item>Wanneer moet je opnieuw de doctor bellen?</item>
+        <!-- 1 --><item >Algemene genezingsproces en medische info.</item>
+        <!-- 2 --><item >Mijn spieren en/of gewrichten doen zeer.</item>
+        <!-- 3 --><item >Ik heb last van jeuk onder mijn gips</item>
+        <!-- 4 --><item >Mijn vingers of tenen worden blauw</item>
+        <!-- 5 --><item >Wanneer moet je opnieuw de doctor bellen?</item>
 
-        <!-- 6 -->
-        <item>kan je met loopgips gewoon zonder krukken lopen?</item>
-        <!-- 7 -->
-        <item>Mag ik auto rijden met gips?</item>
-        <!-- 8 -->
-        <item>Hoe kan ik het makkelijkst douchen met gips?</item>
-        <!-- 9 -->
-        <item>Yellow</item>
-        <!-- 10 -->
-        <item>Wat moet u weten over zwemgips</item>
+        <!-- 6 --><item >Mag het gips nat worden?</item>
+        <!-- 7 --><item >Mag ik auto rijden met gips?</item>
+        <!-- 8 --><item >Hoe kan ik het makkelijkst douchen met gips?</item>
+        <!-- 9 --><item >kan je met loopgips gewoon zonder krukken lopen?</item>
+        <!-- 10 --><item >Wat moet u weten over zwemgips</item>
 
     </string-array>
 
 
     <string-array name="answers">
-        <!-- 1 -->
-        <item>
-            U moet natuurlijk proberen het gips droog te houden.
-            Is het gips een beetje nat, dan laat u het goed drogen. Ook kunt u de föhn gebruiken (op de koude stand) om het gips te drogen.\n\n
-            Is het gips doordrenkt, dan kan de huid verweken waardoor problemen kunnen ontstaan zoals schimmelinfectie of wonden.
-            Ook met een kunststofverband kunt u niet douchen of zwemmen.\n\n
-            Hoewel kunststof waterbestendig is neemt het verband dat eronder zit wel water op. Dat kan irritatie en huidcomplicaties geven.\n\n
-            Ook mag u gips niet met plastic afdekken. Als het kunststofverband vuil is kunt u het wel aan de buitenzijde met een vochtige doek of borsteltje reinigen.
+        <!-- 1 --><item >
+            Deze webpagina geeft informatie en over de chirurgische behandeling van een gebroken onderbeen. Hier vind je onder andere informatie over de anatomie van het been en het genezingsproces.
+            \nHet is goed u te realiseren dat voor iedereen de situatie anders kan zijn dan beschreven. De klachten, de behandeling en de snelheid van herstel kan enorm verschillen per persoon en de complexheid van een beenbreuk.
+            \n\nDe website:
+            \nhttp://www.chirurgenoperatie.nl/wp/ongeluk-sport/gebroken-onderbeen/
                 </item>
-        <!-- 2 -->
-        <item>
-            Dat is vaak het gevolg van de onbeweeglijke stand in het gips. Pezen, spieren en gewrichten zijn gemaakt om te bewegen.\n\n
-            Gips werkt dan belemmerend met klachten als gevolg. De vastzittende lichaamsdelen kunt u natuurlijk niet bewegen, maar de overige gewrichten kunt en moet u blijven bewegen om stijfheid te voorkomen.\n\n
-            Daarnaast is er zeker de eerste paar dagen tot een week gewoon last van ‘breukpijn’ waartegen u pijnstillers (paracetamol) kunt nemen.
+        <!-- 2 --><item >
+            Dat is vaak het gevolg van de onbeweeglijke stand in het gips. Pezen, spieren en gewrichten zijn gemaakt om te bewegen.
+            \n\nGips werkt dan belemmerend met klachten als gevolg. De vastzittende lichaamsdelen kunt u natuurlijk niet bewegen, maar de overige gewrichten kunt en moet u blijven bewegen om stijfheid te voorkomen.
+            \n\nDaarnaast is er zeker de eerste paar dagen tot een week gewoon last van ‘breukpijn’ waartegen u pijnstillers (paracetamol) kunt nemen.
                 </item>
-        <!-- 3 -->
-        <item>
+        <!-- 3 --><item >
             Dit is heel persoonlijk en kan afhankelijk zijn van weersomstandigheden, transpiratie en het soort huid en allergie.
-            Wordt de jeuk heel hevig (tot een branderig gevoel aan toe) en ziet de huid rondom het gips rood, dan kan er sprake zijn van een allergie. Vaak wordt jeuk veroorzaakt door transpiratie.\n\n
-            Een manier om dat soort jeuk te bestrijden is het gebruik van een haarföhn. Door met de föhn in lauwe stand rond het gips te blazen verdwijnt het vocht en daarmee ook de jeuk. Ook is er een soort spray voor te verkrijgen.\n\n
-            Ga niet met voorwerpen zoals een breinaald in het gips. Daardoor kunnen wonden ontstaan, waardoor de jeuk alleen maar toeneemt of aanleiding geeft tot het ontstaan van een infectie.
+            Wordt de jeuk heel hevig (tot een branderig gevoel aan toe) en ziet de huid rondom het gips rood, dan kan er sprake zijn van een allergie. Vaak wordt jeuk veroorzaakt door transpiratie.
+            \n\nEen manier om dat soort jeuk te bestrijden is het gebruik van een haarföhn. Door met de föhn in lauwe stand rond het gips te blazen verdwijnt het vocht en daarmee ook de jeuk. Ook is er een soort spray voor te verkrijgen.
+            \n\nGa niet met voorwerpen zoals een breinaald in het gips. Daardoor kunnen wonden ontstaan, waardoor de jeuk alleen maar toeneemt of aanleiding geeft tot het ontstaan van een infectie.
                 </item>
-        <!-- 4 -->
-        <item>
-            Een verkleuring van de huid kan ontstaan door een bloeduitstorting die afzakt naar lager gelegen punt, meestal de vinger of tenen. Deze verkleuring verdwijnt in de loop van de tijd vanzelf (kan enige tijd duren).\n\n
-            Vingers of tenen kunnen ook blauw verkleuren door een slechte bloedvoorziening. Wanneer dit het geval is moet u contact opnemen met u arts of het ziekenhuis
+        <!-- 4 --><item >
+            Een verkleuring van de huid kan ontstaan door een bloeduitstorting die afzakt naar lager gelegen punt, meestal de vinger of tenen. Deze verkleuring verdwijnt in de loop van de tijd vanzelf (kan enige tijd duren).
+            \n\nVingers of tenen kunnen ook blauw verkleuren door een slechte bloedvoorziening. Wanneer dit het geval is moet u contact opnemen met u arts of het ziekenhuis
                 </item>
-        <!-- 5 -->
-        <item>
-            Als je been in het gips zit en je ben thuis om het te genezen, kunnen er soms complicaties optreden. Waar moet je op letten?\n\n
-            • Toenemende pijn/of zwelling/n/n
-            • Stuwing die niet af wil zakken als het been hoger gelegd wordt, en stuwing die pijn veroorzaakt\n\n
-            • Kloppende pijn\n\n
-            • Koorts of koude rillingen\n\n
-            • Tenen, voeten of benen voelen koud of juist heel erg warm aan\n\n
-            • Tenen (ook nagels), voet of been veranderd van kleur\n\n
-            • Misselijkheid, hoofdpijn\n\n
-            • Klachten die je niet begrijpt of vertrouwt of die iemand in je omgeving niet vertrouwt
+        <!-- 5 --><item >
+            Als je been in het gips zit en je ben thuis om het te genezen, kunnen er soms complicaties optreden.\n\n<b>Waar moet je op letten?</b>\n\n
+            • Toenemende pijn/of zwelling.\n
+            • Stuwing die niet af wil zakken als het been\n\t hoger gelegd wordt,en stuwing die pijn veroorzaakt.\n
+            • Kloppende pijn.\n
+            • Koorts of koude rillingen.\n
+            • Tenen, voeten of benen voelen koud \n\tof juist heel erg warm aan.\n
+            • Tenen (ook nagels), voet of been veranderd van kleur.\n
+            • Misselijkheid, hoofdpijn.\n
+            • Klachten die je niet begrijpt of vertrouwt \n\tof die iemand in je omgeving niet vertrouwt.
                 </item>
-        <!-- 6 -->
-        <item>
-            Ja, met loopgips mag je zonder krukken lopen en fietsen. Het enige waar je rekening mee moet houden is, dat wanneer je gaat zitten je de gipsvoet omhoog moet leggen.
-            Dat is om zwelling te voorkomen. En het lopen gaat met kleine stapjes, omdat je die enkel niet kunt gebruiken. Onderaan het loopgips is in het algemeen een zool bevestigd, die je kunt losmaken wanneer je naar bed gaat.
-            Die zool is vaak dikker dan de zool van je schoenen. Om te zorgen dat je daar bij het lopen geen last van hebt, kan je aan het ‘gezonde’ been een schoen dragen met een zool of hak van vergelijkbare dikte of hoogte.
-                </item>
-        <!-- 7 -->
-        <item>
+        <!-- 6 --><item >
+            U moet natuurlijk proberen het gips droog te houden.
+            Is het gips een beetje nat, dan laat u het goed drogen. Ook kunt u de föhn gebruiken (op de koude stand) om het gips te drogen.\n\nIs het gips doordrenkt, dan kan de huid verweken waardoor problemen kunnen ontstaan zoals schimmelinfectie of wonden.
+            Ook met een kunststofverband kunt u niet douchen of zwemmen.\n\nHoewel kunststof waterbestendig is neemt het verband dat eronder zit wel water op. Dat kan irritatie en huidcomplicaties geven.
+            \n\nOok mag u gips niet met plastic afdekken. Als het kunststofverband vuil is kunt u het wel aan de buitenzijde met een vochtige doek of borsteltje reinigen.
+                 </item>
+        <!-- 7 --><item >
             Veiligheid staat voorop. Autorijden met gips is niet per definitie verboden, maar is ook niet per definitie toegestaan.
-            Verzekeraars kunnen weigeren om uit te betalen in geval van schade, maar dat hangt af van de omstandigheden. \n\n
-            De verantwoordelijkheid ligt sowieso bij de patiënt zelf, net als wanneer u in de auto zou stappen met een zware griep of na een slapeloze nacht.
-            U moet dus zelf inschatten in hoeverre uw gips de rijvaardigheid beïnvloedt. Het advies van de arts is niet meer dan een advies.
-            En het beste advies is dan ook om het gezonde verstand te gebruiken. Als u om wat voor reden dan ook twijfelt aan uw vermogen om veilig auto te rijden, is het beter om voorlopig niet achter het stuur plaats te nemen.
+            Verzekeraars kunnen weigeren om uit te betalen in geval van schade, maar dat hangt af van de omstandigheden.
+            \n\nDe verantwoordelijkheid ligt sowieso bij de patiënt zelf, net als wanneer u in de auto zou stappen met een zware griep of na een slapeloze nacht.
+            U moet dus zelf inschatten in hoeverre uw gips de rijvaardigheid beïnvloedt.
+            \n\nHet advies van de arts is niet meer dan een advies. En het beste advies is dan ook om het gezonde verstand te gebruiken. Als u om wat voor reden dan ook twijfelt aan uw vermogen om veilig auto te rijden, is het beter om voorlopig niet achter het stuur plaats te nemen.
                 </item>
-        <!-- 8 -->
-        <item>
-            Om toch met een gips te kunnen douchen / baden zijn er de volgende mogelijkheden:\n\n
+        <!-- 8 --><item >
+            Om toch met een gips te kunnen douchen / baden zijn er de volgende mogelijkheden:
 
-            1.\nBeen / arm “buiten boord” houden zodat het niet nat wordt: nadeel aflopend water kan toch schade veroorzaken en balanceren op 1 been waarbij het andere moet worden hoog gehouden buiten de douche / bad is onhandig en gevaarlijk (uitglijden). Bij kinderen is dit moeilijk uit te voeren zonder dat de ouder helpt.\n\n
-            2.\nBescherm het gips in een (dubbele) plastic zak (bv. vuilniszakken) welke allebei afzonderlijk met een elastiek worden afgesloten: nadeel niet altijd volledig waterdicht, zak kan kapot gaan.\n\n
-            3.\nEr bestaan hiervoor speciale dikke plastic beschermhoezen met aan de bovenzijde een hermetisch afsluitend rubber waarmee men zelfs onder water in bad kan zitten. De hoezen worden als een sok over het gips aangetrokken. Ze worden echter niet altijd niet vergoed door uw verzekering (10 – 20 euro)
+            \n\n1.\nBeen / arm “buiten boord” houden zodat het niet nat wordt: nadeel aflopend water kan toch schade veroorzaken en balanceren op 1 been waarbij het andere moet worden hoog gehouden buiten de douche / bad is onhandig en gevaarlijk (uitglijden). Bij kinderen is dit moeilijk uit te voeren zonder dat de ouder helpt.
+            \n\n2.\nBescherm het gips in een (dubbele) plastic zak (bv. vuilniszakken) welke allebei afzonderlijk met een elastiek worden afgesloten: nadeel niet altijd volledig waterdicht, zak kan kapot gaan.
+            \n\n3.\nEr bestaan hiervoor speciale dikke plastic beschermhoezen met aan de bovenzijde een hermetisch afsluitend rubber waarmee men zelfs onder water in bad kan zitten. De hoezen worden als een sok over het gips aangetrokken. Ze worden echter niet altijd niet vergoed door uw verzekering (10 – 20 euro)
                 </item>
-        <!-- 9 -->
-        <item>Yellow</item>
-        <!-- 10 -->
-        <item>
+        <!-- 9 --><item >
+            Ja, met loopgips mag je zonder krukken lopen en fietsen. Het enige waar je rekening mee moet houden is, dat wanneer je gaat zitten je de gipsvoet omhoog moet leggen.Dat is om zwelling te voorkomen.En het lopen gaat met kleine stapjes, omdat je die enkel niet kunt gebruiken.
+            \n\nOnderaan het loopgips is in het algemeen een zool bevestigd, die je kunt losmaken wanneer je naar bed gaat.
+            Die zool is vaak dikker dan de zool van je schoenen.
+            \n\nOm te zorgen dat je daar bij het lopen geen last van hebt, kan je aan het ‘gezonde’ been een schoen dragen met een zool of hak van vergelijkbare dikte of hoogte.
+            </item>
+        <!-- 10 --><item >
             Bij zwemgips is er geen beschermlaag van watten omdat watten niet goed opdrogen. Houd er rekening mee dat het gips hierdoor wat strakker aan kan voelen.
-            Als de huid achter elkaar nat wordt, krijgt de huid niet de kans om te drogen. Mogelijk ontstaan er verweking van de huid. Verweking van de huid kan op den duur voor huidirritaties zorgen.\n\n
+            Als de huid achter elkaar nat wordt, krijgt de huid niet de kans om te drogen. Mogelijk ontstaan er verweking van de huid. Verweking van de huid kan op den duur voor huidirritaties zorgen.
 
-            Adviezen voor douchen, baden of zwemmen:\n\n
-            Het is beter om niet in natuurwater (meren, rivieren of de zee) te zwemmen. Als parasieten of verontreinigde stoffen vanuit het water onder het gips komen, kunnen huidirritatie of andere problemen optreden.
+            \n\nAdviezen voor douchen, baden of zwemmen:
+            \n\nHet is beter om niet in natuurwater (meren, rivieren of de zee) te zwemmen. Als parasieten of verontreinigde stoffen vanuit het water onder het gips komen, kunnen huidirritatie of andere problemen optreden.
             Zwem bij voorkeur alleen in een zwembad met chloorwater. Houd er rekening mee dat u met zwemgips minder goed kunt bewegen in het water.
             Probeer eerst in ondiep water hoe het gaat, ga dan pas in diep water. Spoel het gips grondig na met schoon water na het douchen, baden of zwemmen. Laat het gips bij voorkeur niet meer nat worden na 17.00 uur. Hierdoor heeft het gips tijd om te drogen.
 
-            Zorg ervoor dat het gips goed droogt nadat het nat is geweest, dit kan door:\n\n
-            • Droog het gips en de randen af met een handdoek.\n\n
-            • Armgips: laat uw arm hangen en laat zoveel mogelijk water uit het uiteinde van het gips lopen.\n\n
-            • Beengips: buig uw tenen naar boven en beneden zodat het water langs de tenen uit het gips kan lopen, of hef het been op zodat het water er van de bovenkant uit kan lopen.\n\n
-            • Föhn het zwemgips droog op een lauwwarme stand. \n\n
-                </item>
+            \n\nZorg ervoor dat het gips goed droogt nadat het nat is geweest, dit kan door:
+            \n\n• Droog het gips en de randen af met een handdoek.
+            \n\n• Armgips: laat uw arm hangen en laat zoveel mogelijk \n\twater uit het uiteinde van het gips lopen.
+            \n\n• Beengips: buig uw tenen naar boven en beneden \n\tzodat het water langs de tenen uit het gips kan lopen,\n\tof hef het been op zodat het water er van de bovenkant \n\tuit kan lopen.
+            \n\n• Föhn het zwemgips droog op een lauwwarme stand.
+            </item>
 
     </string-array>
 
@@ -127,5 +111,22 @@
     <string name="afdelingHint">Afdeling</string>
     <string name="doctorHint">Dokter</string>
     <string name="calenderSendBtnText">Verzend</string>
+
+        <!-- fragment1: int0 -->
+        <string name="tut_text1">Welkom bij de tutorial, voordat je kan inloggen leggen we eerst wat uit.
+        \nDit is het Home scherm, hier kun je alles in een oogopslag zien.\nVan fase tot afspraken is alles duidelijk in tegels verdeeld.
+            \nEr is een timer tot de volgende afpraakt en krijg je een random vraag uit de FAQ te zien om iets wijzer te worden over het herstel.</string>
+        <!-- fragment2: int1 -->
+        <string name="tut_text2">Dit is het afspraken scherm, hier kan je de afpraken vanuit het ziekenhuis toevoegen.
+            \nDe afpsraken worden ook direct in je eigen Google agenda gezet. Vandaar ook de vraag of Leggy gebruik mocht maken van je eigen agenda. Zo vergeet je dus nooit meer je afspraak.
+        \nJe kan de naam van de dokter in voeren en de afdeling waar je heen moet. Wanneer je in het ziekenhuis ben staat dus ook alle informatie in je telefoon.</string>
+        <!-- fragment2: int3 -->
+        <string name="tut_text3">Wanneer je vragen heb over het genezingsproces of het gips, kan je deze vinden in de FAQ pagina.
+            \n Hier vind je een lijst met vragen en andwoorden, door op de vraag te klikken kan je het andwoord bekijken.</string>
+        <!-- final fragmet: int2 -->
+        <string name="tut_final">Als laatste is er een pagina over de gebruiker. Hierin kan je alles over jou proces zien. Welke fase beving jij je en hoelang is nog het genezingsproces.
+        \nmocht je de tutorial nog een keertje willen bekijken is deze ook te vinden in de User pagina.
+        \n\nVeel succes met het genezingsproces</string>
+
 
 </resources>

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="?attr/actionBarSize"
     android:orientation="vertical"
+    android:paddingRight="16dp"
     android:windowSoftInputMode="adjustNothing">
 
     <LinearLayout

@@ -40,7 +40,7 @@ public class Text extends Fragment {
         View view = inflater.inflate(R.layout.text_layout, container, false);
 
 
-        scrollable = (TextView)view.findViewById(R.id.text);
+        scrollable = (TextView) view.findViewById(R.id.text);
         scrollable.setText(answer);
 
         title = (TextView)view.findViewById(R.id.questionFaq2);

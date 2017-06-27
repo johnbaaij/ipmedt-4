@@ -62,7 +62,7 @@
         card_view:contentPadding="10dp"
         card_view:layout_constraintBottom_toBottomOf="parent"
         card_view:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="8dp">
+        android:layout_marginLeft="0dp">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -97,7 +97,11 @@
         card_view:cardCornerRadius="2dp"
         card_view:contentPadding="10dp"
         card_view:layout_constraintBottom_toBottomOf="parent"
-        card_view:layout_constraintLeft_toLeftOf="parent">
+        card_view:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="201dp"
+        android:layout_marginRight="0dp"
+        card_view:layout_constraintRight_toRightOf="@+id/cardTop"
+        card_view:layout_constraintHorizontal_bias="0.0">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -128,9 +132,11 @@
         android:layout_width="368dp"
         android:layout_height="50dp"
         card_view:layout_constraintLeft_toLeftOf="parent"
-        card_view:layout_constraintRight_toRightOf="parent"
+        card_view:layout_constraintRight_toRightOf="@+id/cardBottomRight"
         android:layout_marginTop="16dp"
-        card_view:layout_constraintTop_toBottomOf="@+id/cardBottomLeft">
+        card_view:layout_constraintTop_toBottomOf="@+id/cardBottomRight"
+        android:layout_marginRight="0dp"
+        card_view:layout_constraintHorizontal_bias="1.0">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"

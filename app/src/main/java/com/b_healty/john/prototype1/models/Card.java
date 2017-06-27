@@ -12,11 +12,10 @@ public class Card {
     boolean size;
 
 
-    public Card(String title, String text, int image, boolean size) {
+    public Card(String title, String text, int image) {
         this.title = title;
         this.text = text;
         this.image = image;
-        this.size = size;
     }
 
     public String getTitle() {
@@ -31,7 +30,7 @@ public class Card {
         return text;
     }
 
-    public void setText(String text) {
+    public void setMainText(String text) {
         this.text = text;
     }
 
@@ -43,11 +42,5 @@ public class Card {
         this.image = image;
     }
 
-    public boolean isSize() {
-        return size;
-    }
 
-    public void setSize(boolean size) {
-        this.size = size;
-    }
 }
