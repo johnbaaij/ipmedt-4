@@ -18,7 +18,7 @@ import android.util.Log;
 
 public class CalendarInteraction {
     public static final String[] EVENT_PROJECTION = new String[] {
-            CalendarContract.Events.ORIGINAL_ID,        // 0
+            CalendarContract.Events._ID,                // 0
             CalendarContract.Events.TITLE,              // 1
             CalendarContract.Events.DTSTART,            // 2
             CalendarContract.Events.DESCRIPTION         // 3

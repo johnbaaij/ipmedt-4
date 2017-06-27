@@ -67,7 +67,8 @@ public class AppointAdapter extends ArrayAdapter<AppointModel> {
             @Override
             public void onClick(View v)
             {
-                System.out.println(appointModel.getAppointName());
+                long eventID = appointModel.getEventID();
+                System.out.println(eventID);
             }
         });
 
