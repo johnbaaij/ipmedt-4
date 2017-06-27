@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.b_healty.john.prototype1.AppointAdapter;
 import com.b_healty.john.prototype1.CalendarInteraction;
@@ -30,11 +29,14 @@ import java.util.Calendar;
 
 public class AppointList extends Fragment {
 
+    // TODO: Back Button bovenaan Appointment Creation view
+    // TODO: Animatie feedback
+    // TODO: Datum invullen moet beter
+
+    AppointAdapter appointAdapter;
     private FragmentActivity listener;
     private FloatingActionButton createNew;
     private ListView appointListView;
-
-    AppointAdapter appointAdapter;
 
     // Stuff
     @Override
