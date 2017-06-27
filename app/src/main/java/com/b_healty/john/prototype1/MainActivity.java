@@ -2,10 +2,12 @@ package com.b_healty.john.prototype1;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -18,6 +20,7 @@ import com.b_healty.john.prototype1.Fragments.User;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -155,6 +158,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[],
+                                           @NonNull int[] grantResults) {
+
+    }
 }
 
 
