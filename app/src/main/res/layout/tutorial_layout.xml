@@ -6,12 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="388dp"
-        android:layout_height="422dp"
+        android:layout_width="384dp"
+        android:layout_height="502dp"
         android:padding="16dp"
         tools:layout_editor_absoluteY="-7dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        tools:layout_editor_absoluteX="3dp">
 
         <ImageView
             android:id="@+id/imageTut"
@@ -29,11 +31,12 @@
         <TextView
             android:id="@+id/tutText"
             android:layout_width="351dp"
-            android:layout_height="110dp"
+            android:layout_height="200dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="0dp"
             android:text="TextView"
+            android:scrollbars="vertical"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageTut" />
@@ -61,11 +64,11 @@
         android:layout_marginBottom="16dp"
         android:text="Overslaan"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.607"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintHorizontal_bias="0.607" />
+        tools:layout_constraintRight_creator="1" />
 
 </android.support.constraint.ConstraintLayout>
