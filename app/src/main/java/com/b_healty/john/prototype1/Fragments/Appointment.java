@@ -42,6 +42,9 @@ public class Appointment extends Fragment {
     private Date datum;
     private boolean controlBit;
 
+    public Appointment() {
+        datum = new Date();
+    }
 
     // This method is called when a fragment instance is associated with an activity and will run
     // before anything else
@@ -121,7 +124,7 @@ public class Appointment extends Fragment {
                 // Parse de datum en voeg deze samen met de tijd om een datetime
                 // object te maken en dit in de bundle te stoppen
                 if (!inputDate.getText().toString().equals("")) {
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy hh:mm");
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
                     try {
                         datum = dateFormat.parse(inputDate.getText().toString() + " " +
