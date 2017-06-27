@@ -12,7 +12,9 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.b_healty.john.prototype1.AppointAdapter;
 import com.b_healty.john.prototype1.CalendarInteraction;
@@ -112,7 +114,6 @@ public class AppointList extends Fragment {
             count += 1;
         }
 
-
         // Create the adapter
         appointAdapter = new AppointAdapter(listener,
                 R.layout.appoint_list_layout, appointModel_data);
@@ -147,6 +148,14 @@ public class AppointList extends Fragment {
 
         appointListView = (ListView) listener.findViewById(R.id.AppointList);
         appointListView.setAdapter(appointAdapter);
+
+        appointListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println();
+
+            }
+        });
     }
 
 

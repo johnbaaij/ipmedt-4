@@ -55,12 +55,21 @@ public class AppointAdapter extends ArrayAdapter<AppointModel> {
             holder = (CalendarHolder) row.getTag();
         }
 
-        AppointModel appointModel = data[position];
+        final AppointModel appointModel = data[position];
         holder.timeView.setText(appointModel.getTime());
         holder.dateView.setText(appointModel.getDate());
         holder.appointName.setText(appointModel.getAppointName());
         holder.wardName.setText(appointModel.getWardName());
         holder.doctorName.setText(appointModel.getDoctorName());
+
+        row.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                System.out.println(appointModel.getAppointName());
+            }
+        });
 
         return row;
 
