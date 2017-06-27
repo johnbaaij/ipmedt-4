@@ -2,6 +2,7 @@ package com.b_healty.john.prototype1;
 
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -112,8 +113,16 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
     }
 
-
-
+    @Override
+    public void onBackPressed()
+    {
+        FragmentManager fm = getFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            fm.popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
 
     public void changeToHomeFragment(){
         // Create new fragment and transaction
@@ -185,8 +194,6 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
     }
-
-
 }
 
 
