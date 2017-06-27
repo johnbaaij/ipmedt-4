@@ -2,6 +2,7 @@ package com.b_healty.john.prototype1;
 
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -10,11 +11,10 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import com.b_healty.john.prototype1.Fragments.Appointment;
+import com.b_healty.john.prototype1.Fragments.AppointList;
 import com.b_healty.john.prototype1.Fragments.FAQ;
 import com.b_healty.john.prototype1.Fragments.Home;
 import com.b_healty.john.prototype1.Fragments.User;
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             changeToHomeFragment();
 
 
-        //mTextMessage = (TextView) findViewById(R.id.message);
+            //mTextMessage = (TextView) findViewById(R.id.message);
             BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottomNavigation);
             navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -103,10 +103,10 @@ public class MainActivity extends AppCompatActivity {
 
             if(b != null) {
                 String name = b.getString("name");
-//                mTextMessage.setText(name);
+            // mTextMessage.setText(name);
 
             }
-            ////// TODO: 01/06/2017 add else
+            // TODO: 01/06/2017 add else
 
             else{
 
@@ -118,8 +118,16 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
     }
 
-
-
+    @Override
+    public void onBackPressed()
+    {
+        FragmentManager fm = getFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            fm.popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
 
     public void changeToHomeFragment(){
         // Create new fragment and transaction
@@ -145,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
     public void changeToCalendarFragment(){
 
         // Create new fragment and transaction
-        Fragment newFragment = new Appointment();
+        Fragment newFragment = new AppointList();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         // Replace whatever is in the fragment_container view with this fragment,
@@ -200,8 +208,6 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
     }
-
-
 }
 
 

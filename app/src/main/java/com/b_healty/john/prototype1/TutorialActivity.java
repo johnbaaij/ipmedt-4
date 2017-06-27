@@ -5,7 +5,6 @@ import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.b_healty.john.prototype1.Fragments.Home;
 import com.b_healty.john.prototype1.Fragments.tutorial.BasicTutorial;
 
 public class TutorialActivity extends AppCompatActivity {

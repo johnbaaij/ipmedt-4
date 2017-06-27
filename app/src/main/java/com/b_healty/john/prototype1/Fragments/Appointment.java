@@ -6,13 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.b_healty.john.prototype1.R;
 
@@ -169,8 +167,7 @@ public class Appointment extends Fragment {
                 }
 
                 // Generate description
-                description = "U heeft een afspraak met dokter " + doctorNameString
-                        + " op de afdeling " + wardNameString;
+                description = doctorNameString + " - " + wardNameString;
 
                 startCal.putExtra("description", description);
 

@@ -128,6 +128,13 @@
     <string name="afdelingHint">Afdeling</string>
     <string name="doctorHint">Dokter</string>
     <string name="calenderSendBtnText">Verzend</string>
+    <string name="placeholderTime">11:15</string>
+    <string name="placeholderDate">11/12/2017</string>
+    <string name="placeholderAppointment">Gipsbreuk</string>
+    <string name="placeholderWardName">Botbreuken</string>
+    <string name="placeholderDoctorName">Sanjib</string>
+    <string name="wardID">Afd : </string>
+    <string name="doctorID">Dr : </string>
 
         <!-- fragment1: int0 -->
         <string name="tut_text1">Welkom bij de tutorial, voordat je kan inloggen leggen we eerst wat uit.
