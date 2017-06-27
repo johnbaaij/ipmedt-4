@@ -128,13 +128,19 @@ public class AppointList extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
+
+    // Take the amount of milliseconds passed since 1 January 1970 and convert it
+    // to a normal human-readable date
     private String getDate(long timestamp) {
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(timestamp);
-        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+        String date = DateFormat.format("dd/MM/yyyy", cal).toString();
         return date;
     }
 
+
+    // Take the amount of milliseconds passed since 1 January 1970 and convert it
+    // to a normal human-readable time
     private String getTime(long timestamp) {
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(timestamp);
