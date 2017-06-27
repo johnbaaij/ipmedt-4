@@ -140,18 +140,18 @@ public class Home extends Fragment {
 
 
         //topCard
-        Card topCard = new Card("top", "top" ,1, true);
+        Card topCard = new Card("top", "Lorem ipsum" ,R.drawable.krukken_icon);
 
         //addCardToArray("Geen", "idee", 0);
 
         //leftCard
-        Card leftCard = new Card("left", "left" ,1, false);
+        Card leftCard = new Card("left", "Lorem ipsum" ,R.drawable.krukken_icon);
 
         //rightCard
-        Card rightCard = new Card("right", "right",2, false);
+        Card rightCard = new Card("right", "Lorem ipsum",R.drawable.krukken_icon);
 
 
-        Card bonus = new Card("right", "right",2, false);
+        Card bonus = new Card("Extra", "Lorem ipsum",R.drawable.krukken_icon);
 
 
 

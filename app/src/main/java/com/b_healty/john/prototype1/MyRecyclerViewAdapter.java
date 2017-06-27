@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.b_healty.john.prototype1.models.Card;
@@ -30,11 +31,13 @@ public class MyRecyclerViewAdapter extends RecyclerView
             .OnClickListener {
         TextView cardTitle;
         TextView cardText;
+        ImageView overflow;
 
         public DataObjectHolder(final View itemView) {
             super(itemView);
             cardTitle = (TextView) itemView.findViewById(R.id.cardTitle);
-            cardText = (TextView) itemView.findViewById(R.id.cardText);
+            cardText = (TextView) itemView.findViewById(R.id.text);
+            overflow = (ImageView) itemView.findViewById(R.id.overflow);
             Log.i(LOG_TAG, "Adding Listener");
 
 
@@ -79,6 +82,10 @@ public class MyRecyclerViewAdapter extends RecyclerView
 
         holder.cardTitle.setText(mDataset.get(position).getTitle());
         holder.cardText.setText(mDataset.get(position).getText());
+
+
+
+        holder.overflow.setImageResource(mDataset.get(position).getImage());
     }
 
     public void addItem(Card card, int index) {
