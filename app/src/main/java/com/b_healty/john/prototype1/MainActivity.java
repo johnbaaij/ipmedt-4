@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             changeToHomeFragment();
 
 
-        //mTextMessage = (TextView) findViewById(R.id.message);
+            //mTextMessage = (TextView) findViewById(R.id.message);
             BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottomNavigation);
             navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -98,10 +98,10 @@ public class MainActivity extends AppCompatActivity {
 
             if(b != null) {
                 String name = b.getString("name");
-//                mTextMessage.setText(name);
+            // mTextMessage.setText(name);
 
             }
-            ////// TODO: 01/06/2017 add else
+            // TODO: 01/06/2017 add else
 
             else{
 
