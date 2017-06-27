@@ -4,20 +4,20 @@ package com.b_healty.john.prototype1.models;
  * Created by Ben on 27/06/2017.
  */
 
-public class Appointmodel {
-    private int eventID;
+public class AppointModel {
+    private long eventID;
     private String time;
     private String date;
     private String appointName;
     private String wardName;
     private String doctorName;
 
-    public Appointmodel()
+    public AppointModel()
     {
         super();
     }
 
-    public Appointmodel(int id, String time, String date, String appointName,
+    public AppointModel(long id, String time, String date, String appointName,
                         String wardName, String doctorName)
     {
         super();
@@ -29,11 +29,11 @@ public class Appointmodel {
         this.doctorName = doctorName;
     }
 
-    public int getEventID() {
+    public long getEventID() {
         return eventID;
     }
 
-    public void setEventID(int eventID) {
+    public void setEventID(long eventID) {
         this.eventID = eventID;
     }
 

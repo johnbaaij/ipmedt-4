@@ -17,8 +17,9 @@ import android.widget.ListView;
 import com.b_healty.john.prototype1.AppointAdapter;
 import com.b_healty.john.prototype1.CalendarInteraction;
 import com.b_healty.john.prototype1.R;
-import com.b_healty.john.prototype1.models.Appointmodel;
+import com.b_healty.john.prototype1.models.AppointModel;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -49,13 +50,10 @@ public class AppointList extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Maak de adapter hier
-        Appointmodel appointmodel_data[] = new Appointmodel[] {
-
-        };
-
         CalendarInteraction mCalHelper = new CalendarInteraction(listener);
         Cursor data = mCalHelper.getData();
+
+        ArrayList<AppointModel> appointmentList = new ArrayList<>();
 
         while (data.moveToNext())
         {
@@ -69,16 +67,29 @@ public class AppointList extends Fragment {
             evtTitle = data.getString(CalendarInteraction.getProjectionTitleIndex());
             evtDescription = data.getString(CalendarInteraction.getProjectionDescriptionIndex());
 
-            System.out.println(evtDtStart);
-            System.out.println(getDate(evtDtStart));
-            System.out.println(getTime(evtDtStart));
+            // Create new instance of the appointment model
+            AppointModel appointModel = new AppointModel();
 
+            // Fill 'er up
+            appointModel.setEventID(evtId);
+            appointModel.setTime(getTime(evtDtStart));
+            appointModel.setDate(getDate(evtDtStart));
+            appointModel.setAppointName(getTitle(evtTitle));
+            appointModel.setWardName(getWard(evtDescription));
+            appointModel.setDoctorName(getDoctor(evtDescription));
 
-
+            // Add the appointment model to the arraylist
+            appointmentList.add(appointModel);
         }
 
+
+        // Maak de adapter hier
+        AppointModel appointModel_data[] = new AppointModel[] {
+
+        };
+
         appointAdapter = new AppointAdapter(listener,
-                R.layout.appoint_list_layout, appointmodel_data);
+                R.layout.appoint_list_layout, appointModel_data);
 
     }
 
@@ -134,8 +145,7 @@ public class AppointList extends Fragment {
     private String getDate(long timestamp) {
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(timestamp);
-        String date = DateFormat.format("dd/MM/yyyy", cal).toString();
-        return date;
+        return DateFormat.format("dd/MM/yyyy", cal).toString();
     }
 
 
@@ -144,8 +154,24 @@ public class AppointList extends Fragment {
     private String getTime(long timestamp) {
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(timestamp);
-        String time = DateFormat.format("HH:mm", cal).toString();
-        return time;
+        return DateFormat.format("HH:mm", cal).toString();
+    }
+
+    // Split the string for the title
+    private String getTitle(String title) {
+        return title.split(" - ")[0];
+    }
+
+    // Split the description and return only the part containing
+    // the name of the ward
+    private String getWard(String description) {
+        return description.split(" - ")[1];
+    }
+
+    // Split the description and return only the part containing
+    // the name of the doctor
+    private String getDoctor(String description) {
+        return description.split(" - ")[0];
     }
 
 }

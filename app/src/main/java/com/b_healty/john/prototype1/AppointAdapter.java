@@ -10,18 +10,18 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.b_healty.john.prototype1.models.Appointmodel;
+import com.b_healty.john.prototype1.models.AppointModel;
 
 /**
  * Created by Ben on 27/06/2017.
  */
 
-public class AppointAdapter extends ArrayAdapter<Appointmodel> {
+public class AppointAdapter extends ArrayAdapter<AppointModel> {
     private Context context;
     private int layoutResourceID;
-    private Appointmodel data[] = null;
+    private AppointModel data[] = null;
 
-    public AppointAdapter(Context context, int layoutResourceID, Appointmodel data[])
+    public AppointAdapter(Context context, int layoutResourceID, AppointModel data[])
     {
         super(context, layoutResourceID, data);
         this.layoutResourceID = layoutResourceID;
@@ -55,12 +55,12 @@ public class AppointAdapter extends ArrayAdapter<Appointmodel> {
             holder = (CalendarHolder) row.getTag();
         }
 
-        Appointmodel appointmodel = data[position];
-        holder.timeView.setText(appointmodel.getTime());
-        holder.dateView.setText(appointmodel.getDate());
-        holder.appointName.setText(appointmodel.getAppointName());
-        holder.wardName.setText(appointmodel.getWardName());
-        holder.doctorName.setText(appointmodel.getDoctorName());
+        AppointModel appointModel = data[position];
+        holder.timeView.setText(appointModel.getTime());
+        holder.dateView.setText(appointModel.getDate());
+        holder.appointName.setText(appointModel.getAppointName());
+        holder.wardName.setText(appointModel.getWardName());
+        holder.doctorName.setText(appointModel.getDoctorName());
 
         return row;
 
