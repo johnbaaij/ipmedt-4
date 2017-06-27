@@ -33,7 +33,7 @@
             Deze webpagina geeft informatie en over de chirurgische behandeling van een gebroken onderbeen. Hier vind je onder andere informatie over de anatomie van het been en het genezingsproces.
             \nHet is goed u te realiseren dat voor iedereen de situatie anders kan zijn dan beschreven. De klachten, de behandeling en de snelheid van herstel kan enorm verschillen per persoon en de complexheid van een beenbreuk.
             \n\nDe website:
-            \nhttp://www.chirurgenoperatie.nl/wp/ongeluk-sport/gebroken-onderbeen/">
+            \nhttp://www.chirurgenoperatie.nl/wp/ongeluk-sport/gebroken-onderbeen/
                 </item>
         <!-- 2 --><item >
             Dat is vaak het gevolg van de onbeweeglijke stand in het gips. Pezen, spieren en gewrichten zijn gemaakt om te bewegen.
@@ -101,7 +101,7 @@
             \n\n• Armgips: laat uw arm hangen en laat zoveel mogelijk \n\twater uit het uiteinde van het gips lopen.
             \n\n• Beengips: buig uw tenen naar boven en beneden \n\tzodat het water langs de tenen uit het gips kan lopen,\n\tof hef het been op zodat het water er van de bovenkant \n\tuit kan lopen.
             \n\n• Föhn het zwemgips droog op een lauwwarme stand.
-                </item>
+            </item>
 
     </string-array>
 
@@ -111,5 +111,19 @@
     <string name="afdelingHint">Afdeling</string>
     <string name="doctorHint">Dokter</string>
     <string name="calenderSendBtnText">Verzend</string>
+
+        <!-- fragment1: int0 -->
+        <string name="tut_text1">Welkom bij de tutorial, voordat je kan inloggen leggen we eerst wat uit.
+        \nDit is het home scherm, hier kun je alles in een oogopslag zien.\nVan fase tot afspraken is alles duidelijk in tegels verdeeld.</string>
+        <!-- fragment2: int1 -->
+        <string name="tut_text2">Dit is het afspraken scherm, hier kan je de afpraken vanuit het ziekenhuis toevoegen.
+            \nDe afpsraken worden ook direct in je eigen Google agenda gezet. Zo vergeet je dus nooit meer je afspraak.</string>
+        <!-- fragment2: int3 -->
+        <string name="tut_text3">Dit is tutorial slide 3</string>
+        <!-- final fragmet: int2 -->
+        <string name="tut_final">Als laatste is er een pagina over de gebruiker. Hierin kan je alles over jou proces zien. Welke fase beving jij je en hoelang is nog het genezingsproces.
+        \nmocht je de tutorial nog een keertje willen bekijken is deze ook te vinden in de User pagina.
+        \n\nVeel succes met het genezingsproces</string>
+
 
 </resources>

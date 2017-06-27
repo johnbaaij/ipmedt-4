@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.b_healty.john.prototype1.LauncherActivity;
@@ -24,6 +25,7 @@ public class BasicTutorial extends Fragment {
     Button tutNext;
     Button tutSkip;
     TextView tutText;
+    ImageView tutImage;
     private int count = 0;
 
     @Override
@@ -35,6 +37,7 @@ public class BasicTutorial extends Fragment {
         tutNext = (Button) view.findViewById(R.id.tutNext);
         tutSkip = (Button) view.findViewById(R.id.tutSkip);
         tutText = (TextView) view.findViewById(R.id.tutText);
+        tutImage = (ImageView) view.findViewById(R.id.imageTut);
         updateText(count);
 
         tutNext.setOnClickListener(new View.OnClickListener() {
@@ -82,16 +85,24 @@ public class BasicTutorial extends Fragment {
 
         switch (count){
             case 0:
-                tutText.setText("Dit is nul");
+                tutImage.setImageResource(R.drawable.krukken_icon);
+                tutText.setText(R.string.tut_text1);
                 break;
             case 1:
-                tutText.setText("Dit is 1 ");
+                tutImage.setImageResource(R.drawable.ic_calendar);
+                tutText.setText(R.string.tut_text2);
                 break;
             case 2:
-                tutText.setText("Dit is 2");
+                tutImage.setImageResource(R.drawable.ic_comment_faq);
+                tutText.setText(R.string.tut_text3);
+                break;
+            case 3:
+                tutImage.setImageResource(R.drawable.ic_home_black);
+                tutText.setText(R.string.tut_final);
                 break;
             default:
-                tutText.setText("Dit is default");
+                //tutImage.setImageDrawable();
+                tutText.setText("Sorry er is wat mis gegaan.");
                 break;
         }
 
