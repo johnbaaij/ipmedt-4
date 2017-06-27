@@ -105,6 +105,23 @@
 
     </string-array>
 
+
+
+    <string-array name="greetings">
+        <item>Hallo</item>
+        <item>Hoi</item>
+        <item>Bonjour</item>
+        <item>Guten tag</item>
+        <item>Buongiorno</item>
+        <item>Buenos días</item>
+        <item>Ciao</item>
+        <item>Hola</item>
+        <item>привет</item>
+        <item>Hallå</item>
+        <item>Bonjour</item>
+        <item>Hi</item>
+    </string-array>
+
     <string name="appointNameHint">Naam</string>
     <string name="inputTimeHint">Tijd</string>
     <string name="inputDateHint">Datum (DD/MM/JJJJ)</string>

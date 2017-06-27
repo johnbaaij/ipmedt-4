@@ -45,20 +45,6 @@ public class Home extends Fragment {
     private Activity activity;
     private ArrayList results = new ArrayList<Card>();
 
-    //topCard
-    String topCardTitle;
-    String topCardText;
-    int topCardImage;
-
-    //leftCard
-    String leftCardTitle;
-    String leftCardText;
-    int leftCardImage;
-
-    //leftCard
-    String rightCardTitle;
-    String rightCardText;
-    int rightCardImage;
 
     private StaggeredGridLayoutManager sGridLayoutManager;
 
@@ -118,26 +104,6 @@ public class Home extends Fragment {
 
 
         mRecyclerView.setLayoutManager(llm);
-
-
-
-
-
-
-
-        //mLayoutManager = new LinearLayoutManager(activity);
-        //RecyclerView.setLayoutManager(mLayoutManager);
-        //mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
-
-        //mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.HORIZONTAL));
-
-        //RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
-        //mRecyclerView.setLayoutManager(mLayoutManager);
-        //mRecyclerView.addItemDecoration(new MyRecyclerViewAdapter.GridSpacingItemDecoration(2, dpToPx(10), true));
-
-        //mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
-
 
         //topCard
         Card topCard = new Card("top", "Lorem ipsum" ,R.drawable.krukken_icon);
