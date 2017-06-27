@@ -29,9 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     DBHandler dbHandler;
 
-    public MainActivity(DBHandler dbHandler) {
 
-    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -126,8 +124,12 @@ public class MainActivity extends AppCompatActivity {
     public void changeToHomeFragment(){
         // Create new fragment and transaction
 
+        Bundle bundle = new Bundle();
+        bundle.putString("username" , dbHandler.usernameToString());
+
         viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(findViewById(R.id.mainLayoutCards)));
         Fragment newFragment = new Home();
+        newFragment.setArguments(bundle);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         // Replace whatever is in the fragment_container view with this fragment,

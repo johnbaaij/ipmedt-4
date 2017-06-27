@@ -11,26 +11,25 @@ import java.util.Random;
  */
 
 public class HomeController {
+    String[] questionList = MainActivity.resources.getStringArray(R.array.questions);
+    String [] greetings = MainActivity.resources.getStringArray(R.array.greetings);
 
-    public String[] generateHotTopic(){
+    public String generateHotTopic(int number){
+        String hotTopic = questionList[number];
+        return hotTopic;
+    }
 
-        String[] questionList = MainActivity.resources.getStringArray(R.array.questions);
-        String[] answerList = MainActivity.resources.getStringArray(R.array.answers);
+    public int generateRandomValue(){
 
         int random = new Random().nextInt(questionList.length);
+        return random;
 
-        String question = questionList[random];
-        String anwser = questionList[random];
-
-        String hotTopic[] ={question, anwser};
-        return hotTopic;
     }
 
 
     public String generateGreeting(String name ){
-        String [] greetings = MainActivity.resources.getStringArray(R.array.greetings);
         int random = new Random().nextInt(greetings.length);
-        String greeting = name + " " + greetings[random];
+        String greeting = greetings[random] + " " + name;
         return greeting;
     }
 

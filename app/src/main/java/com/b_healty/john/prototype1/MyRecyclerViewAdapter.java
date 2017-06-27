@@ -44,7 +44,9 @@ public class MyRecyclerViewAdapter extends RecyclerView
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
                     // item clicked
-                    Log.d("test","test");
+                    Log.d("test",v.toString());
+
+
 
                 }
             });
@@ -53,6 +55,9 @@ public class MyRecyclerViewAdapter extends RecyclerView
         @Override
         public void onClick(View v) {
             myClickListener.onItemClick(getAdapterPosition(), v);
+
+            Log.d("test",v.toString());
+
         }
     }
     public MyRecyclerViewAdapter(ArrayList<Card> myDataset) {

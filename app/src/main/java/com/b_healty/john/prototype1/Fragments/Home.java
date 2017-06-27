@@ -26,6 +26,7 @@ import com.b_healty.john.prototype1.GridSpacingItemDecoration;
 import com.b_healty.john.prototype1.MyRecyclerViewAdapter;
 import com.b_healty.john.prototype1.R;
 import com.b_healty.john.prototype1.CalculateDifference;
+import com.b_healty.john.prototype1.controllers.HomeController;
 import com.b_healty.john.prototype1.models.Card;
 
 
@@ -44,6 +45,8 @@ public class Home extends Fragment {
     private static String LOG_TAG = "CardViewActivity";
     private Activity activity;
     private ArrayList results = new ArrayList<Card>();
+    String username;
+    HomeController controller;
 
 
     private StaggeredGridLayoutManager sGridLayoutManager;
@@ -71,7 +74,17 @@ public class Home extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        Bundle bundle = this.getArguments();
+
+        if (bundle != null){
+            username = bundle.getString("username");
+        }
+
+
         View view = inflater.inflate(R.layout.home_layout, container, false);
+
+
 
 
         //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
@@ -82,6 +95,7 @@ public class Home extends Fragment {
 
 
         activity = getActivity();
+        controller = new HomeController();
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         //mRecyclerView.setHasFixedSize(true);
@@ -105,13 +119,14 @@ public class Home extends Fragment {
 
         mRecyclerView.setLayoutManager(llm);
 
-        //topCard
-        Card topCard = new Card("top", "Lorem ipsum" ,R.drawable.krukken_icon);
+        //Greetings card
+        Card topCard = new Card(controller.generateGreeting(username), null ,R.drawable.krukken_icon);
 
         //addCardToArray("Geen", "idee", 0);
 
-        //leftCard
-        Card leftCard = new Card("left", "Lorem ipsum" ,R.drawable.krukken_icon);
+        //Faq hot topic
+        int random = controller.generateRandomValue();
+        Card leftCard = new Card(controller.generateHotTopic(random), null ,R.drawable.krukken_icon);
 
         //rightCard
         Card rightCard = new Card("right", "Lorem ipsum",R.drawable.krukken_icon);
