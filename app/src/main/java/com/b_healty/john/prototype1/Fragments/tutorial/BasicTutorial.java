@@ -96,10 +96,6 @@ public class BasicTutorial extends Fragment {
                 tutImage.setImageResource(R.drawable.ic_comment_faq);
                 tutText.setText(R.string.tut_text3);
                 break;
-            case 3:
-                tutImage.setImageResource(R.drawable.ic_home_black);
-                tutText.setText(R.string.tut_final);
-                break;
             default:
                 //tutImage.setImageDrawable();
                 tutText.setText("Sorry er is wat mis gegaan.");
