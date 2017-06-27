@@ -82,6 +82,26 @@ public class DBHandler extends SQLiteOpenHelper {
         return dbString;
     }
 
+    public String genderToString() {
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT gender FROM " + TABLE_USERS + " WHERE 1";
+        //Curson point to a location in your results
+        Cursor c = db.rawQuery(query, null);
+        //Move to first row in results
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            if (c.getString(c.getColumnIndex("gender")) != null) {
+                dbString += c.getString(c.getColumnIndex("gender"));
+                //dbString += "\n";
+            }
+            c.moveToNext();
+        }
+        db.close();
+        c.close();
+        return dbString;
+    }
+
 
 
 }

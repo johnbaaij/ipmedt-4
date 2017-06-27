@@ -24,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
     private AppBarLayout appBarLayout;
     private ViewFlipper viewFlipper;
+    DBHandler dbHandler;
 
+    public MainActivity(DBHandler dbHandler) {
 
-
+    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        this.dbHandler = new DBHandler(this, null , null ,1);
 
         super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
@@ -171,8 +175,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeToUserFragment(){
 
+        Bundle bundle = new Bundle();
+        bundle.putString("username" , dbHandler.usernameToString());
+        bundle.putString("gender" , dbHandler.genderToString());
+
         // Create new fragment and transaction
         Fragment newFragment = new User();
+        newFragment.setArguments(bundle);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         // Replace whatever is in the fragment_container view with this fragment,
