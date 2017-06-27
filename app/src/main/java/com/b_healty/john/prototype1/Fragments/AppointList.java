@@ -82,15 +82,28 @@ public class AppointList extends Fragment {
             appointmentList.add(appointModel);
         }
 
-
         // Maak de adapter hier
-        AppointModel appointModel_data[] = new AppointModel[] {
+        AppointModel appointModel_data[] = new AppointModel[appointmentList.size()];
 
-        };
+        int count = 0;
 
+        for (AppointModel a : appointmentList) {
+            appointModel_data[count] = new AppointModel(
+                    a.getEventID(),
+                    a.getTime(),
+                    a.getDate(),
+                    a.getAppointName(),
+                    a.getWardName(),
+                    a.getDoctorName()
+            );
+
+            count += 1;
+        }
+
+
+        // Create the adapter
         appointAdapter = new AppointAdapter(listener,
                 R.layout.appoint_list_layout, appointModel_data);
-
     }
 
 
