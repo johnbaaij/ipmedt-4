@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<android.support.design.widget.CoordinatorLayout android:id="@+id/mainLayoutBasic"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <include layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
 
     <fragment
-        android:id="@+id/fragment"
+        android:id="@+id/fragment2"
         android:name="com.b_healty.john.prototype1.Fragments.Empty"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        tools:layout="@layout/empty_layout" />
+</android.support.design.widget.CoordinatorLayout>

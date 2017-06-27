@@ -173,7 +173,7 @@ public class Home extends Fragment {
         /**
          * Vanaf dit punt komt code om de afspraken uit de android kalender op te halen
          *                                                                  - Ben
-         */
+
         // Maak alvast een cursor aan en start de ContentResolver
         Cursor cur = null;
 
@@ -246,7 +246,7 @@ public class Home extends Fragment {
 
             cur.close();
         }
-
+*/
         return view;
     }
 
