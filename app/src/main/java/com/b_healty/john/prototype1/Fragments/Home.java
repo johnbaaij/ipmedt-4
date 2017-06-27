@@ -82,7 +82,6 @@ public class Home extends Fragment {
 
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -173,7 +172,7 @@ public class Home extends Fragment {
         /**
          * Vanaf dit punt komt code om de afspraken uit de android kalender op te halen
          *                                                                  - Ben
-
+         */
         // Maak alvast een cursor aan en start de ContentResolver
         Cursor cur = null;
 
@@ -200,53 +199,57 @@ public class Home extends Fragment {
             ActivityCompat.requestPermissions(activity,
                     new String[] {Manifest.permission.READ_CALENDAR},
                     MY_PERMISSIONS_REQUEST_READ_CALENDAR);
-        }
 
-        // Nadat permissie is aangevraagd lanceren we hier de query
-        cur = cr.query(uri, EVENT_PROJECTION, selection, selectionArgs,
-                CalendarContract.Events.DTSTART + " ASC " + " LIMIT 1");
+        } else {
 
-        if (cur != null) {
-            while (cur.moveToNext()) {
-                // Maak variabelen aan die de data uit de kalender in zich kunnen nemen
-                String evtTitle = null;
-                String evtDescription = null;
-                String evtDTStart = null;
+            Log.wtf("Permission is already there", "running code");
 
-                // Stop de de data van de kalender in de variabelen
-                evtTitle = cur.getString(PROJECTION_TITLE_INDEX);
-                evtDescription = cur.getString(PROJECTION_DESCRIPTION_INDEX);
-                evtDTStart = cur.getString(PROJECTION_DTSTART_INDEX);
+            // Nadat permissie is aangevraagd lanceren we hier de query
+            cur = cr.query(uri, EVENT_PROJECTION, selection, selectionArgs,
+                    CalendarContract.Events.DTSTART + " ASC " + " LIMIT 1");
 
-                Calendar calCurr = Calendar.getInstance();
-                Calendar calNext = Calendar.getInstance();
-                calNext.setTimeInMillis(Long.parseLong(evtDTStart));
+            if (cur != null) {
+                while (cur.moveToNext()) {
+                    // Maak variabelen aan die de data uit de kalender in zich kunnen nemen
+                    String evtTitle = null;
+                    String evtDescription = null;
+                    String evtDTStart = null;
 
-                // Roep de klasse CalculateDiff aan die het verschil tussen nu
-                // en de datum van de eerstvolgende afspraak zal berekenen
-                CalculateDifference callDiff =
-                        new CalculateDifference(calCurr.getTime(), calNext.getTime());
+                    // Stop de de data van de kalender in de variabelen
+                    evtTitle = cur.getString(PROJECTION_TITLE_INDEX);
+                    evtDescription = cur.getString(PROJECTION_DESCRIPTION_INDEX);
+                    evtDTStart = cur.getString(PROJECTION_DTSTART_INDEX);
 
-                // Start de berekening
-                callDiff.controlDiff();
+                    Calendar calCurr = Calendar.getInstance();
+                    Calendar calNext = Calendar.getInstance();
+                    calNext.setTimeInMillis(Long.parseLong(evtDTStart));
 
-                // Bouw een string met daarin de data van de berekening
-                // Deze data kan dus ook los gebruikt worden!
-                String daysToCome = "Nog " + callDiff.getElapsedDays()
-                        + " dagen, " + callDiff.getElapsedHours()
-                        + " uur, " + callDiff.getElapsedMinutes()
-                        + " minuten en " + callDiff.getElapsedSeconds()
-                        + " seconden tot de volgende afspraak!";
+                    // Roep de klasse CalculateDiff aan die het verschil tussen nu
+                    // en de datum van de eerstvolgende afspraak zal berekenen
+                    CalculateDifference callDiff =
+                            new CalculateDifference(calCurr.getTime(), calNext.getTime());
+
+                    // Start de berekening
+                    callDiff.controlDiff();
+
+                    // Bouw een string met daarin de data van de berekening
+                    // Deze data kan dus ook los gebruikt worden!
+                    String daysToCome = "Nog " + callDiff.getElapsedDays()
+                            + " dagen, " + callDiff.getElapsedHours()
+                            + " uur, " + callDiff.getElapsedMinutes()
+                            + " minuten en " + callDiff.getElapsedSeconds()
+                            + " seconden tot de volgende afspraak!";
 
 
-                Log.wtf("Titel", evtTitle);
-                Log.wtf("Omschrijving ", evtDescription);
-                Log.wtf("Datum ", daysToCome);
+                    Log.wtf("Titel", evtTitle);
+                    Log.wtf("Omschrijving ", evtDescription);
+                    Log.wtf("Datum ", daysToCome);
+                }
+
+                cur.close();
             }
 
-            cur.close();
         }
-*/
         return view;
     }
 
