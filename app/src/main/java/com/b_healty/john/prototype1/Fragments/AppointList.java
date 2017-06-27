@@ -4,17 +4,22 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.b_healty.john.prototype1.AppointAdapter;
+import com.b_healty.john.prototype1.CalendarInteraction;
 import com.b_healty.john.prototype1.R;
 import com.b_healty.john.prototype1.models.Appointmodel;
+
+import java.util.Calendar;
 
 /**
  * Created by Ben on 27/06/2017.
@@ -28,7 +33,7 @@ public class AppointList extends Fragment {
 
     AppointAdapter appointAdapter;
 
-
+    // Stuff
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -36,6 +41,7 @@ public class AppointList extends Fragment {
             this.listener = (FragmentActivity) context;
         }
     }
+
 
     // Called when the fragment is being created
     // do things here that don't require the fragment to be fully built
@@ -45,18 +51,37 @@ public class AppointList extends Fragment {
 
         // Maak de adapter hier
         Appointmodel appointmodel_data[] = new Appointmodel[] {
-            new Appointmodel("11:15", "15/12/2017", "Beenbreuk fixen", "Radiologie", "Sanjib"),
-            new Appointmodel("12:45", "23/07/2017", "Gips resetten", "Gips", "Verlier"),
-            new Appointmodel("17:45", "29/01/2017", "Been verdraaid", "Botbreuken", "Wingelaar"),
-            new Appointmodel("15:25", "08/10/2017", "Date met de zuster", "Bevalling", "Sandy"),
-            new Appointmodel("16:30", "17/04/2017", "X-Ray", "Radiologie", "Harlingbos"),
-            new Appointmodel("09:15", "11/05/2017", "Knelverband", "Verbinding", "Bonteman")
+
         };
+
+        CalendarInteraction mCalHelper = new CalendarInteraction(listener);
+        Cursor data = mCalHelper.getData();
+
+        while (data.moveToNext())
+        {
+            long evtId;
+            long evtDtStart;
+            String evtTitle;
+            String evtDescription;
+
+            evtId = data.getLong(CalendarInteraction.getProjectionIdIndex());
+            evtDtStart = data.getLong(CalendarInteraction.getProjectionDtstartIndex());
+            evtTitle = data.getString(CalendarInteraction.getProjectionTitleIndex());
+            evtDescription = data.getString(CalendarInteraction.getProjectionDescriptionIndex());
+
+            System.out.println(evtDtStart);
+            System.out.println(getDate(evtDtStart));
+            System.out.println(getTime(evtDtStart));
+
+
+
+        }
 
         appointAdapter = new AppointAdapter(listener,
                 R.layout.appoint_list_layout, appointmodel_data);
 
     }
+
 
     // Called when the fragment creates its layout from XML
     @Override
@@ -101,6 +126,20 @@ public class AppointList extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    private String getDate(long timestamp) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(timestamp);
+        String date = DateFormat.format("dd-MM-yyyy", cal).toString();
+        return date;
+    }
+
+    private String getTime(long timestamp) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(timestamp);
+        String time = DateFormat.format("HH:mm", cal).toString();
+        return time;
     }
 
 }

@@ -180,14 +180,17 @@ public class Home extends Fragment {
         // onze app en de android kalender
         ContentResolver cr = activity.getContentResolver();
 
+
         // De android kalender is zelf een 'content provider', dus heeft deze een adres
         // en dat adres kunnen we benaderen met een URI
         Uri uri = CalendarContract.Events.CONTENT_URI;
+
 
         // Dit is het SELECT statement voor de kalender. Op het vraagtekentje komt een
         // variabele te staan die in selectionArgs wordt aangemaakt
         String selection = "(" + CalendarContract.Events.TITLE + " LIKE ?)";
         String[] selectionArgs = new String[] {"%LGGYCL%"};
+
 
         // Controleer of deze app permissie heeft om te lezen van de kalender
         if (ContextCompat.checkSelfPermission(activity,
@@ -199,14 +202,13 @@ public class Home extends Fragment {
             ActivityCompat.requestPermissions(activity,
                     new String[] {Manifest.permission.READ_CALENDAR},
                     MY_PERMISSIONS_REQUEST_READ_CALENDAR);
-
         } else {
-
             Log.wtf("Permission is already there", "running code");
 
             // Nadat permissie is aangevraagd lanceren we hier de query
             cur = cr.query(uri, EVENT_PROJECTION, selection, selectionArgs,
                     CalendarContract.Events.DTSTART + " ASC " + " LIMIT 1");
+
 
             if (cur != null) {
                 while (cur.moveToNext()) {
@@ -224,13 +226,16 @@ public class Home extends Fragment {
                     Calendar calNext = Calendar.getInstance();
                     calNext.setTimeInMillis(Long.parseLong(evtDTStart));
 
+
                     // Roep de klasse CalculateDiff aan die het verschil tussen nu
                     // en de datum van de eerstvolgende afspraak zal berekenen
                     CalculateDifference callDiff =
                             new CalculateDifference(calCurr.getTime(), calNext.getTime());
 
+
                     // Start de berekening
                     callDiff.controlDiff();
+
 
                     // Bouw een string met daarin de data van de berekening
                     // Deze data kan dus ook los gebruikt worden!
@@ -245,7 +250,7 @@ public class Home extends Fragment {
                     Log.wtf("Omschrijving ", evtDescription);
                     Log.wtf("Datum ", daysToCome);
                 }
-
+                // Sluit de cursor weer af
                 cur.close();
             }
 

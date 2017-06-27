@@ -11,10 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.b_healty.john.prototype1.LauncherActivity;
 import com.b_healty.john.prototype1.LoginActivity;
 import com.b_healty.john.prototype1.R;
-import com.b_healty.john.prototype1.TutorialActivity;
 
 /**
  * Created by John on 14/06/2017.

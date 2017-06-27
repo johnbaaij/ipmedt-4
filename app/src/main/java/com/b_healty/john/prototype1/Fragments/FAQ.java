@@ -3,32 +3,16 @@ package com.b_healty.john.prototype1.Fragments;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.b_healty.john.prototype1.CustomAdapter;
-import com.b_healty.john.prototype1.CustomList;
 import com.b_healty.john.prototype1.R;
-import com.google.gson.Gson;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-
-import static android.R.attr.id;
-import static com.b_healty.john.prototype1.R.id.parent;
 
 /**
  * Created by John on 06/06/2017.

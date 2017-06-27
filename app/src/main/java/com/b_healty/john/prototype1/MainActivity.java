@@ -10,12 +10,10 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.b_healty.john.prototype1.Fragments.AppointList;
-import com.b_healty.john.prototype1.Fragments.Appointment;
 import com.b_healty.john.prototype1.Fragments.FAQ;
 import com.b_healty.john.prototype1.Fragments.Home;
 import com.b_healty.john.prototype1.Fragments.User;

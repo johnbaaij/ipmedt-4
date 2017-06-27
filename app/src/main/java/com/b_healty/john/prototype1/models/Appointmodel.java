@@ -5,6 +5,7 @@ package com.b_healty.john.prototype1.models;
  */
 
 public class Appointmodel {
+    private int eventID;
     private String time;
     private String date;
     private String appointName;
@@ -16,15 +17,24 @@ public class Appointmodel {
         super();
     }
 
-    public Appointmodel(String time, String date, String appointName,
+    public Appointmodel(int id, String time, String date, String appointName,
                         String wardName, String doctorName)
     {
         super();
+        this.eventID = id;
         this.time = time;
         this.date = date;
         this.appointName = appointName;
         this.wardName = wardName;
         this.doctorName = doctorName;
+    }
+
+    public int getEventID() {
+        return eventID;
+    }
+
+    public void setEventID(int eventID) {
+        this.eventID = eventID;
     }
 
     public String getTime() {
