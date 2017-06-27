@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.b_healty.john.prototype1.Fragments.AppointList;
 import com.b_healty.john.prototype1.Fragments.Appointment;
 import com.b_healty.john.prototype1.Fragments.FAQ;
 import com.b_healty.john.prototype1.Fragments.Home;
@@ -134,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
     public void changeToCalendarFragment(){
 
         // Create new fragment and transaction
-        Fragment newFragment = new Appointment();
+        Fragment newFragment = new AppointList();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         // Replace whatever is in the fragment_container view with this fragment,
