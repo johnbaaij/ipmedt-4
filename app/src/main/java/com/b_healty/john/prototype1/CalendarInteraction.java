@@ -57,10 +57,11 @@ public class CalendarInteraction {
                     MY_PERMISSIONS_REQUEST_READ_CALENDAR);
         } else {
             // Debug thingy
-            Log.wtf("Permission is already there", "running code");
+            // Log.wtf("Permission is already there", "running code");
 
             // Nadat permissie is aangevraagd lanceren we hier de query
-            cur = cr.query(uri, EVENT_PROJECTION, selection, selectionArgs, null);
+            cur = cr.query(uri, EVENT_PROJECTION, selection, selectionArgs,
+                    CalendarContract.Events.DTSTART);
 
             // Give back the filled cursor
             return cur;

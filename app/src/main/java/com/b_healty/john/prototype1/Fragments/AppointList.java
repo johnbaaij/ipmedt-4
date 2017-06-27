@@ -50,9 +50,13 @@ public class AppointList extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Create object of CalendarInteraction class
         CalendarInteraction mCalHelper = new CalendarInteraction(listener);
+
+        // Retrieve data from the calender via the CalendarHelper Class
         Cursor data = mCalHelper.getData();
 
+        // Create an arraylist of AppointModels
         ArrayList<AppointModel> appointmentList = new ArrayList<>();
 
         while (data.moveToNext())
@@ -62,6 +66,7 @@ public class AppointList extends Fragment {
             String evtTitle;
             String evtDescription;
 
+            // Put the data retrieved from the calendar in the variables
             evtId = data.getLong(CalendarInteraction.getProjectionIdIndex());
             evtDtStart = data.getLong(CalendarInteraction.getProjectionDtstartIndex());
             evtTitle = data.getString(CalendarInteraction.getProjectionTitleIndex());
@@ -82,11 +87,18 @@ public class AppointList extends Fragment {
             appointmentList.add(appointModel);
         }
 
+        // Close off the cursor
+        data.close();
+
         // Maak de adapter hier
         AppointModel appointModel_data[] = new AppointModel[appointmentList.size()];
 
+        // Keep track of amount of models
         int count = 0;
 
+        // Create an array of objects filled with the models from the AppointModel
+        // arraylist. This array will then be used in conjunction with the appointAdapter
+        // to create the list of appointments
         for (AppointModel a : appointmentList) {
             appointModel_data[count] = new AppointModel(
                     a.getEventID(),
