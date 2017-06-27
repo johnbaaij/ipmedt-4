@@ -2,7 +2,11 @@ package com.b_healty.john.prototype1;
 
 
 import android.app.Activity;
+import android.content.ContentUris;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,15 +72,17 @@ public class AppointAdapter extends ArrayAdapter<AppointModel> {
             public void onClick(View v)
             {
                 long eventID = appointModel.getEventID();
-                System.out.println(eventID);
+                Uri uri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, eventID);
+                Intent intent = new Intent(Intent.ACTION_VIEW)
+                        .setData(uri);
+                context.startActivity(intent);
             }
         });
 
         return row;
-
     }
 
-    static class CalendarHolder
+    private static class CalendarHolder
     {
         TextView timeView;
         TextView dateView;
