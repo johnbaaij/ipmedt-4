@@ -114,12 +114,15 @@
 
         <!-- fragment1: int0 -->
         <string name="tut_text1">Welkom bij de tutorial, voordat je kan inloggen leggen we eerst wat uit.
-        \nDit is het home scherm, hier kun je alles in een oogopslag zien.\nVan fase tot afspraken is alles duidelijk in tegels verdeeld.</string>
+        \nDit is het Home scherm, hier kun je alles in een oogopslag zien.\nVan fase tot afspraken is alles duidelijk in tegels verdeeld.
+            \nEr is een timer tot de volgende afpraakt en krijg je een random vraag uit de FAQ te zien om iets wijzer te worden over het herstel.</string>
         <!-- fragment2: int1 -->
         <string name="tut_text2">Dit is het afspraken scherm, hier kan je de afpraken vanuit het ziekenhuis toevoegen.
-            \nDe afpsraken worden ook direct in je eigen Google agenda gezet. Zo vergeet je dus nooit meer je afspraak.</string>
+            \nDe afpsraken worden ook direct in je eigen Google agenda gezet. Vandaar ook de vraag of Leggy gebruik mocht maken van je eigen agenda. Zo vergeet je dus nooit meer je afspraak.
+        \nJe kan de naam van de dokter in voeren en de afdeling waar je heen moet. Wanneer je in het ziekenhuis ben staat dus ook alle informatie in je telefoon.</string>
         <!-- fragment2: int3 -->
-        <string name="tut_text3">Dit is tutorial slide 3</string>
+        <string name="tut_text3">Wanneer je vragen heb over het genezingsproces of het gips, kan je deze vinden in de FAQ pagina.
+            \n Hier vind je een lijst met vragen en andwoorden, door op de vraag te klikken kan je het andwoord bekijken.</string>
         <!-- final fragmet: int2 -->
         <string name="tut_final">Als laatste is er een pagina over de gebruiker. Hierin kan je alles over jou proces zien. Welke fase beving jij je en hoelang is nog het genezingsproces.
         \nmocht je de tutorial nog een keertje willen bekijken is deze ook te vinden in de User pagina.
