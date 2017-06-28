@@ -142,7 +142,7 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/appointNameHint"
-                        android:inputType="textPersonName" />
+                        android:inputType="textCapSentences" />
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
@@ -187,8 +187,7 @@
                         android:ems="10"
                         android:focusable="false"
                         android:hint="@string/inputDateHint"
-                        android:inputType="date"
-                        android:text="11/12/2013" />
+                        android:inputType="date" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -212,7 +211,7 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/afdelingHint"
-                        android:inputType="textShortMessage" />
+                        android:inputType="textCapSentences" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -237,7 +236,7 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/doctorHint"
-                        android:inputType="textPersonName" />
+                        android:inputType="textCapSentences" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>

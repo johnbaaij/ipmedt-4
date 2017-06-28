@@ -187,6 +187,14 @@ public class Appointment extends Fragment {
             }
         });
 
+        inputDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment dialogFragment = new DatePickerFragment();
+                dialogFragment.show(activity.getFragmentManager(), "datePicker");
+            }
+        });
+
 
     }
 
