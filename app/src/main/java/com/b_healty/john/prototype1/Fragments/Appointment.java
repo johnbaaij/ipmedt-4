@@ -1,6 +1,7 @@
 package com.b_healty.john.prototype1.Fragments;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.b_healty.john.prototype1.R;
 
@@ -175,6 +177,15 @@ public class Appointment extends Fragment {
                 if (controlBit) {
                     startActivity(startCal);
                 }
+            }
+        });
+
+        inputTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(listener, "Sup", Toast.LENGTH_LONG).show();
+                DialogFragment dialogFragment = new TimePickerFragment();
+                dialogFragment.show(activity.getFragmentManager(), "timePicker");
             }
         });
 
