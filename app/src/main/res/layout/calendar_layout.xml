@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="?attr/actionBarSize"
     android:orientation="vertical"
-    android:paddingRight="16dp"
     android:windowSoftInputMode="adjustNothing">
 
     <LinearLayout
@@ -143,7 +142,7 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/appointNameHint"
-                        android:inputType="textPersonName" />
+                        android:inputType="textCapSentences" />
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
@@ -168,6 +167,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:ems="10"
+                        android:focusable="false"
                         android:hint="@string/inputTimeHint"
                         android:inputType="time" />
 
@@ -185,6 +185,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:ems="10"
+                        android:focusable="false"
                         android:hint="@string/inputDateHint"
                         android:inputType="date" />
 
@@ -210,7 +211,7 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/afdelingHint"
-                        android:inputType="textShortMessage" />
+                        android:inputType="textCapSentences" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
@@ -235,7 +236,7 @@
                         android:layout_gravity="center"
                         android:ems="10"
                         android:hint="@string/doctorHint"
-                        android:inputType="textPersonName" />
+                        android:inputType="textCapSentences" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>

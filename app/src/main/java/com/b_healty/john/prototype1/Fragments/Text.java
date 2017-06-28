@@ -1,7 +1,11 @@
 package com.b_healty.john.prototype1.Fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +25,26 @@ public class Text extends Fragment {
     String answer;
     String question;
 
+    private Toolbar toolBar;
+    private FragmentActivity listener;
+    private Activity activity;
+
+    // This method is called when a fragment instance is associated with an activity and will run
+    // before anything else
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof Activity) {
+            this.listener = (FragmentActivity) context;
+        }
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        activity = getActivity();
 
 
         Bundle bundle = this.getArguments();
@@ -50,6 +70,39 @@ public class Text extends Fragment {
         return view;
     }
 
+    // shouldn't be existing outside this fragment
+    @Override
+    public void onStop() {
+        super.onStop();
+        toolBar.setNavigationIcon(null);
+    }
 
+
+    // This fragment is called once the fragment is started. Do stuff here that should
+    // only happen once this fragment is active
+    @Override
+    public void onStart() {
+        super.onStart();
+        toolBar.setNavigationIcon(R.drawable.ic_arrow_back);
+    }
+
+
+    // This method is called after the parent activities' onCreate() method has completed
+    // If you want to access a view inside the parent you have to do that via this method
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        toolBar = (android.support.v7.widget.Toolbar) activity.findViewById(R.id.toolbarMain);
+        toolBar.setNavigationIcon(R.drawable.ic_arrow_back);
+
+        toolBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onBackPressed();
+            }
+        });
+
+    }
 
 }

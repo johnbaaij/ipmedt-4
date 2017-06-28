@@ -1,6 +1,7 @@
 package com.b_healty.john.prototype1.Fragments;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -27,11 +28,10 @@ public class Appointment extends Fragment {
 
     // TODO: 18-6-2017 Er moeten nog animaties gemaakt worden voor de progressbar
 
+    private final String LEGGYCALL = "LGGYCL";
     private FragmentActivity listener;
     private View view;
     private Activity activity;
-
-    private final String LEGGYCALL = "LGGYCL";
     private EditText appointName;
     private EditText inputTime;
     private EditText inputDate;
@@ -39,6 +39,7 @@ public class Appointment extends Fragment {
     private EditText doctorName;
     private Date datum;
     private boolean controlBit;
+    private android.support.v7.widget.Toolbar toolBar;
 
     public Appointment() {
         datum = new Date();
@@ -136,7 +137,7 @@ public class Appointment extends Fragment {
 
                     Calendar endTime = Calendar.getInstance();
                     endTime.setTime(datum);
-                    endTime.add(endTime.HOUR, 2);
+                    endTime.add(Calendar.HOUR, 2);
 
                     System.out.println(endTime);
                     startCal.putExtra("beginTime", beginTime.getTimeInMillis());
@@ -174,9 +175,47 @@ public class Appointment extends Fragment {
                 // Controleer of alle vakken zijn ingevuld
                 if (controlBit) {
                     startActivity(startCal);
+                    getActivity().getFragmentManager().popBackStack();
                 }
+
+
             }
         });
+
+        inputTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment dialogFragment = new TimePickerFragment();
+                dialogFragment.show(activity.getFragmentManager(), "timePicker");
+            }
+        });
+
+        inputDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment dialogFragment = new DatePickerFragment();
+                dialogFragment.show(activity.getFragmentManager(), "datePicker");
+            }
+        });
+
+
+    }
+
+    // This method is called once the fragment is stopped. Remove stuff here that
+    // shouldn't be existing outside this fragment
+    @Override
+    public void onStop() {
+        super.onStop();
+        toolBar.setNavigationIcon(null);
+    }
+
+
+    // This fragment is called once the fragment is started. Do stuff here that should
+    // only happen once this fragment is active
+    @Override
+    public void onStart() {
+        super.onStart();
+        toolBar.setNavigationIcon(R.drawable.ic_arrow_back);
     }
 
 
@@ -194,6 +233,16 @@ public class Appointment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-    }
 
+        toolBar = (android.support.v7.widget.Toolbar) activity.findViewById(R.id.toolbarMain);
+        toolBar.setNavigationIcon(R.drawable.ic_arrow_back);
+
+        toolBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onBackPressed();
+            }
+        });
+
+    }
 }
