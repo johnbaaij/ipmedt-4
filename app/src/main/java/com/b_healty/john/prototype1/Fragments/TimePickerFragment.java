@@ -5,7 +5,10 @@ import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.widget.EditText;
 import android.widget.TimePicker;
+
+import com.b_healty.john.prototype1.R;
 
 import java.util.Calendar;
 
@@ -15,6 +18,8 @@ import java.util.Calendar;
 
 public class TimePickerFragment extends DialogFragment
         implements TimePickerDialog.OnTimeSetListener {
+
+    private EditText timeView;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -29,6 +34,10 @@ public class TimePickerFragment extends DialogFragment
     }
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        String concatTime = hourOfDay + ":" + minute;
+
+        timeView = (EditText) getActivity().findViewById(R.id.inputTime);
+        timeView.setText(concatTime);
 
     }
 

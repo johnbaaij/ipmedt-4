@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.b_healty.john.prototype1.R;
 
@@ -183,7 +182,6 @@ public class Appointment extends Fragment {
         inputTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(listener, "Sup", Toast.LENGTH_LONG).show();
                 DialogFragment dialogFragment = new TimePickerFragment();
                 dialogFragment.show(activity.getFragmentManager(), "timePicker");
             }

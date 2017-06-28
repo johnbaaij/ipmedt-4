@@ -187,7 +187,8 @@
                         android:ems="10"
                         android:focusable="false"
                         android:hint="@string/inputDateHint"
-                        android:inputType="date" />
+                        android:inputType="date"
+                        android:text="11/12/2013" />
 
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
