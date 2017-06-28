@@ -29,7 +29,6 @@ import java.util.Calendar;
 
 public class AppointList extends Fragment {
 
-    // TODO: Back Button bovenaan Appointment Creation view
     // TODO: Animatie feedback
     // TODO: Datum invullen moet beter
     // TODO: Afspraken in verleden niet laten zien
