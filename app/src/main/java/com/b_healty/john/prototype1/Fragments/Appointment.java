@@ -27,11 +27,10 @@ public class Appointment extends Fragment {
 
     // TODO: 18-6-2017 Er moeten nog animaties gemaakt worden voor de progressbar
 
+    private final String LEGGYCALL = "LGGYCL";
     private FragmentActivity listener;
     private View view;
     private Activity activity;
-
-    private final String LEGGYCALL = "LGGYCL";
     private EditText appointName;
     private EditText inputTime;
     private EditText inputDate;
@@ -39,6 +38,7 @@ public class Appointment extends Fragment {
     private EditText doctorName;
     private Date datum;
     private boolean controlBit;
+    private android.support.v7.widget.Toolbar toolBar;
 
     public Appointment() {
         datum = new Date();
@@ -136,7 +136,7 @@ public class Appointment extends Fragment {
 
                     Calendar endTime = Calendar.getInstance();
                     endTime.setTime(datum);
-                    endTime.add(endTime.HOUR, 2);
+                    endTime.add(Calendar.HOUR, 2);
 
                     System.out.println(endTime);
                     startCal.putExtra("beginTime", beginTime.getTimeInMillis());
@@ -177,6 +177,25 @@ public class Appointment extends Fragment {
                 }
             }
         });
+
+
+    }
+
+    // This method is called once the fragment is stopped. Remove stuff here that
+    // shouldn't be existing outside this fragment
+    @Override
+    public void onStop() {
+        super.onStop();
+        toolBar.setVisibility(View.VISIBLE);
+    }
+
+
+    // This fragment is called once the fragment is started. Do stuff here that should
+    // only happen once this fragment is active
+    @Override
+    public void onStart() {
+        super.onStart();
+        toolBar.setVisibility(View.GONE);
     }
 
 
@@ -194,6 +213,9 @@ public class Appointment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-    }
 
+        toolBar = (android.support.v7.widget.Toolbar) activity.findViewById(R.id.toolbarMain);
+        toolBar.setVisibility(View.GONE);
+
+    }
 }

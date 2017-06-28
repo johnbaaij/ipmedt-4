@@ -5,8 +5,19 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="?attr/actionBarSize"
     android:orientation="vertical"
-    android:paddingRight="16dp"
     android:windowSoftInputMode="adjustNothing">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/calendarToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:pointerIcon="arrow"
+        android:theme="?attr/actionBarTheme"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/appointViewTitle"
+        app:titleTextColor="@android:color/background_light" />
 
     <LinearLayout
         android:id="@+id/topHalf"

@@ -122,7 +122,7 @@
         <item>Hi</item>
     </string-array>
 
-    <string name="appointNameHint">Naam</string>
+    <string name="appointNameHint">Afspraak Naam</string>
     <string name="inputTimeHint">Tijd</string>
     <string name="inputDateHint">Datum (DD/MM/JJJJ)</string>
     <string name="afdelingHint">Afdeling</string>
@@ -135,6 +135,7 @@
     <string name="placeholderDoctorName">Sanjib</string>
     <string name="wardID">Afd : </string>
     <string name="doctorID">Dr : </string>
+    <string name="appointViewTitle">Afspraak Maken</string>
 
         <!-- fragment1: int0 -->
         <string name="tut_text1">Welkom bij de tutorial, voordat je kan inloggen leggen we eerst wat uit.
