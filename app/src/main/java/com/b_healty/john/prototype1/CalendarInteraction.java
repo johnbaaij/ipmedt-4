@@ -73,7 +73,7 @@ public class CalendarInteraction {
     public Cursor getData()
     {
         // Setup contentresolver
-        cr = activity.getContentResolver();
+        cr = activity.getBaseContext().getContentResolver();
 
         // Setup uri
         uri = CalendarContract.Events.CONTENT_URI;

@@ -55,7 +55,7 @@ public class AppointList extends Fragment {
         super.onCreate(savedInstanceState);
 
         // Create object of CalendarInteraction class
-        CalendarInteraction mCalHelper = new CalendarInteraction(listener);
+        CalendarInteraction mCalHelper = new CalendarInteraction(getActivity());
 
         // Retrieve data from the calender via the CalendarHelper Class
         Cursor data = mCalHelper.getData();
