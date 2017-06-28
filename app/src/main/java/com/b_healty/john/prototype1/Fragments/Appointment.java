@@ -174,8 +174,11 @@ public class Appointment extends Fragment {
 
                 // Controleer of alle vakken zijn ingevuld
                 if (controlBit) {
+                    getActivity().getFragmentManager().popBackStack();
                     startActivity(startCal);
                 }
+
+
             }
         });
 
