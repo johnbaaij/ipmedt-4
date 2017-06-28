@@ -158,7 +158,6 @@ public class Appointment extends Fragment {
                     controlBit = false;
                 }
 
-
                 // Get the doctor name
                 if (!doctorName.getText().toString().equals("")) {
                     doctorNameString = doctorName.getText().toString();
