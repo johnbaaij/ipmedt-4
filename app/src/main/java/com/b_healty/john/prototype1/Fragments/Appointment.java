@@ -186,7 +186,7 @@ public class Appointment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        toolBar.setVisibility(View.VISIBLE);
+        toolBar.setNavigationIcon(null);
     }
 
 
@@ -195,7 +195,7 @@ public class Appointment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        toolBar.setVisibility(View.GONE);
+        toolBar.setNavigationIcon(R.drawable.ic_arrow_back);
     }
 
 
@@ -215,7 +215,14 @@ public class Appointment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         toolBar = (android.support.v7.widget.Toolbar) activity.findViewById(R.id.toolbarMain);
-        toolBar.setVisibility(View.GONE);
+        toolBar.setNavigationIcon(R.drawable.ic_arrow_back);
+
+        toolBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onBackPressed();
+            }
+        });
 
     }
 }
