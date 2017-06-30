@@ -14,7 +14,6 @@
         android:clickable="true"
         android:elevation="2dp"
         card_view:cardCornerRadius="2dp"
-        card_view:cardElevation="24dp"
         card_view:cardUseCompatPadding="true"
         card_view:layout_constraintBottom_toTopOf="@+id/cardBottomRight"
         card_view:layout_constraintLeft_toLeftOf="parent"
