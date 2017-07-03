@@ -14,7 +14,6 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.b_healty.john.prototype1.R;
@@ -35,7 +34,9 @@ public class AppointList extends Fragment {
     private FloatingActionButton createNew;
     private ListView appointListView;
 
-
+    // This method is called when the fragment attaches itself to it's parent activity
+    // and links through to the method which contains the actual code to be executed at
+    // this stage if the API level is above 23
     @TargetApi(23)
     @Override
     public void onAttach(Context context) {
@@ -43,7 +44,9 @@ public class AppointList extends Fragment {
         onAttachToContext(context);
     }
 
-
+    // This method is called when the fragment attaches itself to it's parent activity
+    // and links through to the method which contains the actual code to be executed at
+    // this stage if the API level is below 23
     @SuppressWarnings("deprecation")
     @Override
     public void onAttach(Activity activity) {
@@ -53,13 +56,15 @@ public class AppointList extends Fragment {
         }
     }
 
-    // This method is called when either the API is above or below
-    // level 23 so to provide compatibility
+
+    // This method runs code when the fragment attaches itself to it's parent
+    // activity. This does not mean the parent activity is fully initialized yet
     protected void onAttachToContext(Context context) {
         if (context instanceof Activity) {
             this.listener = (FragmentActivity) context;
         }
     }
+
 
     // Called when the fragment is being created
     // do things here that don't require the fragment to be fully built
@@ -77,7 +82,6 @@ public class AppointList extends Fragment {
         ArrayList<AppointModel> appointmentList = new ArrayList<>();
 
 
-
         while (data.moveToNext())
         {
             long evtId;
@@ -93,8 +97,6 @@ public class AppointList extends Fragment {
 
             // Create new instance of the appointment model
             AppointModel appointModel = new AppointModel();
-
-
 
             // Fill 'er up
             appointModel.setEventID(evtId);
@@ -151,7 +153,6 @@ public class AppointList extends Fragment {
     // View lookup and listener attaching should happen here
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        // Do SetAdapter hier
 
         // Create fragment instance
         final Appointment point = new Appointment();
@@ -167,16 +168,9 @@ public class AppointList extends Fragment {
             }
         });
 
+        // Link the adapter to the listView
         appointListView = (ListView) listener.findViewById(R.id.AppointList);
         appointListView.setAdapter(appointAdapter);
-
-        appointListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println();
-
-            }
-        });
     }
 
 
@@ -212,16 +206,19 @@ public class AppointList extends Fragment {
         return DateFormat.format("HH:mm", cal).toString();
     }
 
+
     // Split the string for the title
     private String getTitle(String title) {
         return title.split(" - ")[0];
     }
+
 
     // Split the description and return only the part containing
     // the name of the ward
     private String getWard(String description) {
         return description.split(" - ")[1];
     }
+
 
     // Split the description and return only the part containing
     // the name of the doctor
