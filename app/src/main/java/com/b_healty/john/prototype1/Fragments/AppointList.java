@@ -1,10 +1,12 @@
 package com.b_healty.john.prototype1.Fragments;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
@@ -33,15 +35,29 @@ public class AppointList extends Fragment {
     private FloatingActionButton createNew;
     private ListView appointListView;
 
-    // Stuff
+    @TargetApi(23)
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        onAttachToContext(context);
+    }
+
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (Build.VERSION.SDK_INT < 23) {
+            onAttachToContext(activity);
+        }
+    }
+
+
+    protected void onAttachToContext(Context context) {
         if (context instanceof Activity) {
             this.listener = (FragmentActivity) context;
         }
     }
-
 
     // Called when the fragment is being created
     // do things here that don't require the fragment to be fully built
