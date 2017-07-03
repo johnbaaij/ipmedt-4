@@ -6,7 +6,11 @@ package com.b_healty.john.prototype1.adapters;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.ContentUris;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +26,7 @@ import android.widget.ViewFlipper;
 
 import com.b_healty.john.prototype1.fragments.Text.HomeText;
 import com.b_healty.john.prototype1.R;
+import com.b_healty.john.prototype1.models.AppointModel;
 import com.b_healty.john.prototype1.models.Card;
 import com.b_healty.john.prototype1.models.FAQ;
 
@@ -34,6 +39,7 @@ public class CardAdapter extends RecyclerView
     private ArrayList<Card> mDataset;
     private static MyClickListener myClickListener;
     private ViewFlipper viewFlipper;
+
     FAQ faq;
 
 
@@ -135,6 +141,10 @@ public class CardAdapter extends RecyclerView
                 //do whatever you need here
 
                 //Log.d(LOG_TAG, Integer.toString(variable));
+//                final AppointModel appointModel = data[1];
+
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+
 
                 switch (type){
 
@@ -146,17 +156,10 @@ public class CardAdapter extends RecyclerView
                         String question = questionList[data];
                         String answer = answerList[data];
 
-
-
-
-                        //Here goes your desired onClick behaviour. Like:
-                        Toast.makeText(v.getContext(), "You have clicked " + v.getId(), Toast.LENGTH_SHORT).show(); //you can add data to the tag of your cardview in onBind... and retrieve it here with with.getTag().toString()..
                         //You can change the fragment, something like this, not tested, please correct for your desired output:
-                        AppCompatActivity activity = (AppCompatActivity) v.getContext();
                         //Text myFragment = new Text();
                         //Create a bundle to pass data, add data, set the bundle to your fragment and:
                         //activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment2, myFragment).addToBackStack(null).commit();
-
 
                         Bundle bundle = new Bundle();
                         bundle.putString("question", question);
@@ -165,7 +168,6 @@ public class CardAdapter extends RecyclerView
                         viewFlipper = (ViewFlipper) activity.findViewById(R.id.flipper);
 
                         viewFlipper.setDisplayedChild(2);
-
 
                         // Create new fragment and transaction
                         Fragment newFragment = new HomeText();
@@ -180,13 +182,15 @@ public class CardAdapter extends RecyclerView
                         // Commit the transaction
                         transaction.commit();
 
+                        break;
 
+
+                    case 2:
 
 
                         break;
                     default:
                         Log.d(LOG_TAG, "niet faq");
-
                         break;
                 }
             }

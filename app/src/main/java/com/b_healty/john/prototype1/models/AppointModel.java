@@ -19,7 +19,6 @@ public class AppointModel {
     public AppointModel(long id, String time, String date, String appointName,
                         String wardName, String doctorName)
     {
-        super();
         this.eventID = id;
         this.time = time;
         this.date = date;

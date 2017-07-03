@@ -99,12 +99,13 @@ public class MainActivity extends AppCompatActivity {
             viewFlipper = (ViewFlipper) this.findViewById(R.id.flipper);
             //appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
 
-            changeToHomeFragment();
 
 
             //mTextMessage = (TextView) findViewById(R.id.message);
             BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottomNavigation);
             navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+
 
             Bundle b = getIntent().getExtras();
 
@@ -121,7 +122,12 @@ public class MainActivity extends AppCompatActivity {
             else{
 
             }
-        }
+
+        changeToHomeFragment();
+        changeToCalendarFragment();
+        changeToHomeFragment();
+
+    }
 
     public void disableShiftMode(){
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
@@ -181,7 +187,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeToFAQFragment(){
 
-
         // Create new fragment and transaction
         Fragment newFragment = new FAQ();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -193,10 +198,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Commit the transaction
         transaction.commit();
-
-
     }
-
 
     public void changeToUserFragment(){
 
@@ -216,7 +218,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Commit the transaction
         transaction.commit();
-
     }
 }
 
