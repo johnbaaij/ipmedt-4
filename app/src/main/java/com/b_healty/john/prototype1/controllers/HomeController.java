@@ -148,24 +148,36 @@ public class HomeController {
                     hours = callDiff.getElapsedHours();
                     minutes = callDiff.getElapsedMinutes();
 
-
-
-
-
                     // Bouw een string met daarin de data van de berekening
                     // Deze data kan dus ook los gebruikt worden!
-                     daysToCome = "Nog " + minutes
-                            + " dagen, " + hours
-                            + " uur en " + minutes
-                            + " minuten tot de volgende afspraak!";
 
+                    if (days == 1){
+                        daysToCome = "Nog " + days
+                                + " dag, " + hours
+                                + " uur en " + minutes
+                                + " minuten tot de volgende afspraak!";
+                    }
+                    else{
+                        daysToCome = "Nog " + days
+                                + " dagen, " + hours
+                                + " uur en " + minutes
+                                + " minuten tot de volgende afspraak!";
 
-                     Log.d("days", Long.toString(callDiff.getElapsedDays()));
+                    }
+                    }
 
-                }
                 // Sluit de cursor weer af
                 cur.close();
             }
+
+            else{
+                cur.close();
+            }
+        }
+
+        if (daysToCome == null){
+            Log.d("days", "null");
+            daysToCome ="Geen afspraken toegevoegd. Klik hier om een afspraak te maken";
         }
         CountDown countDown = new CountDown(days,hours, minutes,seconds, title, description, date, daysToCome );
         return countDown;
