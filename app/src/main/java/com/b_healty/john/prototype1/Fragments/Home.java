@@ -1,37 +1,25 @@
 package com.b_healty.john.prototype1.Fragments;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.Fragment;
-import android.content.ContentResolver;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-//import com.b_healty.john.prototype1.GridSpacingItemDecoration;
+import com.b_healty.john.prototype1.CardAdapter;
 import com.b_healty.john.prototype1.GridSpacingItemDecoration;
-import com.b_healty.john.prototype1.MyRecyclerViewAdapter;
 import com.b_healty.john.prototype1.R;
-import com.b_healty.john.prototype1.CalculateDifference;
 import com.b_healty.john.prototype1.controllers.HomeController;
 import com.b_healty.john.prototype1.models.Card;
 
-
 import java.util.ArrayList;
-import java.util.Calendar;
 
 /**
  * Created by John on 06/06/2017.
@@ -47,29 +35,15 @@ public class Home extends Fragment {
     private ArrayList results = new ArrayList<Card>();
     String username;
     HomeController controller;
+    private final int MY_PERMISSIONS_REQUEST_READ_CALENDAR = 1;
+
+    int normal = 0;
+    int faq = 1;
+    int calendar = 2;
+
 
 
     private StaggeredGridLayoutManager sGridLayoutManager;
-
-
-    // Dit is de projection array. Hierin is vastgelegd welke kolommen uit
-    // de database opgevraagd worden met de selection query
-    public static final String[] EVENT_PROJECTION = new String[] {
-            CalendarContract.Events.TITLE,          // 0
-            CalendarContract.Events.DESCRIPTION,    // 1
-            CalendarContract.Events.DTSTART         // 2
-    };
-
-    // Elke kolom heeft zijn eigen plaats in de array, hier worden die
-    // plaatsen vastgelegd
-    private static final int PROJECTION_TITLE_INDEX = 0;
-    private static final int PROJECTION_DESCRIPTION_INDEX = 1;
-    private static final int PROJECTION_DTSTART_INDEX = 2;
-
-    // Permission string
-    public final int MY_PERMISSIONS_REQUEST_READ_CALENDAR = 1;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -115,24 +89,24 @@ public class Home extends Fragment {
         boolean includeEdge = true;
         mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
 
-
-
         mRecyclerView.setLayoutManager(llm);
 
         //Greetings card
-        Card topCard = new Card(controller.generateGreeting(username), null ,R.drawable.krukken_icon);
+        Card topCard = new Card(controller.generateGreeting(username), null ,R.drawable.krukken_icon, 0, normal);
 
         //addCardToArray("Geen", "idee", 0);
 
         //Faq hot topic
         int random = controller.generateRandomValue();
-        Card leftCard = new Card(controller.generateHotTopic(random), null ,R.drawable.krukken_icon);
+        Card leftCard = new Card(controller.generateHotTopic(random), null ,R.drawable.krukken_icon, random, faq);
 
         //rightCard
-        Card rightCard = new Card("right", "Lorem ipsum",R.drawable.krukken_icon);
+        Card rightCard = new Card(controller.generateTimeStamp(activity).getDaysToCome(), null,R.drawable.krukken_icon, 3, normal);
+
+        controller.generateTimeStamp(activity);
 
 
-        Card bonus = new Card("Extra", "Lorem ipsum",R.drawable.krukken_icon);
+        Card bonus = new Card("Extra", "Lorem ipsum",R.drawable.krukken_icon, 4, normal);
 
 
 
@@ -143,99 +117,17 @@ public class Home extends Fragment {
 
 
 
-        mAdapter = new MyRecyclerViewAdapter(results);
+
+        mAdapter = new CardAdapter(results);
         //((MyRecyclerViewAdapter) mAdapter).addItem(leftCard, 1);
         //((MyRecyclerViewAdapter) mAdapter).addItem(topCard, 2, true);
 
         //mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setAdapter(mAdapter);
 
-        /**
-         * Vanaf dit punt komt code om de afspraken uit de android kalender op te halen
-         *                                                                  - Ben
-         */
-        // Maak alvast een cursor aan en start de ContentResolver
-        Cursor cur = null;
-
-        // De contentResolver is hetgene wat zal de interactie lever tussen
-        // onze app en de android kalender
-        ContentResolver cr = activity.getContentResolver();
 
 
-        // De android kalender is zelf een 'content provider', dus heeft deze een adres
-        // en dat adres kunnen we benaderen met een URI
-        Uri uri = CalendarContract.Events.CONTENT_URI;
 
-
-        // Dit is het SELECT statement voor de kalender. Op het vraagtekentje komt een
-        // variabele te staan die in selectionArgs wordt aangemaakt
-        String selection = "(" + CalendarContract.Events.TITLE + " LIKE ?)";
-        String[] selectionArgs = new String[] {"%LGGYCL%"};
-
-
-        // Controleer of deze app permissie heeft om te lezen van de kalender
-        if (ContextCompat.checkSelfPermission(activity,
-                Manifest.permission.READ_CALENDAR)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            // In dit geval is er geen permissie, tijd om deze aan te vragen
-            // dit gaat verder in de functie onRequestPermissionsResult
-            ActivityCompat.requestPermissions(activity,
-                    new String[] {Manifest.permission.READ_CALENDAR},
-                    MY_PERMISSIONS_REQUEST_READ_CALENDAR);
-        } else {
-            Log.wtf("Permission is already there", "running code");
-
-            // Nadat permissie is aangevraagd lanceren we hier de query
-            cur = cr.query(uri, EVENT_PROJECTION, selection, selectionArgs,
-                    CalendarContract.Events.DTSTART + " ASC " + " LIMIT 1");
-
-
-            if (cur != null) {
-                while (cur.moveToNext()) {
-                    // Maak variabelen aan die de data uit de kalender in zich kunnen nemen
-                    String evtTitle = null;
-                    String evtDescription = null;
-                    String evtDTStart = null;
-
-                    // Stop de de data van de kalender in de variabelen
-                    evtTitle = cur.getString(PROJECTION_TITLE_INDEX);
-                    evtDescription = cur.getString(PROJECTION_DESCRIPTION_INDEX);
-                    evtDTStart = cur.getString(PROJECTION_DTSTART_INDEX);
-
-                    Calendar calCurr = Calendar.getInstance();
-                    Calendar calNext = Calendar.getInstance();
-                    calNext.setTimeInMillis(Long.parseLong(evtDTStart));
-
-
-                    // Roep de klasse CalculateDiff aan die het verschil tussen nu
-                    // en de datum van de eerstvolgende afspraak zal berekenen
-                    CalculateDifference callDiff =
-                            new CalculateDifference(calCurr.getTime(), calNext.getTime());
-
-
-                    // Start de berekening
-                    callDiff.controlDiff();
-
-
-                    // Bouw een string met daarin de data van de berekening
-                    // Deze data kan dus ook los gebruikt worden!
-                    String daysToCome = "Nog " + callDiff.getElapsedDays()
-                            + " dagen, " + callDiff.getElapsedHours()
-                            + " uur, " + callDiff.getElapsedMinutes()
-                            + " minuten en " + callDiff.getElapsedSeconds()
-                            + " seconden tot de volgende afspraak!";
-
-
-                    Log.wtf("Titel", evtTitle);
-                    Log.wtf("Omschrijving ", evtDescription);
-                    Log.wtf("Datum ", daysToCome);
-                }
-                // Sluit de cursor weer af
-                cur.close();
-            }
-
-        }
         return view;
     }
 

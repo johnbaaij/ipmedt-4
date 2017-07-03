@@ -14,7 +14,6 @@ public class AppointModel {
 
     public AppointModel()
     {
-        super();
     }
 
     public AppointModel(long id, String time, String date, String appointName,
