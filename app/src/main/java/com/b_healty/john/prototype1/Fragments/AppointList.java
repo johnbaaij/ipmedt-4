@@ -28,11 +28,6 @@ import java.util.Calendar;
  */
 
 public class AppointList extends Fragment {
-
-    // TODO: Animatie feedback
-    // TODO: Datum invullen moet beter
-    // TODO: Afspraken in verleden niet laten zien
-
     AppointAdapter appointAdapter;
     private FragmentActivity listener;
     private FloatingActionButton createNew;
@@ -57,12 +52,8 @@ public class AppointList extends Fragment {
         // Create object of CalendarInteraction class
         CalendarInteraction mCalHelper = new CalendarInteraction(getActivity());
 
-
-
         // Retrieve data from the calender via the CalendarHelper Class
         Cursor data = mCalHelper.getData();
-
-
 
         // Create an arraylist of AppointModels
         ArrayList<AppointModel> appointmentList = new ArrayList<>();

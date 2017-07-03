@@ -10,7 +10,8 @@ import android.provider.CalendarContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
+
+import java.util.Calendar;
 
 /**
  * Created by Ben-e on 27-6-2017.
@@ -30,21 +31,37 @@ public class CalendarInteraction {
     private static final int PROJECTION_DESCRIPTION_INDEX = 3;
 
     public final int MY_PERMISSIONS_REQUEST_READ_CALENDAR = 1;
-
+    // Bepaal de tijd op dit moment in milliseconden
+    private final long calCur = Calendar.getInstance().getTimeInMillis();
     private Cursor cur;
     private ContentResolver cr;
     private Uri uri;
     private String selection;
     private String[] selectionArgs;
-
     private Activity activity;
 
     public CalendarInteraction(Activity activity) {
         this.activity = activity;
     }
 
+    public static int getProjectionIdIndex() {
+        return PROJECTION_ID_INDEX;
+    }
+
+    public static int getProjectionTitleIndex() {
+        return PROJECTION_TITLE_INDEX;
+    }
+
+    public static int getProjectionDtstartIndex() {
+        return PROJECTION_DTSTART_INDEX;
+    }
+
+    public static int getProjectionDescriptionIndex() {
+        return PROJECTION_DESCRIPTION_INDEX;
+    }
+
     @Nullable
-    private Cursor runQuery()
+    private Cursor runQuery(ContentResolver cr, Uri uri, String selection, String[] selectionArgs)
     {
         if (ContextCompat.checkSelfPermission(activity,
                 Manifest.permission.READ_CALENDAR)
@@ -69,7 +86,6 @@ public class CalendarInteraction {
         return null;
     }
 
-
     public Cursor getData()
     {
         // Setup contentresolver
@@ -79,26 +95,13 @@ public class CalendarInteraction {
         uri = CalendarContract.Events.CONTENT_URI;
 
         // Setup select statement
-        selection = "(" + CalendarContract.Events.TITLE + " LIKE ?)";
-        selectionArgs = new String[] {"%LGGYCL%"};
+        String selection = "((" + CalendarContract.Events.TITLE + " LIKE ?) AND ("
+                + CalendarContract.Events.DTSTART + " > ? ))";
+
+
+        String[] selectionArgs = new String[]{"%LGGYCL%", Long.toString(calCur)};
 
         // Run the query
-        return runQuery();
-    }
-
-    public static int getProjectionIdIndex() {
-        return PROJECTION_ID_INDEX;
-    }
-
-    public static int getProjectionTitleIndex() {
-        return PROJECTION_TITLE_INDEX;
-    }
-
-    public static int getProjectionDtstartIndex() {
-        return PROJECTION_DTSTART_INDEX;
-    }
-
-    public static int getProjectionDescriptionIndex() {
-        return PROJECTION_DESCRIPTION_INDEX;
+        return runQuery(cr, uri, selection, selectionArgs);
     }
 }

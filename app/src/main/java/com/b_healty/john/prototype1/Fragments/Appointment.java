@@ -27,7 +27,6 @@ import java.util.Date;
 public class Appointment extends Fragment {
 
     // TODO: 18-6-2017 Er moeten nog animaties gemaakt worden voor de progressbar
-    // TODO: Datum is -1
     // TODO: Wanneer het aantal dagen lager is dan 1 verander 'dagen' in 'dag'
     // TODO: Afspraak moet verdwijnen wanneer deze klaar is
 

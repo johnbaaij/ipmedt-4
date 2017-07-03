@@ -36,8 +36,10 @@ public class HomeController {
     private static final int PROJECTION_TITLE_INDEX = 0;
     private static final int PROJECTION_DESCRIPTION_INDEX = 1;
     private static final int PROJECTION_DTSTART_INDEX = 2;
+
     // Bepaal de tijd op dit moment in milliseconden
     private final long calCur = Calendar.getInstance().getTimeInMillis();
+
     // Permission string
     private final int MY_PERMISSIONS_REQUEST_READ_CALENDAR = 1;
     String[] questionList = MainActivity.resources.getStringArray(R.array.questions);
@@ -91,8 +93,8 @@ public class HomeController {
 
         // Dit is het SELECT statement voor de kalender. Op het vraagtekentje komt een
         // variabele te staan die in selectionArgs wordt aangemaakt
-        String selection = "(" + CalendarContract.Events.TITLE + " LIKE ?) AND ("
-                + CalendarContract.Events.DTSTART + " > ?)";
+        String selection = "((" + CalendarContract.Events.TITLE + " LIKE ?) AND ("
+                + CalendarContract.Events.DTSTART + " > ? ))";
 
 
         String[] selectionArgs = new String[]{"%LGGYCL%", Long.toString(calCur)};
