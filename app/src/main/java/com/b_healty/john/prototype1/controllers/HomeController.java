@@ -24,9 +24,24 @@ import java.util.Random;
  */
 
 public class HomeController {
+    // Dit is de projection array. Hierin is vastgelegd welke kolommen uit
+    // de database opgevraagd worden met de selection query
+    private static final String[] EVENT_PROJECTION = new String[]{
+            CalendarContract.Events.TITLE,          // 0
+            CalendarContract.Events.DESCRIPTION,    // 1
+            CalendarContract.Events.DTSTART         // 2
+    };
+    // Elke kolom heeft zijn eigen plaats in de array, hier worden die
+    // plaatsen vastgelegd
+    private static final int PROJECTION_TITLE_INDEX = 0;
+    private static final int PROJECTION_DESCRIPTION_INDEX = 1;
+    private static final int PROJECTION_DTSTART_INDEX = 2;
+    // Bepaal de tijd op dit moment in milliseconden
+    private final long calCur = Calendar.getInstance().getTimeInMillis();
+    // Permission string
+    private final int MY_PERMISSIONS_REQUEST_READ_CALENDAR = 1;
     String[] questionList = MainActivity.resources.getStringArray(R.array.questions);
     String[] greetings = MainActivity.resources.getStringArray(R.array.greetings);
-
     private long days;
     private long hours;
     private long minutes;
@@ -35,26 +50,6 @@ public class HomeController {
     private String description;
     private String date;
     private String daysToCome;
-
-
-
-
-    // Dit is de projection array. Hierin is vastgelegd welke kolommen uit
-    // de database opgevraagd worden met de selection query
-    private static final String[] EVENT_PROJECTION = new String[]{
-            CalendarContract.Events.TITLE,          // 0
-            CalendarContract.Events.DESCRIPTION,    // 1
-            CalendarContract.Events.DTSTART         // 2
-    };
-
-    // Elke kolom heeft zijn eigen plaats in de array, hier worden die
-    // plaatsen vastgelegd
-    private static final int PROJECTION_TITLE_INDEX = 0;
-    private static final int PROJECTION_DESCRIPTION_INDEX = 1;
-    private static final int PROJECTION_DTSTART_INDEX = 2;
-
-    // Permission string
-    private final int MY_PERMISSIONS_REQUEST_READ_CALENDAR = 1;
 
     public String generateHotTopic(int number) {
         String hotTopic = questionList[number];
@@ -96,8 +91,11 @@ public class HomeController {
 
         // Dit is het SELECT statement voor de kalender. Op het vraagtekentje komt een
         // variabele te staan die in selectionArgs wordt aangemaakt
-        String selection = "(" + CalendarContract.Events.TITLE + " LIKE ?)";
-        String[] selectionArgs = new String[]{"%LGGYCL%"};
+        String selection = "(" + CalendarContract.Events.TITLE + " LIKE ?) AND ("
+                + CalendarContract.Events.DTSTART + " > ?)";
+
+
+        String[] selectionArgs = new String[]{"%LGGYCL%", Long.toString(calCur)};
 
 
         // Controleer of deze app permissie heeft om te lezen van de kalender
@@ -156,16 +154,15 @@ public class HomeController {
                                 + " dag, " + hours
                                 + " uur en " + minutes
                                 + " minuten tot de volgende afspraak!";
-                    }
-                    else{
+                    } else {
                         daysToCome = "Nog " + days
                                 + " dagen, " + hours
                                 + " uur en " + minutes
                                 + " minuten tot de volgende afspraak!";
 
                     }
-                    }
 
+                }
                 // Sluit de cursor weer af
                 cur.close();
             }
