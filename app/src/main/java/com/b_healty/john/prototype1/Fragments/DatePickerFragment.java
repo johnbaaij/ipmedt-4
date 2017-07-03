@@ -34,7 +34,7 @@ public class DatePickerFragment extends DialogFragment
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         // Do something with the date chosen by the user
-        String concatDate = day + "/" + month + "/" + year;
+        String concatDate = day + "/" + (month + 1) + "/" + year;
 
         dateView = (EditText) getActivity().findViewById(R.id.inputDate);
         dateView.setText(concatDate);
