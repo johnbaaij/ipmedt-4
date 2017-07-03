@@ -13,10 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.b_healty.john.prototype1.CardAdapter;
-import com.b_healty.john.prototype1.GridSpacingItemDecoration;
 import com.b_healty.john.prototype1.R;
+import com.b_healty.john.prototype1.adapters.CardAdapter;
 import com.b_healty.john.prototype1.controllers.HomeController;
+import com.b_healty.john.prototype1.decorations.GridSpacingItemDecoration;
 import com.b_healty.john.prototype1.models.Card;
 
 import java.util.ArrayList;

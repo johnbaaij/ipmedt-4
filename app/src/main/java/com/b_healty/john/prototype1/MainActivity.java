@@ -18,6 +18,8 @@ import com.b_healty.john.prototype1.Fragments.AppointList;
 import com.b_healty.john.prototype1.Fragments.FAQ;
 import com.b_healty.john.prototype1.Fragments.Home;
 import com.b_healty.john.prototype1.Fragments.User;
+import com.b_healty.john.prototype1.dbhelpers.DBHandler;
+import com.b_healty.john.prototype1.decorations.BottomNavigationViewHelper;
 
 
 public class MainActivity extends AppCompatActivity {

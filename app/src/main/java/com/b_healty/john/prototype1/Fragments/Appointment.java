@@ -28,7 +28,6 @@ public class Appointment extends Fragment {
 
     // TODO: 18-6-2017 Er moeten nog animaties gemaakt worden voor de progressbar
     // TODO: Wanneer het aantal dagen lager is dan 1 verander 'dagen' in 'dag'
-    // TODO: Afspraak moet verdwijnen wanneer deze klaar is
 
     private final String LEGGYCALL = "LGGYCL";
     private FragmentActivity listener;

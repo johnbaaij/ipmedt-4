@@ -1,4 +1,4 @@
-package com.b_healty.john.prototype1;
+package com.b_healty.john.prototype1.decorations;
 
 /**
  * Created by Kim Wijfje on 6-6-2017.
@@ -8,6 +8,7 @@ import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
+
 import java.lang.reflect.Field;
 
 public class BottomNavigationViewHelper {

@@ -11,9 +11,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
-import com.b_healty.john.prototype1.CalculateDifference;
 import com.b_healty.john.prototype1.MainActivity;
 import com.b_healty.john.prototype1.R;
+import com.b_healty.john.prototype1.dbhelpers.CalculateDifference;
 import com.b_healty.john.prototype1.models.CountDown;
 
 import java.util.Calendar;

@@ -1,4 +1,4 @@
-package com.b_healty.john.prototype1;
+package com.b_healty.john.prototype1.decorations;
 
 
 

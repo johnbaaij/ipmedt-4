@@ -1,14 +1,9 @@
-package com.b_healty.john.prototype1;
+package com.b_healty.john.prototype1.adapters;
 
 /**
  * Created by John on 13/06/2017.
  */
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
-import android.content.res.Resources;
-import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,9 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.b_healty.john.prototype1.Fragments.Text;
+import com.b_healty.john.prototype1.R;
 import com.b_healty.john.prototype1.models.Card;
-import com.bumptech.glide.load.engine.Resource;
 
 import java.util.ArrayList;
 

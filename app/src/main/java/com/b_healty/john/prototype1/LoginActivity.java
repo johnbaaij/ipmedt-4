@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.b_healty.john.prototype1.dbhelpers.DBHandler;
 import com.b_healty.john.prototype1.models.Users;
 
 

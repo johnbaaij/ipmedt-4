@@ -11,8 +11,8 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.b_healty.john.prototype1.FaqAdapter;
 import com.b_healty.john.prototype1.R;
+import com.b_healty.john.prototype1.adapters.FaqAdapter;
 
 /**
  * Created by John on 06/06/2017.

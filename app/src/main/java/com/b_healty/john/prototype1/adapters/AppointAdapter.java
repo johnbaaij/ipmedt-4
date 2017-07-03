@@ -1,4 +1,4 @@
-package com.b_healty.john.prototype1;
+package com.b_healty.john.prototype1.adapters;
 
 
 import android.app.Activity;
@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.b_healty.john.prototype1.R;
 import com.b_healty.john.prototype1.models.AppointModel;
 
 /**

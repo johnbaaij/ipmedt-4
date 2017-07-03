@@ -1,12 +1,14 @@
 package com.b_healty.john.prototype1;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
+
+import com.b_healty.john.prototype1.dbhelpers.DBHandler;
 
 import java.lang.reflect.Field;
 

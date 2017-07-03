@@ -1,10 +1,11 @@
-package com.b_healty.john.prototype1;
+package com.b_healty.john.prototype1.dbhelpers;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import com.b_healty.john.prototype1.models.Users;
 
 /**

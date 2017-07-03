@@ -17,9 +17,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.b_healty.john.prototype1.AppointAdapter;
-import com.b_healty.john.prototype1.CalendarInteraction;
 import com.b_healty.john.prototype1.R;
+import com.b_healty.john.prototype1.adapters.AppointAdapter;
+import com.b_healty.john.prototype1.dbhelpers.CalendarInteraction;
 import com.b_healty.john.prototype1.models.AppointModel;
 
 import java.util.ArrayList;
@@ -52,7 +52,8 @@ public class AppointList extends Fragment {
         }
     }
 
-
+    // This method is called when either the API is above or below
+    // level 23 so to provide compatibility
     protected void onAttachToContext(Context context) {
         if (context instanceof Activity) {
             this.listener = (FragmentActivity) context;
