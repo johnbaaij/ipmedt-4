@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="500dp">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_recycler_view"
-        android:layout_width="400dp"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="false"
 
@@ -16,18 +16,9 @@
         android:layout_gravity="center"
         android:clipToPadding="false"
         android:orientation="horizontal"
+        android:scrollbars="vertical"
         android:weightSum="2"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="273dp" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="96dp"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="56dp"
-        android:clickable="true"
-        android:elevation="15dp"
-        app:srcCompat="@drawable/ic_stage_1" />
 
 </android.support.design.widget.CoordinatorLayout>
