@@ -2,10 +2,10 @@ package com.b_healty.john.prototype1;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.b_healty.john.prototype1.Fragments.tutorial.BasicTutorial;
+import com.b_healty.john.prototype1.fragments.tutorial.BasicTutorial;
 
 public class TutorialActivity extends AppCompatActivity {
 

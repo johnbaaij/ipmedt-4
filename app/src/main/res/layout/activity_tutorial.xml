@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/tutorialFragment"
-        android:name="com.b_healty.john.prototype1.Fragments.Empty"
+        android:name="com.b_healty.john.prototype1.fragments.Empty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"

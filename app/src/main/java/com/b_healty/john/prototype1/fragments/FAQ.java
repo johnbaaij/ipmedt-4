@@ -1,4 +1,4 @@
-package com.b_healty.john.prototype1.Fragments;
+package com.b_healty.john.prototype1.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;

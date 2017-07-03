@@ -1,4 +1,4 @@
-package com.b_healty.john.prototype1.Fragments;
+package com.b_healty.john.prototype1.fragments;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -34,6 +34,7 @@ public class AppointList extends Fragment {
     private FragmentActivity listener;
     private FloatingActionButton createNew;
     private ListView appointListView;
+
 
     @TargetApi(23)
     @Override

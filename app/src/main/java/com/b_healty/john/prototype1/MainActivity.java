@@ -14,12 +14,12 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import com.b_healty.john.prototype1.Fragments.AppointList;
-import com.b_healty.john.prototype1.Fragments.FAQ;
-import com.b_healty.john.prototype1.Fragments.Home;
-import com.b_healty.john.prototype1.Fragments.User;
 import com.b_healty.john.prototype1.dbhelpers.DBHandler;
 import com.b_healty.john.prototype1.decorations.BottomNavigationViewHelper;
+import com.b_healty.john.prototype1.fragments.AppointList;
+import com.b_healty.john.prototype1.fragments.FAQ;
+import com.b_healty.john.prototype1.fragments.Home;
+import com.b_healty.john.prototype1.fragments.User;
 
 
 public class MainActivity extends AppCompatActivity {

@@ -55,7 +55,7 @@
 
         <fragment
             android:id="@+id/fragment1"
-            android:name="com.b_healty.john.prototype1.Fragments.Empty"
+            android:name="com.b_healty.john.prototype1.fragments.Empty"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/empty_layout" />
