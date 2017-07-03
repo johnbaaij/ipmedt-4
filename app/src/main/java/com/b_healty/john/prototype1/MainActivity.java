@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
     private AppBarLayout appBarLayout;
     private ViewFlipper viewFlipper;
     public static Resources resources;
+    com.b_healty.john.prototype1.models.FAQ faq;
+
+    String[] questionList;
+    String[] answerList;
 
     DBHandler dbHandler;
 
@@ -74,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        questionList = getResources().getStringArray(R.array.questions);
+        answerList = getResources().getStringArray(R.array.answers);
+
+        faq = new com.b_healty.john.prototype1.models.FAQ(questionList, answerList);
         this.dbHandler = new DBHandler(this, null , null ,1);
 
         super.onCreate(savedInstanceState);

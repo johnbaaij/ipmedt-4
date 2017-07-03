@@ -10,7 +10,7 @@
     <android.support.v7.widget.CardView
         android:id="@+id/cardTop"
         android:layout_width="170dp"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:clickable="true"
         android:elevation="2dp"
         card_view:cardCornerRadius="2dp"
@@ -23,54 +23,59 @@
         tools:layout_constraintBottom_creator="1"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1">
+        tools:layout_constraintTop_creator="1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp">
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="4dp">
 
             <ImageView
                 android:id="@+id/overflow"
                 android:layout_width="193dp"
                 android:layout_height="120dp"
-                android:layout_marginTop="0dp"
                 android:scaleType="centerCrop"
-                card_view:layout_constraintHorizontal_bias="0.434"
-                card_view:layout_constraintLeft_toLeftOf="parent"
+                tools:layout_editor_absoluteX="-11dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <Button
+                android:id="@+id/moreButton"
+                android:layout_width="87dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Button"
                 card_view:layout_constraintRight_toRightOf="parent"
-                card_view:layout_constraintTop_toTopOf="parent" />
+                card_view:layout_constraintTop_toBottomOf="@+id/overflow" />
 
             <TextView
                 android:id="@+id/cardTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
                 android:paddingLeft="8dp"
                 android:text="Title"
                 android:visibility="gone"
-                card_view:layout_constraintHorizontal_bias="0.352"
-                card_view:layout_constraintLeft_toLeftOf="parent"
-                card_view:layout_constraintRight_toRightOf="parent"
-                card_view:layout_constraintTop_toBottomOf="@+id/overflow"
-                tools:text="Title" />
+                tools:text="Title"
+                tools:layout_editor_absoluteY="120dp"
+                tools:layout_editor_absoluteX="58dp" />
 
 
             <TextView
                 android:id="@+id/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
                 android:paddingLeft="8dp"
                 android:text="tekst"
                 android:textSize="12sp"
-                card_view:layout_constraintLeft_toLeftOf="parent"
-                card_view:layout_constraintRight_toRightOf="parent"
-                card_view:layout_constraintTop_toBottomOf="@+id/cardTitle"
-                tools:text="tekst" />
+                tools:text="tekst"
+                tools:layout_editor_absoluteY="120dp"
+                tools:layout_editor_absoluteX="64dp" />
 
         </android.support.constraint.ConstraintLayout>
+
     </android.support.v7.widget.CardView>
 
 </RelativeLayout>

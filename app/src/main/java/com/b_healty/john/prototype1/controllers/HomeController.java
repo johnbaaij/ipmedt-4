@@ -168,10 +168,6 @@ public class HomeController {
                 // Sluit de cursor weer af
                 cur.close();
             }
-
-            else{
-                cur.close();
-            }
         }
 
         if (daysToCome == null){

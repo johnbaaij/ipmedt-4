@@ -14,6 +14,11 @@ public class FAQ {
     private String[] questions;
     private String[] anwsers;
 
+    public FAQ(String[] questions, String[] anwsers) {
+        this.questions = questions;
+        this.anwsers = anwsers;
+    }
+
     public FAQ() {
     }
 

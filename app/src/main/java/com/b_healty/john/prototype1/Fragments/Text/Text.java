@@ -1,4 +1,4 @@
-package com.b_healty.john.prototype1.fragments;
+package com.b_healty.john.prototype1.fragments.Text;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -25,9 +25,9 @@ public class Text extends Fragment {
     String answer;
     String question;
 
-    private Toolbar toolBar;
-    private FragmentActivity listener;
-    private Activity activity;
+    protected Toolbar toolBar;
+    protected FragmentActivity listener;
+    protected Activity activity;
 
     // This method is called when a fragment instance is associated with an activity and will run
     // before anything else

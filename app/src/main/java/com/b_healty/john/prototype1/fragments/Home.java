@@ -12,6 +12,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ViewFlipper;
 
 import com.b_healty.john.prototype1.R;
 import com.b_healty.john.prototype1.adapters.CardAdapter;
@@ -36,6 +37,7 @@ public class Home extends Fragment {
     String username;
     HomeController controller;
     private final int MY_PERMISSIONS_REQUEST_READ_CALENDAR = 1;
+
 
     int normal = 0;
     int faq = 1;
@@ -92,16 +94,16 @@ public class Home extends Fragment {
         mRecyclerView.setLayoutManager(llm);
 
         //Greetings card
-        Card topCard = new Card(controller.generateGreeting(username), null ,R.drawable.krukken_icon, 0, normal);
+        Card greetingsCard = new Card(controller.generateGreeting(username), null ,R.drawable.krukken_icon, 0, normal);
 
         //addCardToArray("Geen", "idee", 0);
 
         //Faq hot topic
         int random = controller.generateRandomValue();
-        Card leftCard = new Card(controller.generateHotTopic(random), null ,R.drawable.krukken_icon, random, faq);
+        Card hotTopicCard = new Card(controller.generateHotTopic(random), null ,R.drawable.krukken_icon, random, faq);
 
         //rightCard
-        Card rightCard = new Card(controller.generateTimeStamp(activity).getDaysToCome(), null,R.drawable.krukken_icon, 3, normal);
+        Card CalendarCard = new Card(controller.generateTimeStamp(activity).getDaysToCome(), null,R.drawable.krukken_icon, 3, calendar);
 
         controller.generateTimeStamp(activity);
 
@@ -110,9 +112,9 @@ public class Home extends Fragment {
 
 
 
-        results.add(0, topCard);
-        results.add(1, leftCard);
-        results.add(2, rightCard);
+        results.add(0, greetingsCard);
+        results.add(1, hotTopicCard);
+        results.add(2, CalendarCard);
         results.add(3, bonus);
 
 
