@@ -1,7 +1,15 @@
-package com.b_healty.john.prototype1.fragments;
+package com.b_healty.john.prototype1.Fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +19,11 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.b_healty.john.prototype1.DBHandler;
+import com.b_healty.john.prototype1.LoginActivity;
+import com.b_healty.john.prototype1.MainActivity;
 import com.b_healty.john.prototype1.R;
+import com.b_healty.john.prototype1.models.Users;
 
 /**
  * Created by John on 06/06/2017.
@@ -26,13 +38,24 @@ public class User extends Fragment {
     Button cancel;
     ImageView profile;
     ImageView profilesettings;
+    Users users;
 
     String username = "niks";
     RadioButton radioButtonM;
     RadioButton radioButtonV;
     String gender;
+    DBHandler dbHandler;
+    FragmentActivity listener;
+    String newName;
+    String newGender;
 
-
+    @Override
+    public void onAttach (Context context){
+        super.onAttach(context);
+        if (context instanceof Activity){
+            this.listener = (FragmentActivity) context;
+        }
+    }
 
 
     @Override
@@ -40,8 +63,11 @@ public class User extends Fragment {
                               Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.user_layout, container, false);
+        users = new Users();
 
         Bundle bundle = this.getArguments();
+
+        dbHandler = new DBHandler(listener, null, null, 5);
 
         if (bundle != null){
              username = bundle.getString("username");
@@ -60,7 +86,6 @@ public class User extends Fragment {
             gender ="leeg";
         }
 
-
         //mainActivity.finish();
 
         confirm = (Button) view.findViewById(R.id.userConfirm);
@@ -71,19 +96,41 @@ public class User extends Fragment {
         radioButtonM = (RadioButton) view.findViewById(R.id.radioButtonM);
         radioButtonV = (RadioButton) view.findViewById(R.id.radioButtonV);
 
-
-
         name.setText(username, TextView.BufferType.EDITABLE);
 
         if (gender.equals("man")) {
             radioButtonM.setChecked(true);
             radioButtonV.setChecked(false);
-        }
-
-        else{
+        } else{
             radioButtonM.setChecked(false);
             radioButtonV.setChecked(true);
         }
+
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(radioButtonM.isChecked())
+                {
+
+                    newGender = "man";
+                }
+                else
+                {
+                    newGender = "vrouw";
+                }
+
+                newName = name.getText().toString();
+                SQLiteDatabase db = dbHandler.getReadableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(dbHandler.COLUMN_NAME, newName);
+                values.put(dbHandler.COLUMN_GENDER, newGender);
+                db.update(dbHandler.TABLE_USERS, values, null, null );
+
+
+            }
+
+        });
 
 
 
