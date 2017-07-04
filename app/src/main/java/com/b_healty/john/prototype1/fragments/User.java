@@ -1,4 +1,4 @@
-package com.b_healty.john.prototype1.Fragments;
+package com.b_healty.john.prototype1.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -19,7 +19,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.b_healty.john.prototype1.DBHandler;
+import com.b_healty.john.prototype1.dbhelpers.DBHandler;
 import com.b_healty.john.prototype1.LoginActivity;
 import com.b_healty.john.prototype1.MainActivity;
 import com.b_healty.john.prototype1.R;
