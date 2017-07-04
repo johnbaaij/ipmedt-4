@@ -1,4 +1,4 @@
-package com.b_healty.john.prototype1.fragments;
+package com.b_healty.john.prototype1.fragments.Calendar;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -10,7 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
-import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +17,11 @@ import android.widget.ListView;
 
 import com.b_healty.john.prototype1.R;
 import com.b_healty.john.prototype1.adapters.AppointAdapter;
+import com.b_healty.john.prototype1.dbhelpers.AppointmentGetter;
 import com.b_healty.john.prototype1.dbhelpers.CalendarInteraction;
 import com.b_healty.john.prototype1.models.AppointModel;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 /**
  * Created by Ben on 27/06/2017.
@@ -33,6 +32,9 @@ public class AppointList extends Fragment {
     private FragmentActivity listener;
     private FloatingActionButton createNew;
     private ListView appointListView;
+    AppointModel appointModel;
+    AppointmentGetter appointmentGetter;
+
 
     // This method is called when the fragment attaches itself to it's parent activity
     // and links through to the method which contains the actual code to be executed at
@@ -74,6 +76,7 @@ public class AppointList extends Fragment {
 
         // Create object of CalendarInteraction class
         CalendarInteraction mCalHelper = new CalendarInteraction(getActivity());
+        appointmentGetter = new AppointmentGetter();
 
         // Retrieve data from the calender via the CalendarHelper Class
         Cursor data = mCalHelper.getData();
@@ -84,28 +87,7 @@ public class AppointList extends Fragment {
 
         while (data.moveToNext())
         {
-            long evtId;
-            long evtDtStart;
-            String evtTitle;
-            String evtDescription;
-
-            // Put the data retrieved from the calendar in the variables
-            evtId = data.getLong(CalendarInteraction.getProjectionIdIndex());
-            evtDtStart = data.getLong(CalendarInteraction.getProjectionDtstartIndex());
-            evtTitle = data.getString(CalendarInteraction.getProjectionTitleIndex());
-            evtDescription = data.getString(CalendarInteraction.getProjectionDescriptionIndex());
-
-            // Create new instance of the appointment model
-            AppointModel appointModel = new AppointModel();
-
-            // Fill 'er up
-            appointModel.setEventID(evtId);
-            appointModel.setTime(getTime(evtDtStart));
-            appointModel.setDate(getDate(evtDtStart));
-            appointModel.setAppointName(getTitle(evtTitle));
-            appointModel.setWardName(getWard(evtDescription));
-            appointModel.setDoctorName(getDoctor(evtDescription));
-
+            appointModel = appointmentGetter.getData(data);
             // Add the appointment model to the arraylist
             appointmentList.add(appointModel);
         }
@@ -189,41 +171,5 @@ public class AppointList extends Fragment {
     }
 
 
-    // Take the amount of milliseconds passed since 1 January 1970 and convert it
-    // to a normal human-readable date
-    private String getDate(long timestamp) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTimeInMillis(timestamp);
-        return DateFormat.format("dd/MM/yyyy", cal).toString();
-    }
-
-
-    // Take the amount of milliseconds passed since 1 January 1970 and convert it
-    // to a normal human-readable time
-    private String getTime(long timestamp) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTimeInMillis(timestamp);
-        return DateFormat.format("HH:mm", cal).toString();
-    }
-
-
-    // Split the string for the title
-    private String getTitle(String title) {
-        return title.split(" - ")[0];
-    }
-
-
-    // Split the description and return only the part containing
-    // the name of the ward
-    private String getWard(String description) {
-        return description.split(" - ")[1];
-    }
-
-
-    // Split the description and return only the part containing
-    // the name of the doctor
-    private String getDoctor(String description) {
-        return description.split(" - ")[0];
-    }
 
 }

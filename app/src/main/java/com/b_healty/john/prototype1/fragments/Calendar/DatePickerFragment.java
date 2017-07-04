@@ -1,4 +1,4 @@
-package com.b_healty.john.prototype1.fragments;
+package com.b_healty.john.prototype1.fragments.Calendar;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;

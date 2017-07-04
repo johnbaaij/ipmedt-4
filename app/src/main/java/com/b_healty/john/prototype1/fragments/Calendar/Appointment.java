@@ -1,4 +1,4 @@
-package com.b_healty.john.prototype1.fragments;
+package com.b_healty.john.prototype1.fragments.Calendar;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -30,9 +30,9 @@ public class Appointment extends Fragment {
     // TODO: Wanneer het aantal dagen lager is dan 1 verander 'dagen' in 'dag'
 
     private final String LEGGYCALL = "LGGYCL";
-    private FragmentActivity listener;
+    protected FragmentActivity listener;
     private View view;
-    private Activity activity;
+    protected Activity activity;
     private EditText appointName;
     private EditText inputTime;
     private EditText inputDate;
@@ -40,7 +40,7 @@ public class Appointment extends Fragment {
     private EditText doctorName;
     private Date datum;
     private boolean controlBit;
-    private android.support.v7.widget.Toolbar toolBar;
+    protected android.support.v7.widget.Toolbar toolBar;
 
     public Appointment() {
         datum = new Date();

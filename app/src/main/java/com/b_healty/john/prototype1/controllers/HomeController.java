@@ -29,7 +29,8 @@ public class HomeController {
     private static final String[] EVENT_PROJECTION = new String[]{
             CalendarContract.Events.TITLE,          // 0
             CalendarContract.Events.DESCRIPTION,    // 1
-            CalendarContract.Events.DTSTART         // 2
+            CalendarContract.Events.DTSTART,        // 2
+            CalendarContract.Events._ID
     };
     // Elke kolom heeft zijn eigen plaats in de array, hier worden die
     // plaatsen vastgelegd
@@ -52,6 +53,7 @@ public class HomeController {
     private String description;
     private String date;
     private String daysToCome;
+    private int hasEvent = 1;
 
     public String generateHotTopic(int number) {
         String hotTopic = questionList[number];
@@ -124,11 +126,13 @@ public class HomeController {
                     String evtTitle = null;
                     String evtDescription = null;
                     String evtDTStart = null;
+                    long evtId;
 
                     // Stop de de data van de kalender in de variabelen
                     title = cur.getString(PROJECTION_TITLE_INDEX);
                     description = cur.getString(PROJECTION_DESCRIPTION_INDEX);
                     evtDTStart = cur.getString(PROJECTION_DTSTART_INDEX);
+
 
                     Calendar calCurr = Calendar.getInstance();
                     Calendar calNext = Calendar.getInstance();
@@ -173,9 +177,13 @@ public class HomeController {
         if (daysToCome == null){
             Log.d("days", "null");
             daysToCome ="Geen afspraken toegevoegd. Klik hier om een afspraak te maken";
+            hasEvent = 0;
         }
-        CountDown countDown = new CountDown(days,hours, minutes,seconds, title, description, date, daysToCome );
+
+        CountDown countDown = new CountDown(days,hours, minutes,seconds, title, description, date, daysToCome, hasEvent);
         return countDown;
 
     }
+
+
 }
