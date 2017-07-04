@@ -2,6 +2,7 @@ package com.b_healty.john.prototype1.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -129,6 +130,33 @@ public class User extends Fragment {
 
 
             }
+
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle bundle = new Bundle();
+                bundle.putString("username" , dbHandler.usernameToString());
+                bundle.putString("gender" , dbHandler.genderToString());
+
+                // Create new fragment and transaction
+                Fragment newFragment = new User();
+                newFragment.setArguments(bundle);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(R.id.fragment2, newFragment);
+                transaction.addToBackStack(null);
+
+                // Commit the transaction
+                transaction.commit();
+            }
+
+
+
 
         });
 
