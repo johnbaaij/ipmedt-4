@@ -14,6 +14,7 @@ public class CountDown {
     String description;
     String date;
     String daysToCome;
+    int hasAppointment;
 
     public String getDaysToCome() {
         return daysToCome;
@@ -23,7 +24,7 @@ public class CountDown {
         this.daysToCome = daysToCome;
     }
 
-    public CountDown(long days, long hours, long minutes, long seconds, String title, String description, String date, String daysToCome) {
+    public CountDown(long days, long hours, long minutes, long seconds, String title, String description, String date, String daysToCome, int hasAppointment) {
         this.days = days;
         this.hours = hours;
         this.minutes = minutes;
@@ -32,6 +33,7 @@ public class CountDown {
         this.description = description;
         this.date = date;
         this.daysToCome = daysToCome;
+        this.hasAppointment = hasAppointment;
 
 
     }
@@ -66,5 +68,13 @@ public class CountDown {
 
     public void setSeconds(long seconds) {
         this.seconds = seconds;
+    }
+
+    public int isHasAppointment() {
+        return hasAppointment;
+    }
+
+    public void setHasAppointment(int hasAppointment) {
+        this.hasAppointment = hasAppointment;
     }
 }

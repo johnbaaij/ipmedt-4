@@ -1,4 +1,4 @@
-package com.b_healty.john.prototype1.fragments.Text;
+package com.b_healty.john.prototype1.fragments.Calendar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,10 +7,11 @@ import android.widget.ViewFlipper;
 import com.b_healty.john.prototype1.R;
 
 /**
- * Created by John on 03/07/2017.
+ * Created by John on 04/07/2017.
  */
 
-public class HomeText extends Text {
+public class AppointmentHome extends Appointment {
+
     private ViewFlipper viewFlipper;
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -26,4 +27,6 @@ public class HomeText extends Text {
             }
         });
     }
+
+
 }

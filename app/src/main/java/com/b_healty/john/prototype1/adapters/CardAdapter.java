@@ -8,6 +8,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.ContentUris;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
@@ -21,9 +22,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.b_healty.john.prototype1.dbhelpers.AppointmentGetter;
+import com.b_healty.john.prototype1.dbhelpers.CalendarInteraction;
+import com.b_healty.john.prototype1.fragments.Calendar.AppointmentHome;
 import com.b_healty.john.prototype1.fragments.Text.HomeText;
 import com.b_healty.john.prototype1.R;
 import com.b_healty.john.prototype1.models.AppointModel;
@@ -39,6 +42,13 @@ public class CardAdapter extends RecyclerView
     private ArrayList<Card> mDataset;
     private static MyClickListener myClickListener;
     private ViewFlipper viewFlipper;
+    AppointModel appointModel;
+    AppointmentGetter appointmentGetter;
+    CalendarInteraction mCalHelper;
+
+
+
+
 
     FAQ faq;
 
@@ -60,6 +70,7 @@ public class CardAdapter extends RecyclerView
         Button button;
         int data;
         int type;
+
 
 
         public DataObjectHolder(final View itemView) {
@@ -155,38 +166,60 @@ public class CardAdapter extends RecyclerView
                         String [] answerList = v.getContext().getResources().getStringArray(R.array.answers);
                         String question = questionList[data];
                         String answer = answerList[data];
-
-                        //You can change the fragment, something like this, not tested, please correct for your desired output:
-                        //Text myFragment = new Text();
-                        //Create a bundle to pass data, add data, set the bundle to your fragment and:
-                        //activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment2, myFragment).addToBackStack(null).commit();
-
                         Bundle bundle = new Bundle();
                         bundle.putString("question", question);
                         bundle.putString("answer", answer);
-
                         viewFlipper = (ViewFlipper) activity.findViewById(R.id.flipper);
-
                         viewFlipper.setDisplayedChild(2);
-
-                        // Create new fragment and transaction
                         Fragment newFragment = new HomeText();
                         newFragment.setArguments(bundle);
                         FragmentTransaction transaction = activity.getFragmentManager().beginTransaction();
-
-                        // Replace whatever is in the fragment_container view with this fragment,
-                        // and add the transaction to the back stack
                         transaction.replace(R.id.fragment2, newFragment);
                         transaction.addToBackStack(null);
-
-                        // Commit the transaction
                         transaction.commit();
-
                         break;
 
 
                     case 2:
 
+                        if (holder.data == 0){
+                            viewFlipper = (ViewFlipper) activity.findViewById(R.id.flipper);
+                            viewFlipper.setDisplayedChild(2);
+                            Fragment calendar = new AppointmentHome();
+                            FragmentTransaction calendarTransaction = activity.getFragmentManager().beginTransaction();
+                            calendarTransaction.replace(R.id.fragment2, calendar);
+                            calendarTransaction.addToBackStack(null);
+                            calendarTransaction.commit();
+                        }
+
+                        else {
+                            CalendarInteraction mCalHelper = new CalendarInteraction(activity);
+                            appointmentGetter = new AppointmentGetter();
+
+                            // Retrieve data from the calender via the CalendarHelper Class
+                            Cursor data = mCalHelper.getData();
+
+                            data.moveToFirst();
+
+                            // Create an arraylist of AppointModels
+
+                            appointModel = new AppointModel();
+
+                            appointModel = appointmentGetter.getData(data);
+
+                            // Add the appointment model to the arraylist
+
+                            // Close off the cursor
+                            data.close();
+
+                            Log.d(LOG_TAG, "calendar");
+                            long eventID = appointModel.getEventID();
+
+                            Uri uri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, eventID);
+                            Intent intent = new Intent(Intent.ACTION_VIEW)
+                                    .setData(uri);
+                            activity.startActivity(intent);
+                        }
 
                         break;
                     default:
@@ -237,6 +270,8 @@ public class CardAdapter extends RecyclerView
         }
 
     }
+
+
 
 
 

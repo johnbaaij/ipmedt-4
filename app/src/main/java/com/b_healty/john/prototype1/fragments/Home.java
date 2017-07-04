@@ -103,9 +103,9 @@ public class Home extends Fragment {
         Card hotTopicCard = new Card(controller.generateHotTopic(random), null ,R.drawable.krukken_icon, random, faq);
 
         //rightCard
-        Card CalendarCard = new Card(controller.generateTimeStamp(activity).getDaysToCome(), null,R.drawable.krukken_icon, 3, calendar);
+        Card CalendarCard = new Card(controller.generateTimeStamp(activity).getDaysToCome(), null,R.drawable.krukken_icon, controller.generateTimeStamp(activity).isHasAppointment(), calendar);
 
-        controller.generateTimeStamp(activity);
+        //controller.generateTimeStamp(activity);
 
 
         Card bonus = new Card("Extra", "Lorem ipsum",R.drawable.krukken_icon, 4, normal);

@@ -16,7 +16,7 @@ import android.widget.ViewFlipper;
 
 import com.b_healty.john.prototype1.dbhelpers.DBHandler;
 import com.b_healty.john.prototype1.decorations.BottomNavigationViewHelper;
-import com.b_healty.john.prototype1.fragments.AppointList;
+import com.b_healty.john.prototype1.fragments.Calendar.AppointList;
 import com.b_healty.john.prototype1.fragments.FAQ;
 import com.b_healty.john.prototype1.fragments.Home;
 import com.b_healty.john.prototype1.fragments.User;
@@ -32,11 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     String[] questionList;
     String[] answerList;
-
     DBHandler dbHandler;
-
-
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -44,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menu_home:
-
                     changeToHomeFragment();
                     //mTextMessage.setText(R.string.menu_home);
                     return true;
@@ -64,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                     return true;
             }
             return false;
-
         }
 
     };
@@ -126,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         changeToHomeFragment();
         changeToCalendarFragment();
         changeToHomeFragment();
+
 
     }
 
