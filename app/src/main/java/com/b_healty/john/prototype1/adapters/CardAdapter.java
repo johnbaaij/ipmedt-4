@@ -48,6 +48,8 @@ public class CardAdapter extends RecyclerView
 
 
 
+
+
     FAQ faq;
 
 
