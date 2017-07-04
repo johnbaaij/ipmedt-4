@@ -1,52 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <ViewFlipper
         android:id="@+id/flipper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
-        <include
-            layout="@layout/activity_main_basic"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <include layout="@layout/activity_main_basic"/>
+        <include layout="@layout/activity_main_home" />
 
-        <include
-            layout="@layout/activity_main_home"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </ViewFlipper>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomNavigation"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:alwaysDrawnWithCache="false"
-        android:animateLayoutChanges="false"
+        android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
-        android:foregroundGravity="bottom"
-        android:maxHeight="56dp"
-        app:layout_constraintBottom_toBottomOf="@+id/flipper"
-        app:layout_constraintLeft_toLeftOf="@+id/flipper"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav_items"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1">
+        app:menu="@menu/bottom_nav_items">
 
 
     </android.support.design.widget.BottomNavigationView>
 
-</android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>
