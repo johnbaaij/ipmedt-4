@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -19,6 +20,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 import com.b_healty.john.prototype1.dbhelpers.DBHandler;
 import com.b_healty.john.prototype1.LoginActivity;
@@ -38,7 +41,7 @@ public class User extends Fragment {
     Button confirm;
     Button cancel;
     ImageView profile;
-    ImageView profilesettings;
+    FloatingActionButton profilesettings;
     Users users;
 
     String username = "niks";
@@ -93,7 +96,7 @@ public class User extends Fragment {
         cancel = (Button) view.findViewById(R.id.userCancel);
         name = (EditText) view.findViewById(R.id.editText2);
         profile = (ImageView) view.findViewById(R.id.profilePic);
-        profilesettings = (ImageView) view.findViewById(R.id.profileSettings);
+        profilesettings = (FloatingActionButton) view.findViewById(R.id.profileSettings);
         radioButtonM = (RadioButton) view.findViewById(R.id.radioButtonM);
         radioButtonV = (RadioButton) view.findViewById(R.id.radioButtonV);
 
@@ -128,6 +131,14 @@ public class User extends Fragment {
                 values.put(dbHandler.COLUMN_GENDER, newGender);
                 db.update(dbHandler.TABLE_USERS, values, null, null );
 
+                Toast.makeText(listener, "Wijzingen opgeslagen",
+                        Toast.LENGTH_SHORT).show();
+
+
+
+
+
+
 
             }
 
@@ -153,6 +164,9 @@ public class User extends Fragment {
 
                 // Commit the transaction
                 transaction.commit();
+
+                Toast.makeText(listener, "Wijzingen niet opgeslagen",
+                        Toast.LENGTH_SHORT).show();
             }
 
 
@@ -160,11 +174,28 @@ public class User extends Fragment {
 
         });
 
+        profilesettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle bundle = new Bundle();
+
+                // Create new fragment and transaction
+                Fragment newFragment = new Profilepic();
+                newFragment.setArguments(bundle);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack
+                transaction.replace(R.id.fragment2, newFragment);
+                transaction.addToBackStack(null);
+
+                // Commit the transaction
+                transaction.commit();
 
 
-
-
-
+            }
+        });
 
 
         //radioButton.setChecked(true);
