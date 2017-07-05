@@ -35,13 +35,15 @@ public class Home extends Fragment {
     private Activity activity;
     private ArrayList results = new ArrayList<Card>();
     String username;
+    boolean hasCards;
     HomeController controller;
     private final int MY_PERMISSIONS_REQUEST_READ_CALENDAR = 1;
 
 
-    int normal = 0;
-    int faq = 1;
-    int calendar = 2;
+    public static int greeting = 0;
+    public static int faq = 1;
+    public static int calendar = 2;
+    public static int fase = 3;
 
 
 
@@ -55,6 +57,7 @@ public class Home extends Fragment {
 
         if (bundle != null){
             username = bundle.getString("username");
+            hasCards = bundle.getBoolean("hasCards");
         }
 
 
@@ -93,34 +96,13 @@ public class Home extends Fragment {
 
         mRecyclerView.setLayoutManager(llm);
 
-        //Greetings card
-        Card greetingsCard = new Card(controller.generateGreeting(username), null ,R.drawable.krukken_icon, 0, normal);
 
-        //addCardToArray("Geen", "idee", 0);
+       // results.add(greeting, greetingsCard);
+       // results.add(faq, hotTopicCard);
+       // results.add(calendar, calendarCard);
+       // results.add(fase, bonus);
 
-        //Faq hot topic
-        int random = controller.generateRandomValue();
-        Card hotTopicCard = new Card(controller.generateHotTopic(random), null ,R.drawable.krukken_icon, random, faq);
-
-        //rightCard
-        Card CalendarCard = new Card(controller.generateTimeStamp(activity).getDaysToCome(), null,R.drawable.krukken_icon, controller.generateTimeStamp(activity).isHasAppointment(), calendar);
-
-        //controller.generateTimeStamp(activity);
-
-
-        Card bonus = new Card("Extra", "Lorem ipsum",R.drawable.krukken_icon, 4, normal);
-
-
-
-        results.add(0, greetingsCard);
-        results.add(1, hotTopicCard);
-        results.add(2, CalendarCard);
-        results.add(3, bonus);
-
-
-
-
-        mAdapter = new CardAdapter(results);
+        mAdapter = new CardAdapter(controller.generateCards(null, null , null, null, activity ));
         //((MyRecyclerViewAdapter) mAdapter).addItem(leftCard, 1);
         //((MyRecyclerViewAdapter) mAdapter).addItem(topCard, 2, true);
 

@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.b_healty.john.prototype1.R;
 import com.b_healty.john.prototype1.adapters.AppointAdapter;
@@ -32,8 +33,12 @@ public class AppointList extends Fragment {
     private FragmentActivity listener;
     private FloatingActionButton createNew;
     private ListView appointListView;
+    private TextView textView;
+
     AppointModel appointModel;
     AppointmentGetter appointmentGetter;
+    int count = 0;
+
 
 
     // This method is called when the fragment attaches itself to it's parent activity
@@ -78,6 +83,7 @@ public class AppointList extends Fragment {
         CalendarInteraction mCalHelper = new CalendarInteraction(getActivity());
         appointmentGetter = new AppointmentGetter();
 
+
         // Retrieve data from the calender via the CalendarHelper Class
         Cursor data = mCalHelper.getData();
 
@@ -103,11 +109,13 @@ public class AppointList extends Fragment {
                 R.layout.appoint_list_layout, appointModel_data);
 
         // Keep track of amount of models
-        int count = 0;
 
         // Create an array of objects filled with the models from the AppointModel
         // arraylist. This array will then be used in conjunction with the appointAdapter
         // to create the list of appointments
+
+
+
         for (AppointModel a : appointmentList) {
             appointModel_data[count] = new AppointModel(
                     a.getEventID(),
@@ -122,12 +130,19 @@ public class AppointList extends Fragment {
         }
 
 
+
+
     }
 
 
     // Called when the fragment creates its layout from XML
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+
+
+
+
+
         return inflater.inflate(R.layout.fragment_appoint_list, parent, false);
     }
 
@@ -153,6 +168,15 @@ public class AppointList extends Fragment {
         // Link the adapter to the listView
         appointListView = (ListView) listener.findViewById(R.id.AppointList);
         appointListView.setAdapter(appointAdapter);
+
+
+        textView = (TextView)view.findViewById(R.id.noAppointmentText);
+
+        if (count == 0){
+            textView.setVisibility(View.VISIBLE);
+        }
+
+
     }
 
 

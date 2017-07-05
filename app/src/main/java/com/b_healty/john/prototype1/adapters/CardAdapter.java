@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -27,6 +28,7 @@ import android.widget.ViewFlipper;
 import com.b_healty.john.prototype1.dbhelpers.AppointmentGetter;
 import com.b_healty.john.prototype1.dbhelpers.CalendarInteraction;
 import com.b_healty.john.prototype1.fragments.Calendar.AppointmentHome;
+import com.b_healty.john.prototype1.fragments.Home;
 import com.b_healty.john.prototype1.fragments.Text.HomeText;
 import com.b_healty.john.prototype1.R;
 import com.b_healty.john.prototype1.models.AppointModel;
@@ -45,6 +47,8 @@ public class CardAdapter extends RecyclerView
     AppointModel appointModel;
     AppointmentGetter appointmentGetter;
     CalendarInteraction mCalHelper;
+
+    int test = 1;
 
 
 
@@ -68,6 +72,7 @@ public class CardAdapter extends RecyclerView
         ImageView overflow;
         CardView cardView;
         Button button;
+        ImageButton refresh;
         int data;
         int type;
 
@@ -80,6 +85,7 @@ public class CardAdapter extends RecyclerView
             cardText = (TextView) itemView.findViewById(R.id.text);
             overflow = (ImageView) itemView.findViewById(R.id.overflow);
             button =(Button) itemView.findViewById(R.id.moreButton);
+            refresh =(ImageButton) itemView.findViewById(R.id.refreshButton);
 
             itemView.setClickable(true);
 
@@ -97,11 +103,6 @@ public class CardAdapter extends RecyclerView
             myClickListener.onItemClick(getAdapterPosition(), v);
 
             Log.d(LOG_TAG, "test");
-
-
-
-
-
 
             Log.d("test",v.toString());
 
@@ -129,7 +130,7 @@ public class CardAdapter extends RecyclerView
     }
 
     @Override
-    public void onBindViewHolder(final DataObjectHolder holder, int position) {
+    public void onBindViewHolder(final DataObjectHolder holder, final int position) {
         holder.cardTitle.setText(mDataset.get(position).getTitle());
         holder.cardText.setText(mDataset.get(position).getText());
 
@@ -142,21 +143,39 @@ public class CardAdapter extends RecyclerView
 
         faq = new FAQ();
 
-        if (holder.type == 0){
+        if (holder.type == Home.greeting || holder.type == Home.fase){
             holder.button.setVisibility(View.GONE);
         }
+
+        if (holder.type == Home.fase){
+            holder.refresh.setVisibility(View.GONE);
+        }
+
+
+        holder.refresh.setOnClickListener(new CustomOnClickListener(holder.type, holder.data){
+            @Override
+            public void onClick(View v){
+                switch (type){
+                    case 0:
+                        break;
+                    case 1:
+
+
+                        break;
+
+                    case 2:
+
+                        break;
+
+                }
+            }
+        });
 
         holder.button.setOnClickListener(new CustomOnClickListener(holder.type, holder.data) {
             @Override
             public void onClick(View v) {
                 //do whatever you need here
-
-                //Log.d(LOG_TAG, Integer.toString(variable));
-//                final AppointModel appointModel = data[1];
-
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
-
-
                 switch (type){
 
                     case 1:

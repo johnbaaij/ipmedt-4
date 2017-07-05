@@ -155,6 +155,7 @@
     <string name="wardID">Afd : </string>
     <string name="doctorID">Dr : </string>
     <string name="appointViewTitle">Afspraak Maken</string>
+    <string name="noAppointment">Er is staat geen afspraak ingepland. Druk op de knop om een afspraak toe te voegen.</string>
 
     <!-- fragment1: int0 -->
     <string name="tut_text1">Welkom bij de tutorial, voordat je kan inloggen leggen we eerst wat uit.
