@@ -8,6 +8,11 @@ public class Users {
 
     private String gender;
     private String name;
+    //private String picture;
+
+    //public String getPicture(){ return picture;}
+
+    //public void setPicture(String picture){ this.picture = picture;}
 
 
     public String getGender() {
@@ -33,6 +38,7 @@ public class Users {
     public Users(String gender, String name) {
         this.gender = gender;
         this.name = name;
+        //this.picture = picture;
     }
 
 

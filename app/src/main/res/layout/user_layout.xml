@@ -10,12 +10,12 @@
     tools:layout_editor_absoluteX="0dp">
 
     <Button
-        android:id="@+id/userConfirm"
+        android:id="@+id/pictureConfirm"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
-        android:layout_marginRight="109dp"
+        android:layout_marginBottom="73dp"
+        android:layout_marginRight="108dp"
         android:elevation="0dp"
         android:text="Bevestig"
         android:textColorLink="@color/colorAccent"
@@ -32,9 +32,9 @@
         android:layout_marginRight="8dp"
         android:text="Annuleer"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/userConfirm" />
+        app:layout_constraintRight_toLeftOf="@+id/pictureConfirm" />
 
     <EditText
         android:id="@+id/editText2"

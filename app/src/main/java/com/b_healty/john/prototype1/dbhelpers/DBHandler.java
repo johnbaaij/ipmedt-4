@@ -21,6 +21,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_GENDER = "gender";
+    //public static final String COLUMN_PICTUREID = "picture";
 
 
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -36,6 +37,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,  " +
                 COLUMN_NAME + " TEXT, " +
                 COLUMN_GENDER + " TEXT " +
+                //COLUMN_PICTUREID + " TEXT " +
                 ");";
 
         db.execSQL(query);
@@ -50,6 +52,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
+
     //add new user
     public void addUser(Users users) {
         ContentValues values = new ContentValues();
@@ -60,6 +63,15 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
 
     }
+    //add new pictureID
+    //public void addPicture(Users users) {
+      //  ContentValues values = new ContentValues();
+        //values.put(COLUMN_PICTUREID, users.getPicture());
+        //SQLiteDatabase db = getWritableDatabase();
+        //db.insert(TABLE_USERS, null, values);
+        //db.close();
+
+   // }
 
 
 
@@ -105,6 +117,25 @@ public class DBHandler extends SQLiteOpenHelper {
         c.close();
         return dbString;
     }
+    /*public String pictureToString() {
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT picture FROM " + TABLE_USERS + " WHERE 1";
+        //Curson point to a location in your results
+        Cursor c = db.rawQuery(query, null);
+        //Move to first row in results
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            if (c.getString(c.getColumnIndex("picture")) != null) {
+                dbString += c.getString(c.getColumnIndex("picture"));
+                //dbString += "\n";
+            }
+            c.moveToNext();
+        }
+        db.close();
+        c.close();
+        return dbString;
+    }*/
 
 
 

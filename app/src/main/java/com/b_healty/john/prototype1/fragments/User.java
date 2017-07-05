@@ -5,13 +5,10 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
-import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +21,6 @@ import android.widget.Toast;
 
 
 import com.b_healty.john.prototype1.dbhelpers.DBHandler;
-import com.b_healty.john.prototype1.LoginActivity;
-import com.b_healty.john.prototype1.MainActivity;
 import com.b_healty.john.prototype1.R;
 import com.b_healty.john.prototype1.models.Users;
 
@@ -92,7 +87,7 @@ public class User extends Fragment {
 
         //mainActivity.finish();
 
-        confirm = (Button) view.findViewById(R.id.userConfirm);
+        confirm = (Button) view.findViewById(R.id.pictureConfirm);
         cancel = (Button) view.findViewById(R.id.userCancel);
         name = (EditText) view.findViewById(R.id.editText2);
         profile = (ImageView) view.findViewById(R.id.profilePic);
@@ -181,7 +176,7 @@ public class User extends Fragment {
                 Bundle bundle = new Bundle();
 
                 // Create new fragment and transaction
-                Fragment newFragment = new Profilepic();
+                Fragment newFragment = new ProfilePic();
                 newFragment.setArguments(bundle);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
