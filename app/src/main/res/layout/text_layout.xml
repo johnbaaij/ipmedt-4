@@ -25,7 +25,7 @@
             android:padding="16dp"
             android:paddingBottom="72dp"
             android:scrollbars="vertical"
-            android:autoLink="all"/>
+            android:autoLink="web" />
 
 
 </LinearLayout>

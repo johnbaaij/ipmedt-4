@@ -35,15 +35,13 @@ public class Home extends Fragment {
     private Activity activity;
     private ArrayList results = new ArrayList<Card>();
     String username;
+    boolean hasCards;
     HomeController controller;
     private final int MY_PERMISSIONS_REQUEST_READ_CALENDAR = 1;
-
-
-    int normal = 0;
-    int faq = 1;
-    int calendar = 2;
-
-
+    public static int greeting = 0;
+    public static int faq = 1;
+    public static int calendar = 2;
+    public static int fase = 3;
 
     private StaggeredGridLayoutManager sGridLayoutManager;
 
@@ -55,29 +53,18 @@ public class Home extends Fragment {
 
         if (bundle != null){
             username = bundle.getString("username");
+            hasCards = bundle.getBoolean("hasCards");
+            results = bundle.getParcelableArrayList("array");
         }
 
 
         View view = inflater.inflate(R.layout.home_layout, container, false);
 
-
-
-
-        //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-
-
-        //RecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10),
-
-
-
         activity = getActivity();
-        controller = new HomeController();
+        controller = new HomeController(getActivity());
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
-        //mRecyclerView.setHasFixedSize(true);
         int spanCount = 2; // 3 columns
-
-
 
         GridLayoutManager llm = new GridLayoutManager(view.getContext(), spanCount);
 
@@ -86,49 +73,19 @@ public class Home extends Fragment {
 
         int spacingInPixels = 0;
 
-
         int spacing = 50; // 50px
         boolean includeEdge = true;
         mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
 
         mRecyclerView.setLayoutManager(llm);
 
-        //Greetings card
-        Card greetingsCard = new Card(controller.generateGreeting(username), null ,R.drawable.krukken_icon, 0, normal);
-
-        //addCardToArray("Geen", "idee", 0);
-
-        //Faq hot topic
-        int random = controller.generateRandomValue();
-        Card hotTopicCard = new Card(controller.generateHotTopic(random), null ,R.drawable.krukken_icon, random, faq);
-
-        //rightCard
-        Card CalendarCard = new Card(controller.generateTimeStamp(activity).getDaysToCome(), null,R.drawable.krukken_icon, controller.generateTimeStamp(activity).isHasAppointment(), calendar);
-
-        //controller.generateTimeStamp(activity);
-
-
-        Card bonus = new Card("Extra", "Lorem ipsum",R.drawable.krukken_icon, 4, normal);
-
-
-
-        results.add(0, greetingsCard);
-        results.add(1, hotTopicCard);
-        results.add(2, CalendarCard);
-        results.add(3, bonus);
-
-
-
-
-        mAdapter = new CardAdapter(results);
-        //((MyRecyclerViewAdapter) mAdapter).addItem(leftCard, 1);
-        //((MyRecyclerViewAdapter) mAdapter).addItem(topCard, 2, true);
-
-        //mRecyclerView.setAdapter(mAdapter);
+        if (!hasCards){
+            mAdapter = new CardAdapter(controller.generateCards(null, null , null, null, activity ));
+        }
+        else {
+            mAdapter = new CardAdapter(results);
+        }
         mRecyclerView.setAdapter(mAdapter);
-
-
-
 
         return view;
     }

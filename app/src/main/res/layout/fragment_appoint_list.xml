@@ -7,6 +7,15 @@
     android:layout_marginBottom="?attr/actionBarSize"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/noAppointmentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:cursorVisible="false"
+        android:text="@string/noAppointment"
+        android:visibility="gone" />
+
     <ListView
         android:id="@+id/AppointList"
         android:layout_width="match_parent"

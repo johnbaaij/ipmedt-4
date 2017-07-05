@@ -14,10 +14,16 @@ import android.util.Log;
 import com.b_healty.john.prototype1.MainActivity;
 import com.b_healty.john.prototype1.R;
 import com.b_healty.john.prototype1.dbhelpers.CalculateDifference;
+import com.b_healty.john.prototype1.dbhelpers.DBHandler;
+import com.b_healty.john.prototype1.fragments.Home;
+import com.b_healty.john.prototype1.models.Card;
 import com.b_healty.john.prototype1.models.CountDown;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
+
+import static com.b_healty.john.prototype1.fragments.Home.calendar;
 
 /**
  * Created by John on 14/06/2017.
@@ -54,6 +60,11 @@ public class HomeController {
     private String date;
     private String daysToCome;
     private int hasEvent = 1;
+    DBHandler dbHandler;
+
+    public HomeController(Activity activity) {
+        this.dbHandler = new DBHandler(activity, null , null ,1);
+    }
 
     public String generateHotTopic(int number) {
         String hotTopic = questionList[number];
@@ -183,6 +194,33 @@ public class HomeController {
         CountDown countDown = new CountDown(days,hours, minutes,seconds, title, description, date, daysToCome, hasEvent);
         return countDown;
 
+    }
+
+    public ArrayList<Card> generateCards(Card greetingCard, Card hotTopicCard, Card calendarCard, Card faseCard, Activity activity){
+        ArrayList results = new ArrayList<Card>();
+
+        if (greetingCard == null){
+            greetingCard = new Card(generateGreeting(dbHandler.usernameToString()), null ,R.drawable.krukken_icon, 0, Home.greeting);
+        }
+
+        if (hotTopicCard == null){
+            int random = generateRandomValue();
+            hotTopicCard = new Card(generateHotTopic(random), null ,R.drawable.krukken_icon, random, Home.faq);
+        }
+
+        if (calendarCard == null){
+            calendarCard = new Card(generateTimeStamp(activity).getDaysToCome(), null,R.drawable.krukken_icon, generateTimeStamp(activity).isHasAppointment(), calendar);
+        }
+
+        if (faseCard == null){
+             faseCard = new Card("Extra", "Lorem ipsum",R.drawable.krukken_icon, 4, Home.fase);
+        }
+
+        results.add(greetingCard);
+        results.add(hotTopicCard);
+        results.add(calendarCard);
+        results.add(faseCard);
+        return results;
     }
 
 
