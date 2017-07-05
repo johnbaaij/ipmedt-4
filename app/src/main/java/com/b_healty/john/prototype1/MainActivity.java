@@ -142,10 +142,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeToHomeFragment(){
         // Create new fragment and transaction
-
         Bundle bundle = new Bundle();
         bundle.putString("username" , dbHandler.usernameToString());
-
+        bundle.putBoolean("hasCards", false);
+        bundle.putParcelableArrayList("array", null);
         viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(findViewById(R.id.mainLayoutCards)));
         Fragment newFragment = new Home();
         newFragment.setArguments(bundle);

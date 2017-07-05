@@ -38,14 +38,10 @@ public class Home extends Fragment {
     boolean hasCards;
     HomeController controller;
     private final int MY_PERMISSIONS_REQUEST_READ_CALENDAR = 1;
-
-
     public static int greeting = 0;
     public static int faq = 1;
     public static int calendar = 2;
     public static int fase = 3;
-
-
 
     private StaggeredGridLayoutManager sGridLayoutManager;
 
@@ -58,29 +54,17 @@ public class Home extends Fragment {
         if (bundle != null){
             username = bundle.getString("username");
             hasCards = bundle.getBoolean("hasCards");
+            results = bundle.getParcelableArrayList("array");
         }
 
 
         View view = inflater.inflate(R.layout.home_layout, container, false);
 
-
-
-
-        //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-
-
-        //RecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10),
-
-
-
         activity = getActivity();
-        controller = new HomeController();
+        controller = new HomeController(getActivity());
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
-        //mRecyclerView.setHasFixedSize(true);
         int spanCount = 2; // 3 columns
-
-
 
         GridLayoutManager llm = new GridLayoutManager(view.getContext(), spanCount);
 
@@ -89,28 +73,19 @@ public class Home extends Fragment {
 
         int spacingInPixels = 0;
 
-
         int spacing = 50; // 50px
         boolean includeEdge = true;
         mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, includeEdge));
 
         mRecyclerView.setLayoutManager(llm);
 
-
-       // results.add(greeting, greetingsCard);
-       // results.add(faq, hotTopicCard);
-       // results.add(calendar, calendarCard);
-       // results.add(fase, bonus);
-
-        mAdapter = new CardAdapter(controller.generateCards(null, null , null, null, activity ));
-        //((MyRecyclerViewAdapter) mAdapter).addItem(leftCard, 1);
-        //((MyRecyclerViewAdapter) mAdapter).addItem(topCard, 2, true);
-
-        //mRecyclerView.setAdapter(mAdapter);
+        if (!hasCards){
+            mAdapter = new CardAdapter(controller.generateCards(null, null , null, null, activity ));
+        }
+        else {
+            mAdapter = new CardAdapter(results);
+        }
         mRecyclerView.setAdapter(mAdapter);
-
-
-
 
         return view;
     }

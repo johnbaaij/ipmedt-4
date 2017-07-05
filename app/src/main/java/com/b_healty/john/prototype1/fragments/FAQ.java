@@ -27,6 +27,7 @@ public class FAQ extends Fragment {
     ListAdapter adapter;
     ListView faqList;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

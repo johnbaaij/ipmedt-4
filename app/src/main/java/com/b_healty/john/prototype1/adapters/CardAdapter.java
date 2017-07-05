@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.b_healty.john.prototype1.controllers.HomeController;
 import com.b_healty.john.prototype1.dbhelpers.AppointmentGetter;
 import com.b_healty.john.prototype1.dbhelpers.CalendarInteraction;
 import com.b_healty.john.prototype1.fragments.Calendar.AppointmentHome;
@@ -47,8 +48,9 @@ public class CardAdapter extends RecyclerView
     AppointModel appointModel;
     AppointmentGetter appointmentGetter;
     CalendarInteraction mCalHelper;
-
+    private ArrayList results = new ArrayList<Card>();
     int test = 1;
+    HomeController controller;
 
 
 
@@ -136,7 +138,6 @@ public class CardAdapter extends RecyclerView
 
         holder.overflow.setImageResource(mDataset.get(position).getImage());
         holder.itemView.setId(mDataset.get(position).getData());
-
         holder.data = mDataset.get(position).getData();
         holder.type = mDataset.get(position).getType();
 
@@ -155,19 +156,31 @@ public class CardAdapter extends RecyclerView
         holder.refresh.setOnClickListener(new CustomOnClickListener(holder.type, holder.data){
             @Override
             public void onClick(View v){
+
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                controller = new HomeController(activity);
+
+
                 switch (type){
                     case 0:
+                        results = controller.generateCards(null, mDataset.get(position + 1), mDataset.get(position + 2) ,null, activity);
                         break;
                     case 1:
-
-
+                        results = controller.generateCards(mDataset.get(position - 1),null , mDataset.get(position + 1) ,null, activity);
                         break;
-
                     case 2:
-
+                        results = controller.generateCards(mDataset.get(position - 2),mDataset.get(position - 1) ,null  ,null, activity);
                         break;
-
                 }
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("hasCards", true);
+                bundle.putParcelableArrayList("array", results);
+                Fragment newFragment = new Home();
+                newFragment.setArguments(bundle);
+                FragmentTransaction transaction = activity.getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment1, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 

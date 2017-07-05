@@ -14,6 +14,7 @@ import android.util.Log;
 import com.b_healty.john.prototype1.MainActivity;
 import com.b_healty.john.prototype1.R;
 import com.b_healty.john.prototype1.dbhelpers.CalculateDifference;
+import com.b_healty.john.prototype1.dbhelpers.DBHandler;
 import com.b_healty.john.prototype1.fragments.Home;
 import com.b_healty.john.prototype1.models.Card;
 import com.b_healty.john.prototype1.models.CountDown;
@@ -59,6 +60,11 @@ public class HomeController {
     private String date;
     private String daysToCome;
     private int hasEvent = 1;
+    DBHandler dbHandler;
+
+    public HomeController(Activity activity) {
+        this.dbHandler = new DBHandler(activity, null , null ,1);
+    }
 
     public String generateHotTopic(int number) {
         String hotTopic = questionList[number];
@@ -194,7 +200,7 @@ public class HomeController {
         ArrayList results = new ArrayList<Card>();
 
         if (greetingCard == null){
-            greetingCard = new Card(generateGreeting("test"), null ,R.drawable.krukken_icon, 0, Home.greeting);
+            greetingCard = new Card(generateGreeting(dbHandler.usernameToString()), null ,R.drawable.krukken_icon, 0, Home.greeting);
         }
 
         if (hotTopicCard == null){
