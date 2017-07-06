@@ -1,8 +1,11 @@
 package com.b_healty.john.prototype1;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.View;
@@ -13,25 +16,16 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.b_healty.john.prototype1.dbhelpers.DBHandler;
+import com.b_healty.john.prototype1.fragments.Login.Login;
+import com.b_healty.john.prototype1.fragments.ProfilePic;
 import com.b_healty.john.prototype1.models.Users;
 
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText name;
-    Button login;
-
-   // DatabaseHelper dbHelper = DatabaseHelper.getHelper(this);
-
-    DBHandler dbHandler;
-    MainActivity mainActivity;
-    RadioButton radioButton;
-    RadioGroup radioGroup;
 
 
-    public LoginActivity() {
-        this.dbHandler = new DBHandler(this, null, null, 1);
-    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     @Override
@@ -39,72 +33,21 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //mainActivity.finish();
 
-        login = (Button) findViewById(R.id.button);
-        name = (EditText) findViewById(R.id.editText2);
+        Bundle bundle = new Bundle();
 
-        name.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        // Create new fragment and transaction
+        Fragment newFragment = new Login();
+        newFragment.setArguments(bundle);
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack
+        transaction.replace(R.id.loginfragment, newFragment);
+        transaction.addToBackStack(null);
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
-            @Override
-            public void onClick(View v) {
-
-
-
-                String message = name.getText().toString();
-
-
-                if (message.isEmpty()){
-
-                    Toast.makeText(getApplicationContext(), "Voer je naam in", Toast.LENGTH_LONG).show();
-
-
-                }
-
-                else {
-
-                    //int selectedId = radioGroup.getCheckedRadioButtonId();
-
-                    radioButton = (RadioButton) findViewById(R.id.radioButtonM);
-                    String gender;
-
-
-                    if(radioButton.isChecked())
-                    {
-
-                        gender = "man";
-                    }
-                    else
-                    {
-                        gender = "vrouw";
-                    }
-
-                    //Toast.makeText(getApplicationContext(), gender, Toast.LENGTH_LONG).show();
-
-
-                    Users users = new Users();
-                    users.setName(message);
-                    users.setGender(gender);
-                    dbHandler.addUser(users);
-
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    Bundle b = new Bundle();
-                    b.putString("name", message); 	// Your id
-                    intent.putExtras(b); 	// Put your id to your next Intent
-                    startActivity(intent);	// start
-                }
-
-
-
-
-                //mainActivity.printName();
-
-                //startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            }
-        });
+        // Commit the transaction
+        transaction.commit();
     }
 
 }
