@@ -5,8 +5,10 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -47,6 +49,7 @@ public class User extends Fragment {
     FragmentActivity listener;
     String newName;
     String newGender;
+    ImageView profilePic;
 
     @Override
     public void onAttach (Context context){
@@ -61,8 +64,17 @@ public class User extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
 
+
+
         View view = inflater.inflate(R.layout.user_layout, container, false);
-        users = new Users();
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+        int drawableId = sharedPref.getInt("drawableId", 0);
+
+        profilePic = (ImageView) view.findViewById(R.id.profilePic);
+        profilePic.setImageResource(drawableId);
+
+                users = new Users();
 
         Bundle bundle = this.getArguments();
 
@@ -90,7 +102,6 @@ public class User extends Fragment {
         confirm = (Button) view.findViewById(R.id.pictureConfirm);
         cancel = (Button) view.findViewById(R.id.userCancel);
         name = (EditText) view.findViewById(R.id.editText2);
-        profile = (ImageView) view.findViewById(R.id.profilePic);
         profilesettings = (FloatingActionButton) view.findViewById(R.id.profileSettings);
         radioButtonM = (RadioButton) view.findViewById(R.id.radioButtonM);
         radioButtonV = (RadioButton) view.findViewById(R.id.radioButtonV);
