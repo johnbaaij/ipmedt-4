@@ -182,5 +182,10 @@
             \n\nVeel succes met het genezingsproces</string>
     <string name="title_activity_text">TextActivity</string>
 
-
+    <string-array name="fases">
+        <item>Spalkgips</item>
+        <item>Normaal gips</item>
+        <item>Loop gips</item>
+        <item>Nazorg</item>
+    </string-array>
 </resources>

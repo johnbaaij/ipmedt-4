@@ -3,9 +3,11 @@ package com.b_healty.john.prototype1.controllers;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.provider.CalendarContract;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -61,9 +63,13 @@ public class HomeController {
     private String daysToCome;
     private int hasEvent = 1;
     DBHandler dbHandler;
-
+    private int fase = 0;
     public HomeController(Activity activity) {
         this.dbHandler = new DBHandler(activity, null , null ,1);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(activity);
+        this.fase = sharedPref.getInt("faseInt", 0);
+
+
     }
 
     public String generateHotTopic(int number) {
@@ -209,11 +215,15 @@ public class HomeController {
         }
 
         if (calendarCard == null){
-            calendarCard = new Card(generateTimeStamp(activity).getDaysToCome(), null,R.drawable.krukken_icon, generateTimeStamp(activity).isHasAppointment(), calendar);
+            int i = Math.round(generateTimeStamp(activity).getDays());
+            calendarCard = new Card(generateTimeStamp(activity).getDaysToCome(),Integer.toString(i),R.drawable.krukken_icon, generateTimeStamp(activity).isHasAppointment(), calendar);
         }
 
         if (faseCard == null){
-             faseCard = new Card("Extra", "Lorem ipsum",R.drawable.krukken_icon, 4, Home.fase);
+
+            String[] fases = activity.getResources().getStringArray(R.array.fases);
+
+            faseCard = new Card(fases[fase], null,R.drawable.krukken_icon, 4, Home.fase);
         }
 
         results.add(greetingCard);

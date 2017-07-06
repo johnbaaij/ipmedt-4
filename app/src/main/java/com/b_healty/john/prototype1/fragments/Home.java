@@ -63,7 +63,7 @@ public class Home extends Fragment {
         controller = new HomeController(getActivity());
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
-        int spanCount = 2; // 3 columns
+        int spanCount = 2; // 2 columns
 
         GridLayoutManager llm = new GridLayoutManager(view.getContext(), spanCount);
 

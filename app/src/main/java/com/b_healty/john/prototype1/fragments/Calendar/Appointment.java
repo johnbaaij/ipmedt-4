@@ -10,10 +10,14 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.b_healty.john.prototype1.R;
+import com.b_healty.john.prototype1.controllers.CalendarController;
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,8 +43,11 @@ public class Appointment extends Fragment {
     private EditText wardName;
     private EditText doctorName;
     private Date datum;
+    MaterialBetterSpinner dropdown;
     private boolean controlBit;
     protected android.support.v7.widget.Toolbar toolBar;
+    CalendarController controller;
+
 
     public Appointment() {
         datum = new Date();
@@ -72,6 +79,9 @@ public class Appointment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
+
+
         activity = getActivity();
         view = inflater.inflate(R.layout.calendar_layout, container, false);
 
@@ -92,6 +102,12 @@ public class Appointment extends Fragment {
         inputDate = (EditText) view.findViewById(R.id.inputDate);
         wardName = (EditText) view.findViewById(R.id.wardName);
         doctorName = (EditText) view.findViewById(R.id.doctorName);
+        controller = new CalendarController();
+
+        dropdown = (MaterialBetterSpinner)view.findViewById(R.id.spinner);
+        String[] items = getResources().getStringArray(R.array.fases);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, items);
+        dropdown.setAdapter(adapter);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -102,6 +118,7 @@ public class Appointment extends Fragment {
                 String description;
                 String wardNameString = null;
                 String doctorNameString = null;
+                String faseString;
 
 
                 // Stel de naam van de afspraak in en voeg het ID aan het einde toe
@@ -156,6 +173,16 @@ public class Appointment extends Fragment {
                     wardNameString = wardName.getText().toString();
                 } else {
                     wardName.setError("Voer de naam van je behandelkamer in");
+                    controlBit = false;
+                }
+
+                if(!dropdown.getText().toString().equals("")){
+                    faseString = dropdown.getText().toString();
+                    controller.setFase(faseString, activity);
+                }
+
+                else {
+                    dropdown.setError("Voer een fase in ");
                     controlBit = false;
                 }
 

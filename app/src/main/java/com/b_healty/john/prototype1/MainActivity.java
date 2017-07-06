@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     String[] questionList;
     String[] answerList;
+
     DBHandler dbHandler;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {

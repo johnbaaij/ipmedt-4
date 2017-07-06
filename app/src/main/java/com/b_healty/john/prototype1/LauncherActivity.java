@@ -44,6 +44,7 @@ public class LauncherActivity extends AppCompatActivity {
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putInt("drawableId", R.drawable.krukken_icon);
+            editor.putInt("apache", 0);
             editor.commit();
             startActivity(new Intent(LauncherActivity.this, TutorialActivity.class));
         }

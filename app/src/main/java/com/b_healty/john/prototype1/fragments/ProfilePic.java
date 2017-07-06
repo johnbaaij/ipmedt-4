@@ -38,6 +38,8 @@ public class ProfilePic extends Fragment {
     ImageView mainPic;
     String picture;
     MainActivity mainActivity;
+    boolean apacheSetting = false;
+
 
     int count = 0;
 
@@ -114,6 +116,10 @@ public class ProfilePic extends Fragment {
                         editor.putInt("drawableId", R.drawable.ic_ambulanceicon);
                         editor.commit();
                         break;
+
+                    case 420:
+                        editor.putInt("drawableId", R.mipmap.ic_apache);
+                        editor.commit();
                     default:
                         break;
 
@@ -139,8 +145,8 @@ public class ProfilePic extends Fragment {
                 transaction.commit(); */
 
 
-                Toast.makeText(listener, "Wijzingen opgeslagen",
-                Toast.LENGTH_SHORT).show();
+                    Toast.makeText(listener, "Wijzingen opgeslagen",
+                    Toast.LENGTH_SHORT).show();
 
                 getFragmentManager().popBackStack();
 
@@ -177,8 +183,18 @@ public class ProfilePic extends Fragment {
             @Override
             public void onClick(View v) {
 
-                mainPic.setImageResource(R.drawable.ic_aidkiticon);
-                count = 3;
+
+
+                if (apacheSetting){
+                    mainPic.setImageResource(R.mipmap.ic_apache);
+                    count = 420;
+                }
+
+                else {
+                    mainPic.setImageResource(R.drawable.ic_aidkiticon);
+                    count = 3;
+
+                }
 
 
             }
@@ -205,6 +221,34 @@ public class ProfilePic extends Fragment {
 
             }
         });
+
+
+        mainPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+                int apache = sharedPref.getInt("apache", 0);
+                apache++;
+
+
+                if (apache > 20){
+                    image3.setImageResource(R.mipmap.ic_apache);
+                    apacheSetting = true;
+                    Toast.makeText(view.getContext(), "Je bent nu een Apache helicopter!",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putInt("apache", apache);
+                    editor.commit();
+                }
+
+
+
+
+            }
+        });
+
 
 
 
