@@ -2,8 +2,10 @@ package com.b_healty.john.prototype1;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -23,15 +25,19 @@ import com.b_healty.john.prototype1.models.Users;
 
 public class LoginActivity extends AppCompatActivity {
 
+    DBHandler dbHandler;
 
-
-
+    public LoginActivity() {
+        this.dbHandler = new DBHandler(this, null, null, 1);
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
 
 
         Bundle bundle = new Bundle();

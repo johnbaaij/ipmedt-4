@@ -90,16 +90,20 @@ public class AppointList extends Fragment {
         // Create an arraylist of AppointModels
         ArrayList<AppointModel> appointmentList = new ArrayList<>();
 
+        if (data != null){
+            while (data.moveToNext())
+            {
+                appointModel = appointmentGetter.getData(data);
+                // Add the appointment model to the arraylist
+                appointmentList.add(appointModel);
+            }
 
-        while (data.moveToNext())
-        {
-            appointModel = appointmentGetter.getData(data);
-            // Add the appointment model to the arraylist
-            appointmentList.add(appointModel);
+            data.close();
+
         }
 
+
         // Close off the cursor
-        data.close();
 
         // Maak de adapter hier
         AppointModel appointModel_data[] = new AppointModel[appointmentList.size()];

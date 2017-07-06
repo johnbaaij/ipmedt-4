@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -37,6 +39,8 @@ public class ProfilePic extends Fragment {
     String picture;
     MainActivity mainActivity;
 
+    int count = 0;
+
 
     @Override
     public void onAttach (Context context){
@@ -50,11 +54,17 @@ public class ProfilePic extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.profilepic_layout, container, false);
+        final View view = inflater.inflate(R.layout.profilepic_layout, container, false);
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+        int drawableId = sharedPref.getInt("drawableId", 0);
 
         confirm = (Button) view.findViewById(R.id.pictureConfirm);
         cancel = (Button) view.findViewById(R.id.pictureCancel);
         mainPic = (ImageView) view.findViewById(R.id.profilePicMain);
+
+        mainPic.setImageResource(drawableId);
+
 
         image1 = (ImageView) view.findViewById(R.id.profilePicSelect1);
         image2 = (ImageView) view.findViewById(R.id.profilePicSelect2);
@@ -62,31 +72,10 @@ public class ProfilePic extends Fragment {
         image4 = (ImageView) view.findViewById(R.id.profilePicSelect4);
         image5 = (ImageView) view.findViewById(R.id.profilePicSelect5);
 
-
-
-
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Bundle bundle = new Bundle();
-                // Create new fragment and transaction
-                Fragment newFragment = new ProfilePic();
-                newFragment.setArguments(bundle);
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(R.id.fragment2, newFragment);
-                transaction.addToBackStack(null);
-
-                // Commit the transaction
-                transaction.commit();
-
-                Toast.makeText(listener, "Wijzingen niet opgeslagen",
-                        Toast.LENGTH_SHORT).show();
-
-                getFragmentManager().popBackStack();
+                onCancel(view);
             }
 
 
@@ -97,6 +86,40 @@ public class ProfilePic extends Fragment {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+                SharedPreferences.Editor editor = sharedPref.edit();
+
+
+
+
+                switch (count){
+                    case 1:
+                        editor.putInt("drawableId", R.drawable.krukken_icon);
+                        editor.commit();
+                        break;
+                    case 2:
+                        editor.putInt("drawableId", R.drawable.ic_brokenboneicon);
+                        editor.commit();
+                        break;
+                    case 3:
+                        editor.putInt("drawableId", R.drawable.ic_aidkiticon);
+                        editor.commit();
+                        break;
+                    case 4:
+                        editor.putInt("drawableId", R.drawable.ic_gipsvoeticon);
+                        editor.commit();
+                        break;
+                    case 5:
+                        editor.putInt("drawableId", R.drawable.ic_ambulanceicon);
+                        editor.commit();
+                        break;
+                    default:
+                        break;
+
+                }
+
+
 
                 /*
 
@@ -134,6 +157,7 @@ public class ProfilePic extends Fragment {
             public void onClick(View v) {
 
                 mainPic.setImageResource(R.drawable.krukken_icon);
+                count = 1;
 
             }
         });
@@ -143,6 +167,8 @@ public class ProfilePic extends Fragment {
             public void onClick(View v) {
 
                 mainPic.setImageResource(R.drawable.ic_brokenboneicon);
+                count = 2;
+
 
             }
         });
@@ -152,6 +178,8 @@ public class ProfilePic extends Fragment {
             public void onClick(View v) {
 
                 mainPic.setImageResource(R.drawable.ic_aidkiticon);
+                count = 3;
+
 
             }
         });
@@ -161,6 +189,8 @@ public class ProfilePic extends Fragment {
             public void onClick(View v) {
 
                 mainPic.setImageResource(R.drawable.ic_gipsvoeticon);
+                count = 4;
+
 
             }
         });
@@ -170,6 +200,8 @@ public class ProfilePic extends Fragment {
             public void onClick(View v) {
 
                 mainPic.setImageResource(R.drawable.ic_ambulanceicon);
+                count = 5;
+
 
             }
         });
@@ -178,5 +210,32 @@ public class ProfilePic extends Fragment {
 
 
         return view;
+    }
+
+
+    protected void onCancel(View view){
+        Bundle bundle = new Bundle();
+        // Create new fragment and transaction
+        Fragment newFragment = new ProfilePic();
+        newFragment.setArguments(bundle);
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+
+
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack
+        transaction.replace(R.id.fragment2, newFragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+
+        Toast.makeText(view.getContext(), "Wijzingen niet opgeslagen",
+                Toast.LENGTH_SHORT).show();
+
+        getFragmentManager().popBackStack();
     }
 }

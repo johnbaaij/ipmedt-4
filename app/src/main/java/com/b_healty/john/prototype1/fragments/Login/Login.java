@@ -3,8 +3,10 @@ package com.b_healty.john.prototype1.fragments.Login;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.text.InputType;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -30,6 +33,10 @@ import com.b_healty.john.prototype1.models.Users;
 
 public class Login extends Fragment {
 
+
+
+
+
     EditText name;
     Button login;
 
@@ -40,10 +47,9 @@ public class Login extends Fragment {
     RadioButton radioButton;
     FloatingActionButton profilesettings;
     RadioGroup radioGroup;
+    ImageView imageView;
 
-    public Login(){
-            this.dbHandler = new DBHandler(getActivity(), null, null, 1);
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,11 +57,20 @@ public class Login extends Fragment {
 
         final View view = inflater.inflate(R.layout.login_layout, container, false);
 
+        this.dbHandler = new DBHandler(getActivity(), null, null, 1);
+
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+        int drawableId = sharedPref.getInt("drawableId", 0);
+
         //mainActivity.finish();
 
         login = (Button) view.findViewById(R.id.button);
         name = (EditText) view.findViewById(R.id.editText2);
         profilesettings = (FloatingActionButton) view.findViewById(R.id.profileSettings);
+        imageView = (ImageView) view.findViewById(R.id.profilePicLogin);
+
+        imageView.setImageResource(drawableId);
 
         name.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
 
@@ -66,7 +81,7 @@ public class Login extends Fragment {
                 Bundle bundle = new Bundle();
 
                 // Create new fragment and transaction
-                Fragment newFragment = new ProfilePic();
+                Fragment newFragment = new LoginProfilePic();
                 newFragment.setArguments(bundle);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 

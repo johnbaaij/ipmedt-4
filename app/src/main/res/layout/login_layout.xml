@@ -61,7 +61,7 @@
             android:layout_marginEnd="8dp" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/profilePicLogin"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="30dp"

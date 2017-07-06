@@ -38,10 +38,10 @@ public class Home extends Fragment {
     boolean hasCards;
     HomeController controller;
     private final int MY_PERMISSIONS_REQUEST_READ_CALENDAR = 1;
-    public static int greeting = 0;
-    public static int faq = 1;
-    public static int calendar = 2;
-    public static int fase = 3;
+    public final static int greeting = 0;
+    public final static int faq = 1;
+    public final static int calendar = 2;
+    public final static int fase = 3;
 
     private StaggeredGridLayoutManager sGridLayoutManager;
 
@@ -56,7 +56,6 @@ public class Home extends Fragment {
             hasCards = bundle.getBoolean("hasCards");
             results = bundle.getParcelableArrayList("array");
         }
-
 
         View view = inflater.inflate(R.layout.home_layout, container, false);
 

@@ -1,7 +1,9 @@
 package com.b_healty.john.prototype1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
@@ -38,6 +40,11 @@ public class LauncherActivity extends AppCompatActivity {
         }
 
         else{
+
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putInt("drawableId", R.drawable.krukken_icon);
+            editor.commit();
             startActivity(new Intent(LauncherActivity.this, TutorialActivity.class));
         }
         finish();
