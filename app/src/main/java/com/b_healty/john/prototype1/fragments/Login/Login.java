@@ -61,13 +61,17 @@ public class Login extends Fragment {
 
 
 
+
+
         final View view = inflater.inflate(R.layout.login_layout, container, false);
+
+
 
         this.dbHandler = new DBHandler(getActivity(), null, null, 1);
 
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(view.getContext());
-        int drawableId = sharedPref.getInt("drawableId", 0);
+        final int drawableId = sharedPref.getInt("drawableId", 0);
 
         //mainActivity.finish();
 
@@ -137,6 +141,40 @@ public class Login extends Fragment {
 
                     //Toast.makeText(getApplicationContext(), gender, Toast.LENGTH_LONG).show();
                     SharedPreferences.Editor editor = sharedPref.edit();
+
+                    int cardProfilePic;
+                    switch (drawableId){
+                        case R.drawable.krukken_icon:
+                            cardProfilePic = R.drawable.ic_krukken_iconvk;
+                            editor.putInt("userPic", cardProfilePic);
+                            editor.commit();
+                            break;
+                        case R.drawable.ic_brokenboneicon:
+                            cardProfilePic = R.drawable.ic_brokenboneiconvk;
+                            editor.putInt("userPic", cardProfilePic);
+                            editor.commit();
+                            break;
+                        case R.drawable.ic_aidkiticon:
+                            cardProfilePic = R.drawable.ic_aidkiticonvk;
+                            editor.putInt("userPic", cardProfilePic);
+                            editor.commit();
+                            break;
+                        case R.drawable.ic_gipsvoeticon:
+                            cardProfilePic = R.drawable.ic_gipsvoeticonvk;
+                            editor.putInt("userPic", cardProfilePic);
+                            editor.commit();
+                            break;
+                        case R.drawable.ic_ambulanceicon:
+                            cardProfilePic = R.drawable.ic_ambulanceiconvk;
+                            editor.putInt("userPic", cardProfilePic);
+                            editor.commit();
+                            break;
+                        case R.mipmap.ic_apache:
+                            cardProfilePic = R.mipmap.ic_apachevk;
+                            editor.putInt("userPic", cardProfilePic);
+                            editor.commit();
+                            break;
+                    }
 
                     Users users = new Users();
                     users.setName(message);

@@ -40,6 +40,9 @@ public class HomeController {
             CalendarContract.Events.DTSTART,        // 2
             CalendarContract.Events._ID
     };
+
+
+    int[] peanut = {R.drawable.ic_phasecard_1, R.drawable.ic_phasecard_2, R.drawable.ic_phasecard_3, R.drawable.ic_phasecard_4};
     // Elke kolom heeft zijn eigen plaats in de array, hier worden die
     // plaatsen vastgelegd
     private static final int PROJECTION_TITLE_INDEX = 0;
@@ -225,7 +228,8 @@ public class HomeController {
 
             String[] fases = activity.getResources().getStringArray(R.array.fases);
 
-            faseCard = new Card(fases[fase], null,R.drawable.krukken_icon, 4, Home.fase);
+
+            faseCard = new Card(fases[fase - 1], null,peanut[fase - 1], 4, Home.fase);
         }
 
         results.add(greetingCard);
