@@ -204,7 +204,7 @@ public class HomeController {
         ArrayList results = new ArrayList<Card>();
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(activity);
-        int drawableId = sharedPref.getInt("drawableId", 0);
+        int drawableId = sharedPref.getInt("userPic", 0);
 
 
         if (greetingCard == null){

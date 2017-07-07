@@ -108,13 +108,6 @@
                 card_view:layout_constraintVertical_bias="1.0"
                 card_view:srcCompat="@drawable/ic_refresh_black_24dp" />
 
-            <android.support.constraint.Guideline
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/guideline3"
-                card_view:layout_constraintGuide_begin="-84dp"
-                android:orientation="vertical" />
-
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 

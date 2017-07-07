@@ -94,26 +94,32 @@ public class ProfilePic extends Fragment {
                 switch (count){
                     case 1:
                         editor.putInt("drawableId", R.drawable.krukken_icon);
+                        editor.putInt("userPic", R.drawable.ic_krukken_iconvk);
                         editor.commit();
                         break;
                     case 2:
                         editor.putInt("drawableId", R.drawable.ic_brokenboneicon);
+                        editor.putInt("userPic", R.drawable.ic_brokenboneiconvk);
                         editor.commit();
                         break;
                     case 3:
                         editor.putInt("drawableId", R.drawable.ic_aidkiticon);
+                        editor.putInt("userPic", R.drawable.ic_aidkiticonvk);
                         editor.commit();
                         break;
                     case 4:
                         editor.putInt("drawableId", R.drawable.ic_gipsvoeticon);
+                        editor.putInt("userPic", R.drawable.ic_gipsvoeticonvk);
                         editor.commit();
                         break;
                     case 5:
                         editor.putInt("drawableId", R.drawable.ic_ambulanceicon);
+                        editor.putInt("userPic", R.drawable.ic_ambulanceiconvk);
                         editor.commit();
                         break;
                     case 420:
                         editor.putInt("drawableId", R.mipmap.ic_apache);
+                        editor.putInt("userPic", R.mipmap.ic_apachevk);
                         editor.commit();
                     default:
                         break;
