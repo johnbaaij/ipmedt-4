@@ -83,15 +83,15 @@ public class BasicTutorial extends Fragment {
 
         switch (count){
             case 0:
-                tutImage.setImageResource(R.drawable.krukken_icon);
+                tutImage.setImageResource(R.drawable.home_screen);
                 tutText.setText(R.string.tut_text1);
                 break;
             case 1:
-                tutImage.setImageResource(R.drawable.ic_calendar);
+                tutImage.setImageResource(R.drawable.afspraak_invoeren_screen);
                 tutText.setText(R.string.tut_text2);
                 break;
             case 2:
-                tutImage.setImageResource(R.drawable.ic_comment_faq);
+                tutImage.setImageResource(R.drawable.faq_screen);
                 tutText.setText(R.string.tut_text3);
                 break;
             default:
