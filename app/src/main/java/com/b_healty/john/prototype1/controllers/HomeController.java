@@ -218,7 +218,7 @@ public class HomeController {
 
         if (calendarCard == null){
             int i = Math.round(generateTimeStamp(activity).getDays());
-            calendarCard = new Card(generateTimeStamp(activity).getDaysToCome(),Integer.toString(i),R.drawable.krukken_icon, generateTimeStamp(activity).isHasAppointment(), calendar);
+            calendarCard = new Card(generateTimeStamp(activity).getDaysToCome(),Integer.toString(i),R.drawable.ic_nextappointcard, generateTimeStamp(activity).isHasAppointment(), calendar);
         }
 
         if (faseCard == null){

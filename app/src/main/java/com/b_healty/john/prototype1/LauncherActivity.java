@@ -26,12 +26,13 @@ public class LauncherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        int fase = sharedPref.getInt("faseInt", 0);
 
 
 
         String name = dbHandler.usernameToString();
-        if (!name.isEmpty()) {
+        if (fase != 0) {
             Intent intent = new Intent(LauncherActivity.this, MainActivity.class);
             Bundle b = new Bundle();
             b.putString("name", name); 	// Your id
@@ -41,7 +42,6 @@ public class LauncherActivity extends AppCompatActivity {
 
         else{
 
-            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putInt("drawableId", R.drawable.krukken_icon);
             editor.putInt("apache", 0);

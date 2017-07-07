@@ -55,10 +55,11 @@ public class DBHandler extends SQLiteOpenHelper {
 
     //add new user
     public void addUser(Users users) {
+        SQLiteDatabase db = getWritableDatabase();
+        onUpgrade(db, 1, 1);
         ContentValues values = new ContentValues();
         values.put(COLUMN_NAME, users.getName());
         values.put(COLUMN_GENDER, users.getGender());
-        SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_USERS, null, values);
         db.close();
 

@@ -25,11 +25,6 @@ public class LoginProfilePic extends ProfilePic {
         newFragment.setArguments(bundle);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(view.getContext());
-        SharedPreferences.Editor editor = sharedPref.edit();
-
-
-
         // Replace whatever is in the fragment_container view with this fragment,
         // and add the transaction to the back stack
         transaction.replace(R.id.loginfragment, newFragment);
