@@ -279,4 +279,5 @@ public class ProfilePic extends Fragment {
 
         getFragmentManager().popBackStack();
     }
+
 }
