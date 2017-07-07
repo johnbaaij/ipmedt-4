@@ -12,6 +12,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ViewFlipper;
 
 import com.b_healty.john.prototype1.R;
@@ -42,6 +43,7 @@ public class Home extends Fragment {
     public final static int faq = 1;
     public final static int calendar = 2;
     public final static int fase = 3;
+    ImageView appBarImage;
 
     private StaggeredGridLayoutManager sGridLayoutManager;
 
@@ -51,6 +53,9 @@ public class Home extends Fragment {
 
         Bundle bundle = this.getArguments();
 
+
+
+
         if (bundle != null){
             username = bundle.getString("username");
             hasCards = bundle.getBoolean("hasCards");
@@ -58,6 +63,10 @@ public class Home extends Fragment {
         }
 
         View view = inflater.inflate(R.layout.home_layout, container, false);
+       // appBarImage = (ImageView) view.findViewById(R.id.app_bar_image);
+
+        appBarImage = (ImageView) view.findViewById(R.id.app_bar_image);
+
 
         activity = getActivity();
         controller = new HomeController(getActivity());
@@ -85,6 +94,7 @@ public class Home extends Fragment {
             mAdapter = new CardAdapter(results);
         }
         mRecyclerView.setAdapter(mAdapter);
+
 
         return view;
     }

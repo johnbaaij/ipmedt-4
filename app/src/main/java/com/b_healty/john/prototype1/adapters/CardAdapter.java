@@ -200,6 +200,7 @@ public class CardAdapter extends RecyclerView
                         String question = questionList[data];
                         String answer = answerList[data];
                         Bundle bundle = new Bundle();
+                        bundle.putInt("questionNumber", data);
                         bundle.putString("question", question);
                         bundle.putString("answer", answer);
                         viewFlipper = (ViewFlipper) activity.findViewById(R.id.flipper);

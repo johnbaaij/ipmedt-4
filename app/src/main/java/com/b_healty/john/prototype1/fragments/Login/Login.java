@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -51,9 +52,14 @@ public class Login extends Fragment {
 
 
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
 
         final View view = inflater.inflate(R.layout.login_layout, container, false);
 
@@ -127,13 +133,20 @@ public class Login extends Fragment {
                         gender = "vrouw";
                     }
 
-                    //Toast.makeText(getApplicationContext(), gender, Toast.LENGTH_LONG).show();
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
+                    //Toast.makeText(getApplicationContext(), gender, Toast.LENGTH_LONG).show();
+                    SharedPreferences.Editor editor = sharedPref.edit();
 
                     Users users = new Users();
                     users.setName(message);
                     users.setGender(gender);
                     dbHandler.addUser(users);
+                    editor.putInt("faseInt", 1);
+                    editor.commit();
+
+
+
 
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     Bundle b = new Bundle();

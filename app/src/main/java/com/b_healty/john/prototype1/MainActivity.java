@@ -11,6 +11,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     String[] questionList;
     String[] answerList;
+    ImageView appBarImage;
 
     DBHandler dbHandler;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -89,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
 
         resources = getResources();
+
 
         ActionBar actionBar = getActionBar();
         if(actionBar !=null)
@@ -154,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
     public void changeToHomeFragment(){
         // Create new fragment and transaction
         Bundle bundle = new Bundle();
+
         bundle.putString("username" , dbHandler.usernameToString());
         bundle.putBoolean("hasCards", false);
         bundle.putParcelableArrayList("array", null);
@@ -168,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
                 transaction.addToBackStack(null);
 
         // Commit the transaction
+
 
         transaction.commit();
     }
