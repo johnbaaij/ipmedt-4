@@ -24,10 +24,12 @@ public class Text extends Fragment {
 
     String answer;
     String question;
+    int questionNumber;
 
     protected Toolbar toolBar;
     protected FragmentActivity listener;
     protected Activity activity;
+    protected TextView link;
 
     // This method is called when a fragment instance is associated with an activity and will run
     // before anything else
@@ -50,7 +52,9 @@ public class Text extends Fragment {
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             this.question = bundle.getString("question");
-             this.answer = bundle.getString("answer");
+            this.answer = bundle.getString("answer");
+            this.questionNumber = bundle.getInt("questionNumber");
+
                 //Toast.makeText(getActivity(), answer, Toast.LENGTH_SHORT).show();
 
 
@@ -64,6 +68,16 @@ public class Text extends Fragment {
 
         title = (TextView)view.findViewById(R.id.questionFaq2);
         title.setText(question);
+        link = (TextView)view.findViewById(R.id.textView5);
+
+
+        if (questionNumber == 0){
+            link.setVisibility(View.VISIBLE);
+        }
+
+        else {
+            link.setVisibility(View.GONE);
+        }
 
         //Enabling scrolling on TextView.
         scrollable.setMovementMethod(new ScrollingMovementMethod());
