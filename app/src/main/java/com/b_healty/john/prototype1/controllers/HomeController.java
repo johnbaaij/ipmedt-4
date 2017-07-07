@@ -229,7 +229,7 @@ public class HomeController {
             String[] fases = activity.getResources().getStringArray(R.array.fases);
 
 
-            faseCard = new Card(fases[fase], null,peanut[fase], 4, Home.fase);
+            faseCard = new Card(fases[fase - 1], null,peanut[fase - 1], 4, Home.fase);
         }
 
         results.add(greetingCard);
