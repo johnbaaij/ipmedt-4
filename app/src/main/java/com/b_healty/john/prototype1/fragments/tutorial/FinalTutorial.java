@@ -22,6 +22,6 @@ public class FinalTutorial extends BasicTutorial {
         tutText.setText(R.string.tut_final);
         tutNext.setText("Begin");
         tutSkip.setVisibility(View.INVISIBLE);
-        tutImage.setImageResource(R.drawable.krukken_icon);
+        tutImage.setImageResource(R.drawable.user_screen);
     }
 }
