@@ -51,7 +51,7 @@ public class FAQ extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("question", question);
                 bundle.putString("answer", answer);
-
+                bundle.putInt("questionNumber", position);
 
                 // Create new fragment and transaction
                 Fragment newFragment = new Text();
