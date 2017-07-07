@@ -67,7 +67,6 @@ public class ProfilePic extends Fragment {
 
         mainPic.setImageResource(drawableId);
 
-
         image1 = (ImageView) view.findViewById(R.id.profilePicSelect1);
         image2 = (ImageView) view.findViewById(R.id.profilePicSelect2);
         image3 = (ImageView) view.findViewById(R.id.profilePicSelect3);
@@ -91,9 +90,6 @@ public class ProfilePic extends Fragment {
 
                 SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(view.getContext());
                 SharedPreferences.Editor editor = sharedPref.edit();
-
-
-
 
                 switch (count){
                     case 1:
