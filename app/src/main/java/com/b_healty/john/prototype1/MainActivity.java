@@ -45,17 +45,23 @@ public class MainActivity extends AppCompatActivity {
                     //mTextMessage.setText(R.string.menu_home);
                     return true;
                 case R.id.menu_afspraken:
-                    viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(findViewById(R.id.mainLayoutBasic)));
+                    viewFlipper
+                            .setDisplayedChild(viewFlipper
+                            .indexOfChild(findViewById(R.id.mainLayoutBasic)));
                     changeToCalendarFragment();
                     //mTextMessage.setText(R.string.menu_afspraken);
                     return true;
                 case R.id.menu_FAQ:
-                    viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(findViewById(R.id.mainLayoutBasic)));
+                    viewFlipper
+                            .setDisplayedChild(viewFlipper
+                            .indexOfChild(findViewById(R.id.mainLayoutBasic)));
                     changeToFAQFragment();
                     //mTextMessage.setText(R.string.menu_faq);
                     return true;
                 case R.id.menu_user:
-                    viewFlipper.setDisplayedChild(viewFlipper.indexOfChild(findViewById(R.id.mainLayoutBasic)));
+                    viewFlipper
+                            .setDisplayedChild(viewFlipper
+                            .indexOfChild(findViewById(R.id.mainLayoutBasic)));
                     changeToUserFragment();
                     return true;
             }
@@ -97,7 +103,9 @@ public class MainActivity extends AppCompatActivity {
 
 
             //mTextMessage = (TextView) findViewById(R.id.message);
-            BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottomNavigation);
+            BottomNavigationView navigation =
+                    (BottomNavigationView) findViewById(R.id.bottomNavigation);
+
             navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 
@@ -126,7 +134,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void disableShiftMode(){
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavigation);
+        BottomNavigationView bottomNavigationView =
+                (BottomNavigationView) findViewById(R.id.bottomNavigation);
+
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
     }
 
