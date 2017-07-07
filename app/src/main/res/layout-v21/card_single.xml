@@ -77,14 +77,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"
                 android:text="0"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="72sp"
                 card_view:layout_constraintBottom_toTopOf="@+id/cardTitle"
-                card_view:layout_constraintLeft_toLeftOf="parent"
-                card_view:layout_constraintRight_toRightOf="parent"
+                card_view:layout_constraintLeft_toLeftOf="@+id/overflow"
+                card_view:layout_constraintRight_toRightOf="@+id/overflow"
                 card_view:layout_constraintTop_toTopOf="@+id/overflow"
+                card_view:layout_constraintVertical_bias="0.47"
                 tools:text="0" />
 
             <ImageButton
@@ -103,6 +106,13 @@
                 card_view:layout_constraintTop_toBottomOf="@+id/cardTitle"
                 card_view:layout_constraintVertical_bias="1.0"
                 card_view:srcCompat="@drawable/ic_refresh_black_24dp" />
+
+            <android.support.constraint.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guideline3"
+                card_view:layout_constraintGuide_begin="-84dp"
+                android:orientation="vertical" />
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
