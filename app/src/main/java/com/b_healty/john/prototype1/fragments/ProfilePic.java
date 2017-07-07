@@ -36,7 +36,6 @@ public class ProfilePic extends Fragment {
     DBHandler dbHandler;
     FragmentActivity listener;
     ImageView mainPic;
-    String picture;
     MainActivity mainActivity;
     boolean apacheSetting = false;
 
@@ -235,7 +234,7 @@ public class ProfilePic extends Fragment {
                 if (apache > 20){
                     image3.setImageResource(R.mipmap.ic_apache);
                     apacheSetting = true;
-                    Toast.makeText(view.getContext(), "Je bent nu een Apache helicopter!",
+                    Toast.makeText(view.getContext(), "You are now an Apache attack helicopter! ",
                             Toast.LENGTH_SHORT).show();
                 }
                 else{
