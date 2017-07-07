@@ -116,7 +116,6 @@ public class ProfilePic extends Fragment {
                         editor.putInt("drawableId", R.drawable.ic_ambulanceicon);
                         editor.commit();
                         break;
-
                     case 420:
                         editor.putInt("drawableId", R.mipmap.ic_apache);
                         editor.commit();
@@ -248,10 +247,6 @@ public class ProfilePic extends Fragment {
 
             }
         });
-
-
-
-
 
         return view;
     }
