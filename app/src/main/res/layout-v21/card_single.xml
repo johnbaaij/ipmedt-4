@@ -15,37 +15,35 @@
         android:clickable="true"
         card_view:cardCornerRadius="2dp"
         card_view:cardUseCompatPadding="true"
-        card_view:layout_constraintBottom_toTopOf="@+id/cardBottomRight"
-        card_view:layout_constraintLeft_toLeftOf="parent"
-        card_view:layout_constraintRight_toRightOf="parent"
-        card_view:layout_constraintTop_toTopOf="parent"
         card_view:layout_constraintVertical_bias="0.133">
 
         <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible"
-            tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="4dp">
+            android:layout_width="170dp"
+            android:layout_height="230dp"
+            android:visibility="visible">
 
             <ImageView
                 android:id="@+id/overflow"
-                android:layout_width="193dp"
+                android:layout_width="170dp"
                 android:layout_height="110dp"
-                android:cropToPadding="false"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
                 android:scaleType="centerCrop"
-                tools:layout_editor_absoluteX="-9dp"
-                tools:layout_editor_absoluteY="0dp" />
+                card_view:layout_constraintHorizontal_bias="0.0"
+                card_view:layout_constraintLeft_toLeftOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="0dp"
+                card_view:layout_constraintRight_toLeftOf="@+id/overflow" />
 
             <Button
                 android:id="@+id/moreButton"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="87dp"
+                android:layout_width="88dp"
                 android:layout_height="50dp"
-                android:layout_marginBottom="0dp"
                 android:layout_marginLeft="32dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginStart="32dp"
                 android:text="Meer"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintHorizontal_bias="0.644"
@@ -58,7 +56,7 @@
                 android:id="@+id/cardTitle"
                 android:layout_width="164dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
                 android:paddingLeft="8dp"
@@ -91,10 +89,8 @@
                 style="@android:style/Widget.Material.ImageButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginBottom="0dp"
-                android:layout_marginLeft="0dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="0dp"
                 android:background="?android:attr/selectableItemBackground"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintHorizontal_bias="0.0"

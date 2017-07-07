@@ -182,9 +182,7 @@ public class HomeController {
                                 + " dagen, " + hours
                                 + " uur en " + minutes
                                 + " minuten tot de volgende afspraak!";
-
                     }
-
                 }
                 // Sluit de cursor weer af
                 cur.close();
@@ -205,13 +203,17 @@ public class HomeController {
     public ArrayList<Card> generateCards(Card greetingCard, Card hotTopicCard, Card calendarCard, Card faseCard, Activity activity){
         ArrayList results = new ArrayList<Card>();
 
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(activity);
+        int drawableId = sharedPref.getInt("drawableId", 0);
+
+
         if (greetingCard == null){
-            greetingCard = new Card(generateGreeting(dbHandler.usernameToString()), null ,R.drawable.krukken_icon, 0, Home.greeting);
+            greetingCard = new Card(generateGreeting(dbHandler.usernameToString()), null ,drawableId, 0, Home.greeting);
         }
 
         if (hotTopicCard == null){
             int random = generateRandomValue();
-            hotTopicCard = new Card(generateHotTopic(random), null ,R.drawable.krukken_icon, random, Home.faq);
+            hotTopicCard = new Card(generateHotTopic(random), null ,R.drawable.ic_faqcard, random, Home.faq);
         }
 
         if (calendarCard == null){
@@ -232,6 +234,4 @@ public class HomeController {
         results.add(faseCard);
         return results;
     }
-
-
 }

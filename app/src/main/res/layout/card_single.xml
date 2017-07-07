@@ -32,10 +32,9 @@
                 android:id="@+id/overflow"
                 android:layout_width="193dp"
                 android:layout_height="110dp"
-                android:cropToPadding="false"
+                android:cropToPadding="true"
                 android:scaleType="centerCrop"
-                tools:layout_editor_absoluteX="-9dp"
-                tools:layout_editor_absoluteY="0dp" />
+                android:adjustViewBounds="true"/>
 
             <Button
                 android:id="@+id/moreButton"

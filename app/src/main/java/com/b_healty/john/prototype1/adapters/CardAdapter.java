@@ -88,6 +88,7 @@ public class CardAdapter extends RecyclerView
             overflow = (ImageView) itemView.findViewById(R.id.overflow);
             button =(Button) itemView.findViewById(R.id.moreButton);
             refresh =(ImageButton) itemView.findViewById(R.id.refreshButton);
+            overflow.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
             itemView.setClickable(true);
 
